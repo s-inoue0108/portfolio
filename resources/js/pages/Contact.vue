@@ -1,5 +1,5 @@
 <template>
-    <Header />
+    <Header contact="active" />
     <h1 class="text-navy-blue text-4xl lg:text-6xl text-center font-bold py-8 tracking-wider">CONTACT</h1>
 </template>
 
@@ -8,6 +8,6 @@
     import { useRoute } from 'vue-router';
 
     const url = useRoute();
-    console.log(url.path);
+    const param = url.path;
 </script>
 
