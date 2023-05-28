@@ -1,32 +1,32 @@
 import { createRouter, createWebHistory } from "vue-router";
 const BASE_URL = '/';
 
-import home from './components/home.vue';
-import about from './components/about.vue';
-import works from './components/works.vue';
-import contact from './components/contact.vue';
-import NotFound from './components/NotFound.vue';
+import Home from './pages/Home.vue';
+import About from './pages/About.vue';
+import Works from './pages/Works.vue';
+import Contact from './pages/Contact.vue';
+import NotFound from './pages/NotFound.vue';
 
 const routes = [
     {
         path: '/',
-        name: 'home',
-        component: home,
+        name: 'Home',
+        component: Home,
     },
     {
         path: '/about',
-        name: 'about',
-        component: about,
+        name: 'About',
+        component: About,
     },
     {
         path: '/works',
-        name: 'works',
-        component: works,
+        name: 'Works',
+        component: Works,
     },
     {
         path: '/contact',
-        name: 'contact',
-        component: contact,
+        name: 'Contact',
+        component: Contact,
     },
     {
         path: '/pageerror',

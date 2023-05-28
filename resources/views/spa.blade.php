@@ -41,6 +41,6 @@
         <div class="bg-yellow-400 w-screen h-screen">
             <div id="app"></div>
         </div>
+        @include('footer')
     </body>
-    @include('footer')
 </html>
