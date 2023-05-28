@@ -1,15 +1,9 @@
 import './bootstrap';
 
-import { createApp, ref } from 'vue/dist/vue.esm-bundler';
+import { createApp } from 'vue';
+import App from './app.vue';
+import router from './router';
 
-createApp({
-    setup() {
-
-        const hello = ref('Hello, Laravel10 & Vue3 !');
-
-        return {
-            hello,
-        }
-
-    },
-}).mount('#app');
+const app = createApp(App);
+app.use(router);
+app.mount('#app');

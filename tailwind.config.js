@@ -6,7 +6,18 @@ export default {
     "./resources/**/*.vue",
   ],
   theme: {
-    extend: {},
+
+    extend: {
+      colors: {
+        'navy-blue': '#000b29',
+        'light-navy-blue': '#383c57',
+      },
+    },
+
+    fontFamily: {
+      sans: ['Noto Sans JP', 'sans-serif'],
+    },
+
   },
   plugins: [require("daisyui")],
 }
