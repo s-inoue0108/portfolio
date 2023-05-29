@@ -38,7 +38,7 @@
 
     </head>
     <body class="antialiased">
-        <div class="bg-yellow-400 w-screen h-screen">
+        <div class="bg-yellow-400 w-screen">
             <div id="app"></div>
         </div>
         @include('footer')

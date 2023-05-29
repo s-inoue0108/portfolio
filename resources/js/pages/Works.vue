@@ -1,6 +1,13 @@
 <template>
-    <Header works="active" />
-    <h1 class="text-navy-blue text-4xl lg:text-6xl text-center font-bold py-8 tracking-wider">WORKS</h1>
+    <div>
+        <Header works="active" />
+        <div class="w-screen">
+            <div class="flex justify-center items-center gap-4 py-16">
+                <div class="border-navy-blue bg-navy-blue w-4 lg:w-6 h-10 lg:h-14"></div>
+                <h1 class="text-navy-blue text-4xl lg:text-6xl text-center font-bold tracking-wider">WORKS</h1>
+            </div>
+        </div>
+    </div>
 </template>
 
 <script setup>

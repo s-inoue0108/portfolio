@@ -12,6 +12,7 @@ const routes = [
         path: '/',
         name: 'Home',
         component: Home,
+        meta: { transition: 'slide-left' },
     },
     {
         path: '/about',
