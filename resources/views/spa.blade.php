@@ -41,6 +41,5 @@
         <div class="bg-yellow-400 w-screen">
             <div id="app"></div>
         </div>
-        @include('footer')
     </body>
 </html>

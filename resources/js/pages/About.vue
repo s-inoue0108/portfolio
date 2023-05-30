@@ -1,6 +1,6 @@
 <template>
     <div>
-        <Header about="active" />
+        <Header active="about" />
         <div class="w-screen">
             <div class="py-16">
                 <div class="flex justify-center items-center gap-4 bg-yellow-300 py-2">

@@ -1,10 +1,12 @@
 <template>
     <div>
-        <Header works="active" />
+        <Header active="contact" />
         <div class="w-screen">
-            <div class="flex justify-center items-center gap-4 py-16">
-                <div class="border-navy-blue bg-navy-blue w-4 lg:w-6 h-10 lg:h-14"></div>
-                <h1 class="text-navy-blue text-4xl lg:text-6xl text-center font-bold tracking-wider">CONTACT</h1>
+            <div class="py-16">
+                <div class="flex justify-center items-center gap-4 bg-yellow-300 py-2">
+                    <div class="border-navy-blue bg-navy-blue w-4 lg:w-6 h-10 lg:h-14"></div>
+                    <h1 class="text-navy-blue text-4xl lg:text-6xl text-center font-bold tracking-wider">CONTACT</h1>
+                </div>
             </div>
         </div>
     </div>

@@ -1,6 +1,6 @@
 <template>
     <div class="relative w-screen h-screen">
-        <Header home="active" />
+        <Header active="home" />
         <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
             <div class="flex flex-col lg:flex-row justify-center items-center gap-4 lg:gap-16">
                 <img src="/storage/icons/S.I.jpg" class="w-3/4 sm:w-1/2 h-auto"/>
@@ -13,7 +13,6 @@
                 </div>
             </div>
         </div>
-        <router-view />
     </div>
 </template>
 
