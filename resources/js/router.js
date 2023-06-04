@@ -5,6 +5,7 @@ import Home from './pages/Home.vue';
 import About from './pages/About.vue';
 import Works from './pages/Works.vue';
 import Contact from './pages/Contact.vue';
+import ContactNotice from './pages/ContactNotice.vue';
 import NotFound from './pages/NotFound.vue';
 
 const routes = [
@@ -12,7 +13,6 @@ const routes = [
         path: '/',
         name: 'Home',
         component: Home,
-        meta: { transition: 'slide-left' },
     },
     {
         path: '/about',
@@ -30,13 +30,18 @@ const routes = [
         component: Contact,
     },
     {
-        path: '/pageerror',
+        path: '/contact/notice',
+        name: 'ContactNotice',
+        component: ContactNotice,
+    },
+    {
+        path: '/404',
         name: '404_NotFound',
         component: NotFound,
     },
     {
         path: '/:pathMatch(.*)',
-        redirect: '/pageerror',
+        redirect: '/404',
     },
 ];
 

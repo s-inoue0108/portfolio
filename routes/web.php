@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ContactController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,3 +18,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/{any?}', function() {
     return view('spa');
 });
+
+// Contact
+Route::post('/contact/send/', [ContactController::class, 'send'])->name('contact');
