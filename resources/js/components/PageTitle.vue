@@ -1,9 +1,9 @@
 <template>
-    <div class="relative py-36 lg:py-56">
-        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+    <div class="relative pt-36 pb-24 lg:py-52">
+        <div class="absolute top-3/4 left-1/2 -translate-x-1/2 -translate-y-1/2">
             <HoneyComb />
         </div>
-        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+        <div class="absolute top-3/4 left-1/2 -translate-x-1/2 -translate-y-1/2">
             <h1 class="text-navy-blue text-6xl lg:text-8xl text-center font-bold tracking-wider">
                 <div class="flex items-center">
                     <p v-text="titleLeft"></p>

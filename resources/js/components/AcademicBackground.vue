@@ -3,7 +3,7 @@
     <div class="hidden lg:block py-12">
         <div class="flex justify-center">
 
-            <div class="flex flex-col gap-6">
+            <div class="flex flex-col gap-6 px-16">
 
                 <!--wrap-1-->
                 <div class="flex items-center gap-16">
@@ -20,7 +20,7 @@
                         </div>
                     </div>
 
-                     <div class="flex flex-col gap-3 w-3/4 bg-yellow-300 rounded-2xl px-4 pt-6">
+                     <div class="flex flex-col gap-3 w-3/4 bg-yellow-300 rounded-2xl px-8 pt-6">
                         <label class="text-navy-blue text-xl">国立</label>
                         <p class="text-navy-blue text-3xl text-center">東京大学教育学部附属中等教育学校 前期課程</p>
                         <div tabindex="0" class="collapse collapse-arrow">
@@ -52,7 +52,7 @@
                         </div>
                     </div>
 
-                    <div class="flex flex-col gap-3 w-3/4 bg-yellow-300 rounded-2xl px-4 pt-6">
+                    <div class="flex flex-col gap-3 w-3/4 bg-yellow-300 rounded-2xl px-8 pt-6">
                         <label class="text-navy-blue text-xl">国立</label>
                         <p class="text-navy-blue text-3xl text-center">東京大学教育学部附属中等教育学校 後期課程</p>
                         <div tabindex="0" class="collapse collapse-arrow">
@@ -84,7 +84,7 @@
                         </div>
                     </div>
 
-                    <div class="flex flex-col gap-3 w-3/4 bg-yellow-300 rounded-2xl px-4 pt-6">
+                    <div class="flex flex-col gap-3 w-3/4 bg-yellow-300 rounded-2xl px-8 pt-6">
                         <label class="text-navy-blue text-xl">私立</label>
                         <p class="text-navy-blue text-3xl text-center">北里大学 理学部 化学科</p>
                         <div tabindex="0" class="collapse collapse-arrow">
@@ -129,7 +129,7 @@
             <div class="text-center text-navy-blue text-5xl"><i class="fa-solid fa-chevron-down"></i></div>
 
             <!--wrap-2-->
-            <div class="flex flex-col gap-3 bg-yellow-300 rounded-2xl px-2 py-4">
+            <div class="flex flex-col gap-3 bg-yellow-300 rounded-2xl px-2 pt-4">
                 <div class="flex justify-between items-center">
                     <label class="text-navy-blue">国立</label>
                     <label class="text-navy-blue text-right">2018-2021</label>
@@ -149,7 +149,7 @@
             <div class="text-center text-navy-blue text-5xl"><i class="fa-solid fa-chevron-down"></i></div>
 
             <!--wrap-3-->
-            <div class="flex flex-col gap-3 bg-yellow-300 rounded-2xl px-2 py-4">
+            <div class="flex flex-col gap-3 bg-yellow-300 rounded-2xl px-2 pt-4">
                 <div class="flex justify-between items-center">
                     <label class="text-navy-blue">私立</label>
                     <label class="text-navy-blue text-right">2021-2025</label>
@@ -171,7 +171,9 @@
 </template>
 
 <script setup>
-    const secondarySchoolText = '中学受験をして入学しました．天文部に所属し，星座の観察などを行っていました．';
-    const highSchoolText= '有機化学が好きで，化学の勉強などをしていました．';
-    const universityText = '大学の講義がきっかけでプログラミングに興味をもち，Pythonで計算やグラフの作成などを行っていました．Webプログラミングの勉強は3年生で始めました．';
+
+const secondarySchoolText = '中学受験をして入学しました．天文部に所属し，星座の観察などを行っていました．';
+const highSchoolText= '有機化学が好きで，化学の勉強などをしていました．';
+const universityText = '大学の講義がきっかけでプログラミングに興味をもち，Pythonで計算やグラフの作成などを行っていました．Webプログラミングの勉強は3年生で始めました．';
+
 </script>

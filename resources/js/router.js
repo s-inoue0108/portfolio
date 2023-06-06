@@ -18,6 +18,7 @@ const routes = [
         path: '/about',
         name: 'About',
         component: About,
+        props: true,
     },
     {
         path: '/works',
@@ -47,7 +48,14 @@ const routes = [
 
 const router = createRouter({
     history: createWebHistory(BASE_URL),  // set BASE_URL
-    routes
+    routes,
+    scrollBehavior(to) {
+        if (to.hash) {
+          return { el: to.hash, behavior: 'smooth', };
+        } else {
+          return { top: 0, behavior: 'smooth', };
+        }
+    }
 });
   
 export default router;

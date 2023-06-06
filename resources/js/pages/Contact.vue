@@ -1,7 +1,9 @@
 <template>
     <div>
-        <Header active="contact" />
         <div class="w-screen">
+            <div class="fixed top-0 left-1/2 -translate-x-1/2 w-full z-50">
+                <Header active="contact" />
+            </div>
 
             <PageTitle titleLeft="C" titleRight="NTACT" />
 
@@ -42,7 +44,7 @@
                             </textarea>
                         </div>
 
-                        <button class="btn bg-navy-blue w-full max-w-xs mt-6" @click="createNewContact">送信</button>
+                        <button class="btn btn-primary w-full max-w-xs mt-6" @click="createNewContact">送信</button>
 
                     </div>
 
@@ -51,16 +53,18 @@
             </div>
 
         </div>
+        <Footer :path="path" />
     </div>
 </template>
 
 <script setup>
     import Header from '../components/Header.vue';
+    import Footer from '../components/Footer.vue';
     import PageTitle from '../components/PageTitle.vue';
     import { computed, inject, ref } from 'vue';
-    import { useRouter } from 'vue-router';
+    import { useRoute, useRouter } from 'vue-router';
 
-    const router = useRouter();
+    const path = ref(useRoute().path).value;
 
     /*
     // CSRF Token (except axios)
@@ -85,7 +89,7 @@
         })
         .then(res => {
             console.log(res);
-            router.push({ name: 'ContactNotice' });
+            useRouter().push({ name: 'ContactNotice' });
         })
         .catch(err => {
             console.log(err);

@@ -1,9 +1,17 @@
 <template>
     <div>
-        <Header active="about" />
         <div class="w-screen">
-
-            <PageTitle titleLeft="AB" titleRight="UT" />
+            <div class="fixed top-0 left-1/2 -translate-x-1/2 w-full z-50">
+                <Header active="about" />
+            </div>
+            <div class="flex flex-col items-center gap-8">
+                <PageTitle titleLeft="AB" titleRight="UT" />
+                <router-link to="/about#AcademicBackground">
+                    <button class="btn btn-square btn-primary btn-outline">
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </button>
+                </router-link>
+            </div>
 
             <!--名前-->
             <div class="flex justify-center py-16">
@@ -17,42 +25,28 @@
             </div>
 
             <!--学歴-->
-            <div class="py-12 lg:py-16">
-                <div class="flex flex-col">
-                    <div class="border-2 border-navy-blue"></div>
-                    <div class="flex justify-center bg-yellow-300 py-1">
-                        <div class="py-4 flex items-center gap-2 text-center text-3xl lg:text-5xl text-navy-blue font-bold">
-                            <i class="fa-solid fa-school mr-1"></i>
-                            <p class="tracking-wider">学歴</p>
-                        </div>
-                    </div>
-                    <div class="border-2 border-navy-blue"></div>
-                </div>
-            </div>
+            <SubTitle subTitle="学歴" iconTag='<i class="fa-solid fa-school"></i>' id="AcademicBackground"/>
 
             <AcademicBackground />
 
             <!--スキル-->
-            <div class="py-12 lg:py-16">
-                <div class="flex flex-col">
-                    <div class="border-2 border-navy-blue"></div>
-                    <div class="flex justify-center bg-yellow-300 py-1">
-                        <div class="py-4 flex items-center gap-2 text-center text-3xl lg:text-5xl text-navy-blue font-bold">
-                            <i class="fa-solid fa-laptop-code mr-1"></i>
-                            <p class="tracking-wider">スキル</p>
-                        </div>
-                    </div>
-                    <div class="border-2 border-navy-blue"></div>
-                </div>
-            </div>
+            <SubTitle subTitle="スキル" iconTag='<i class="fa-solid fa-laptop-code"></i>' />
 
         </div>
+        <Footer :path="path" />
     </div>
 </template>
 
 <script setup>
-    import Header from '../components/Header.vue';
-    import PageTitle from '../components/PageTitle.vue';
-    import AcademicBackground from '../components/AcademicBackground.vue';
+import Header from '../components/Header.vue';
+import Footer from '../components/Footer.vue';
+import PageTitle from '../components/PageTitle.vue';
+import SubTitle from '../components/SubTitle.vue';
+import AcademicBackground from '../components/AcademicBackground.vue';
+
+import { ref } from 'vue';
+import { useRoute } from 'vue-router';
+
+const path = ref(useRoute().path).value;
 </script>
 
