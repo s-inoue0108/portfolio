@@ -7,7 +7,7 @@
             <div class="flex flex-col items-center gap-8">
                 <PageTitle titleLeft="AB" titleRight="UT" />
                 <router-link to="/about#AcademicBackground">
-                    <button class="btn btn-square btn-primary btn-outline">
+                    <button class="btn btn-square btn-primary btn-outline bg-yellow-300">
                         <i class="fa-solid fa-chevron-down"></i>
                     </button>
                 </router-link>
