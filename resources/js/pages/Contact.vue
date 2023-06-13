@@ -2,12 +2,12 @@
     <div>
         <!--Submit Loading-->
         <div v-if="loadingActive.value" class="relative">
-            <div class="fixed w-screen h-screen bg-navy-blue z-50">
+            <div class="fixed h-screen bg-navy-blue z-50">
                 うんち！！！
             </div>
         </div>
 
-        <div class="w-screen">
+        <div>
             <div class="fixed top-0 left-1/2 -translate-x-1/2 w-full z-50">
                 <Header active="contact" />
             </div>
@@ -53,7 +53,7 @@
                             </textarea>
                         </div>
 
-                        <div class="flex justify-center mt-12 lg:mt-24">
+                        <div class="flex justify-center px-6 lg:px-24 mt-12 lg:mt-24">
                             <button class="btn btn-primary w-full max-w-xs text-white font-semibold" @click="createNewContact">送信</button>
                         </div>
 

@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="w-screen">
+        <div>
             <div class="fixed top-0 left-1/2 -translate-x-1/2 w-full z-50">
                 <Header active="works" />
             </div>

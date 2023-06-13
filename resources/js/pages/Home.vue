@@ -1,5 +1,5 @@
 <template>
-    <div class="relative w-screen h-screen">
+    <div class="relative h-screen">
         <div class="fixed top-0 left-1/2 -translate-x-1/2 w-full z-50">
             <Header active="home" />
         </div>
@@ -16,9 +16,6 @@
             </div>
         </div>
     </div>
-    <div>
-        <AboutThisSite />
-    </div>
     <Footer :path="path" />
 </template>
 
@@ -26,7 +23,6 @@
 
 import Header from '../components/Header.vue';
 import Footer from '../components/Footer.vue';
-import AboutThisSite from '../components/AboutThisSite.vue';
 
 import { ref } from 'vue';
 import { useRoute } from 'vue-router';
@@ -34,4 +30,3 @@ import { useRoute } from 'vue-router';
 const path = ref(useRoute().path).value;
 
 </script>
-

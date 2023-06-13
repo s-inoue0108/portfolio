@@ -1,6 +1,8 @@
 <template>
     <div>
-        <Header active="" />
+        <div class="fixed top-0 left-1/2 -translate-x-1/2 w-full z-50">
+            <Header active="" />
+        </div>
         <div class="px-4 lg:px-12 py-6 lg:py-12">
             <div class="bg-yellow-300 rounded-2xl">
                 <h1 class="text-center text-navy-blue text-xl lg:text-5xl font-bold p-4">

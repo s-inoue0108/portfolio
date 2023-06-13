@@ -5,6 +5,9 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
+        <!--検索結果から除外-->
+        <meta name="robots" content="noindex" />
+
         <!--CSRF Token-->
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
@@ -38,7 +41,7 @@
 
     </head>
     <body class="antialiased">
-        <div class="bg-yellow-400 w-screen">
+        <div class="bg-yellow-400">
             <div id="app"></div>
         </div>
     </body>

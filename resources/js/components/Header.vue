@@ -1,5 +1,5 @@
 <template>
-    <header class="header p-2 lg:p-4 bg-navy-blue">
+    <header class="header p-2 lg:p-4 bg-navy-blue bg-opacity-80">
         <div class="flex justify-center gap-2 lg:gap-4 py-4 text-white lg:text-lg font-semibold">
             <router-link to="/" :class="[active === 'home' ? ['text-yellow-400', 'border-b-2', 'border-yellow-400'] : 'text-white']">HOME</router-link>
             <p>|</p>
