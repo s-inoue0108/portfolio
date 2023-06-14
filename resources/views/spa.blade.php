@@ -15,7 +15,7 @@
         <title>{{ config('app.name') }}</title>
 
         <!--Fabicon-->
-        <link rel="shortcut icon" href="{{ asset('') }}">
+        <link rel="shortcut icon" href="{{ asset('/storage/icons/S.I.jpg') }}">
 
         <!--RESET CSS-->
         <link rel="stylesheet" href="https://unpkg.com/destyle.css@3.0.2/destyle.min.css">

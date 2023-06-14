@@ -29,6 +29,9 @@
 
 <script setup>
     import { ref } from 'vue';
+    import { useRouter } from 'vue-router';
+
+    const router = useRouter();
 
     let count = ref(3);
     setInterval(() => {
@@ -36,7 +39,7 @@
     }, 1000);
 
     setTimeout(() => {
-        location.href = '/';
+        router.push({ name: 'Home' });
     }, 3000);
 </script>
 

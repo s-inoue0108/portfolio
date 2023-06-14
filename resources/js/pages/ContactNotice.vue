@@ -1,9 +1,15 @@
 <template>
     <div>
+        <!--ヘッダー-->
         <div class="fixed top-0 left-1/2 -translate-x-1/2 w-full z-50">
-            <Header active="" />
+            <Header :path="path" />
         </div>
-        <div class="px-4 lg:px-12 py-6 lg:py-12">
+
+        <!--サイドバー-->
+        <Sidebar :path="path" :sidebarActive="sidebarActive" @closeSidebar="closeSidebar" />
+
+        <!--メール送信完了通知-->
+        <div class="px-4 lg:px-12 pt-24 lg:pt-36">
             <div class="bg-yellow-300 rounded-2xl">
                 <h1 class="text-center text-navy-blue text-xl lg:text-5xl font-bold p-4">
                     <i class="fa-solid fa-envelope mr-1"></i>
@@ -31,9 +37,29 @@
                 <p class="text-right text-lg lg:text-2xl fon-semibold py-4">Shota Inoue</p>
             </div>
         </div>
+        <!--フッター-->
+        <Footer :path="path" @openSidebar="openSidebar" />
     </div>
 </template>
 
 <script setup>
     import Header from '../components/Header.vue';
+    import Footer from '../components/Footer.vue';
+    import Sidebar from '../components/Sidebar.vue';
+    import { ref } from 'vue';
+    import { useRoute } from 'vue-router';
+
+    /* 現在のパス */
+    const path = ref(useRoute().path).value;
+
+    /* emitされたサイドバー開閉の処理 */
+    const sidebarActive = ref(false);
+
+    const openSidebar = () => {
+        sidebarActive.value = true;
+    }
+
+    const closeSidebar = () => {
+        sidebarActive.value = false;
+    }
 </script>

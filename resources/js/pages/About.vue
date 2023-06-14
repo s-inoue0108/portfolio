@@ -1,13 +1,19 @@
 <template>
     <div>
         <div>
+
+            <!--ヘッダー-->
             <div class="fixed top-0 left-1/2 -translate-x-1/2 w-full z-50">
-                <Header active="about" />
-            </div>
-            <div class="flex flex-col items-center gap-8">
-                <PageTitle titleLeft="AB" titleRight="UT" />
+                <Header :path="path" />
             </div>
 
+            <!--サイドバー-->
+            <Sidebar :path="path" :sidebarActive="sidebarActive" @closeSidebar="closeSidebar" />
+
+            <!--ページタイトル-->
+            <PageTitle titleLeft="AB" titleRight="UT" />
+
+            <!--インナーリンク-->
             <div class="flex justify-center gap-4 lg:gap-8 px-6 py-12">
                 <router-link to="/about#Profile">
                     <button class="btn btn-primary btn-outline lg:btn-lg bg-yellow-300 text-xs w-[6rem] lg:w-[12rem] p-0">
@@ -55,13 +61,15 @@
             </div>
 
         </div>
-        <Footer :path="path" />
+        <!--フッター-->
+        <Footer :path="path" @openSidebar="openSidebar" />
     </div>
 </template>
 
 <script setup>
 import Header from '../components/Header.vue';
 import Footer from '../components/Footer.vue';
+import Sidebar from '../components/Sidebar.vue';
 import PageTitle from '../components/PageTitle.vue';
 import SubTitle from '../components/SubTitle.vue';
 import AcademicBackground from '../components/AcademicBackground.vue';
@@ -70,6 +78,21 @@ import CodingSkill from '../components/CodingSkill.vue';
 import { ref } from 'vue';
 import { useRoute } from 'vue-router';
 
+/* 現在のパス */
 const path = ref(useRoute().path).value;
+
+/* emitされたサイドバー開閉の処理 */
+const sidebarActive = ref(false);
+
+const openSidebar = () => {
+    sidebarActive.value = true;
+}
+
+const closeSidebar = () => {
+    sidebarActive.value = false;
+}
 </script>
+
+
+
 
