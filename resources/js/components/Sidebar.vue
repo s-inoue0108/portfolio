@@ -13,20 +13,30 @@
                     <div class="flex justify-center pt-8 lg:pt-12">
                         <div class="flex flex-col">
 
-                            <div class="flex flex-col gap-2">
+                            <div class="flex flex-col">
                                 <router-link to="/" class="text-xl lg:text-3xl font-semibold link-hover" :class="[path === '/' ? ['text-yellow-400'] : []]">
-                                    <i class="fa-solid fa-house mr-2"></i>HOME
+                                    <div class="flex items-center gap-2">
+                                        <div class="relative text-navy-blue p-2 w-8 lg:w-12 h-8 lg:h-12 rounded-full" :class="[path === '/' ? ['bg-yellow-400'] : ['bg-gray-300']]">
+                                            <i class="fa-solid fa-house absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"></i>
+                                        </div>
+                                        <p>HOME</p>
+                                    </div>
                                 </router-link>
-                                <div class="flex pl-2 lg:pl-3">
+                                <div class="flex pl-[14.5px] lg:pl-[22.5px]">
                                     <div class="border-2 h-8"></div>
                                 </div>
                             </div>
 
-                            <div class="flex flex-col gap-2" :class="[path === '/about' ? ['text-yellow-400'] : []]">
+                            <div class="flex flex-col" :class="[path === '/about' ? ['text-yellow-400'] : []]">
                                 <router-link to="/about" class="text-xl lg:text-3xl font-semibold link-hover">
-                                    <i class="fa-solid fa-user mr-2"></i>ABOUT
+                                    <div class="flex items-center gap-2">
+                                        <div class="relative text-navy-blue p-2 w-8 lg:w-12 h-8 lg:h-12 rounded-full" :class="[path === '/about' ? ['bg-yellow-400'] : ['bg-gray-300']]">
+                                            <i class="fa-solid fa-user absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"></i>
+                                        </div>
+                                        <p>ABOUT</p>
+                                    </div>
                                 </router-link>
-                                <div class="flex pl-2 lg:pl-3">
+                                <div class="flex pl-[14.5px] lg:pl-[22.5px]">
                                     <div class="border-2" :class="[path === '/about' ? ['border-yellow-400'] : []]"></div>
                                     <div class="flex flex-col gap-2 pl-4 py-8">
                                         <router-link to="/about#Profile" class="text-base lg:text-xl font-light link-hover">
@@ -42,11 +52,16 @@
                                 </div>
                             </div>
 
-                            <div class="flex flex-col gap-2" :class="[path === '/works' ? ['text-yellow-400'] : []]">
+                            <div class="flex flex-col" :class="[path === '/works' ? ['text-yellow-400'] : []]">
                                 <router-link to="/works" class="text-xl lg:text-3xl font-semibold link-hover">
-                                    <i class="fa-solid fa-code mr-2"></i>WORKS
+                                    <div class="flex items-center gap-2">
+                                        <div class="relative text-navy-blue p-2 w-8 lg:w-12 h-8 lg:h-12 rounded-full" :class="[path === '/works' ? ['bg-yellow-400'] : ['bg-gray-300']]">
+                                            <i class="fa-solid fa-code absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"></i>
+                                        </div>
+                                        <p>WORKS</p>
+                                    </div>
                                 </router-link>
-                                <div class="flex pl-2 lg:pl-3">
+                                <div class="flex pl-[14.5px] lg:pl-[22.5px]">
                                     <div class="border-2" :class="[path === '/works' ? ['border-yellow-400'] : []]"></div>
                                     <div class="flex flex-col gap-2 pl-4 py-8">
                                         <router-link to="/works#BlogSite" class="text-base lg:text-xl font-light link-hover">
@@ -64,7 +79,12 @@
 
                             <div>
                                 <router-link to="/contact" class="text-xl lg:text-3xl font-semibold" :class="[path === '/contact' ? ['text-yellow-400'] : ['link-hover']]">
-                                    <i class="fa-solid fa-envelope mr-2"></i>CONTACT
+                                    <div class="flex items-center gap-2">
+                                        <div class="relative text-navy-blue p-2 w-8 lg:w-12 h-8 lg:h-12 rounded-full" :class="[path === '/works' ? ['bg-yellow-400'] : ['bg-gray-300']]">
+                                            <i class="fa-solid fa-envelope absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"></i>
+                                        </div>
+                                        <p>CONTACT</p>
+                                    </div>
                                 </router-link>
                             </div>
                         </div>

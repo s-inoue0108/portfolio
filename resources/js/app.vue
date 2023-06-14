@@ -4,9 +4,16 @@
     </div>
 </template>
 
+
+
+<script setup>
+
+</script>
+
+
+
 <style scoped>
 /* スクロールバーを非表示 */
-
 #content {
     overflow-x: hidden;
     overflow-y: scroll;
