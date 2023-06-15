@@ -8,17 +8,17 @@
             <!--インナーリンク-->
             <div class="flex justify-center gap-4 lg:gap-8 px-6 py-12">
                 <router-link to="/works#BlogSite">
-                    <button class="btn btn-primary btn-outline lg:btn-lg bg-yellow-300 text-xs w-[7rem] lg:w-[14rem] p-0">
+                    <button class="btn btn-primary btn-outline lg:btn-lg text-xs w-[7rem] lg:w-[14rem] p-0">
                         <i class="fa-solid fa-chevron-down mr-1"></i>ブログサイト
                      </button>
                 </router-link>
                 <router-link to="/works#QuizApp">
-                    <button class="btn btn-primary btn-outline lg:btn-lg bg-yellow-300 text-xs w-[7rem] lg:w-[14rem] p-0">
+                    <button class="btn btn-primary btn-outline lg:btn-lg text-xs w-[7rem] lg:w-[14rem] p-0">
                         <i class="fa-solid fa-chevron-down mr-1"></i>クイズアプリ
                     </button>
                 </router-link>
                 <router-link to="/works#Portfolio">
-                    <button class="btn btn-primary btn-outline lg:btn-lg bg-yellow-300 text-xs w-[7rem] lg:w-[14rem] p-0">
+                    <button class="btn btn-primary btn-outline lg:btn-lg text-xs w-[7rem] lg:w-[14rem] p-0">
                         <i class="fa-solid fa-chevron-down mr-1"></i>ポートフォリオ
                     </button>
                 </router-link>

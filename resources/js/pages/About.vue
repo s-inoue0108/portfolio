@@ -8,17 +8,17 @@
             <!--インナーリンク-->
             <div class="flex justify-center gap-4 lg:gap-8 px-6 py-12">
                 <router-link to="/about#Profile">
-                    <button class="btn btn-primary btn-outline lg:btn-lg bg-yellow-300 text-xs w-[6rem] lg:w-[12rem] p-0">
+                    <button class="btn btn-primary btn-outline lg:btn-lg text-xs w-[6rem] lg:w-[12rem] p-0">
                         <i class="fa-solid fa-chevron-down mr-1"></i>プロフィール
                      </button>
                 </router-link>
                 <router-link to="/about#AcademicBackground">
-                    <button class="btn btn-primary btn-outline lg:btn-lg bg-yellow-300 text-xs w-[6rem] lg:w-[12rem] p-0">
+                    <button class="btn btn-primary btn-outline lg:btn-lg text-xs w-[6rem] lg:w-[12rem] p-0">
                         <i class="fa-solid fa-chevron-down mr-1"></i>学歴
                     </button>
                 </router-link>
                 <router-link to="/about#CodingSkill">
-                    <button class="btn btn-primary btn-outline lg:btn-lg bg-yellow-300 text-xs w-[6rem] lg:w-[12rem] p-0">
+                    <button class="btn btn-primary btn-outline lg:btn-lg text-xs w-[6rem] lg:w-[12rem] p-0">
                         <i class="fa-solid fa-chevron-down mr-1"></i>スキル
                     </button>
                 </router-link>
@@ -46,10 +46,32 @@
                 <AcademicBackground />
             </div>
 
+            <div class="flex justify-center py-6 lg:py-12">
+                <router-link :to="currentPath">
+                    <button class="btn lg:btn-lg btn-outline btn-primary">
+                        <div class="flex items-center gap-2">
+                            <i class="fa-solid fa-chevron-up"></i>
+                            <p class="hidden md:block">Page Top</p>
+                        </div>
+                    </button>
+                </router-link>
+            </div>
+
             <!--スキル-->
             <div id="CodingSkill">
                 <SubTitle subTitle="スキル" iconTag='<i class="fa-solid fa-laptop-code"></i>'/>
                 <CodingSkill />
+            </div>
+
+            <div class="flex justify-center py-6 lg:py-12">
+                <router-link :to="currentPath">
+                    <button class="btn lg:btn-lg btn-outline btn-primary">
+                        <div class="flex items-center gap-2">
+                            <i class="fa-solid fa-chevron-up"></i>
+                            <p class="hidden md:block">Page Top</p>
+                        </div>
+                    </button>
+                </router-link>
             </div>
 
         </div>
@@ -59,8 +81,8 @@
 <script setup>
 import PageTitle from '../components/PageTitle.vue';
 import SubTitle from '../components/SubTitle.vue';
-import AcademicBackground from '../components/AcademicBackground.vue';
-import CodingSkill from '../components/CodingSkill.vue';
+import AcademicBackground from '../components/about/AcademicBackground.vue';
+import CodingSkill from '../components/about/CodingSkill.vue';
 
 import { ref, onMounted } from 'vue';
 import { useRoute } from 'vue-router';

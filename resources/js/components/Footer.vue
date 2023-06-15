@@ -10,16 +10,6 @@
                 </div>
             </button>
 
-            <!--ページトップリンク-->
-            <!--<router-link :to="currentPath">
-                <button class="btn btn-sm lg:btn-md btn-outline btn-neutral">
-                    <div class="flex items-center gap-2">
-                        <i class="fa-solid fa-chevron-up"></i>
-                         <p class="hidden md:block">Page Top</p>
-                    </div>
-                </button>
-            </router-link>-->
-
             <!--Copyright-->
             <p class="lg:text-lg tracking-wide">&copy; <span v-text="year" class="pr-2"></span>Shota Inoue</p>
 
