@@ -16,7 +16,7 @@
                             <div class="flex flex-col">
                                 <router-link to="/" class="text-xl lg:text-3xl font-semibold link-hover" :class="[currentPath === '/' ? ['text-yellow-400'] : []]">
                                     <div class="flex items-center gap-2">
-                                        <div class="relative text-navy-blue p-2 w-8 lg:w-12 h-8 lg:h-12 rounded-full" :class="[currentPath === '/' ? ['bg-yellow-400'] : ['bg-gray-300']]">
+                                        <div class="relative text-navy-blue p-2 w-8 lg:w-12 h-[1.77rem] lg:h-[2.59rem] hex" :class="[currentPath === '/' ? ['bg-yellow-400'] : ['bg-gray-300']]">
                                             <i class="fa-solid fa-house absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"></i>
                                         </div>
                                         <p>HOME</p>
@@ -30,7 +30,7 @@
                             <div class="flex flex-col" :class="[currentPath === '/about' ? ['text-yellow-400'] : []]">
                                 <router-link to="/about" class="text-xl lg:text-3xl font-semibold link-hover">
                                     <div class="flex items-center gap-2">
-                                        <div class="relative text-navy-blue p-2 w-8 lg:w-12 h-8 lg:h-12 rounded-full" :class="[currentPath === '/about' ? ['bg-yellow-400'] : ['bg-gray-300']]">
+                                        <div class="relative text-navy-blue p-2 w-8 lg:w-12 h-[1.77rem] lg:h-[2.59rem] hex" :class="[currentPath === '/about' ? ['bg-yellow-400'] : ['bg-gray-300']]">
                                             <i class="fa-solid fa-user absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"></i>
                                         </div>
                                         <p>ABOUT</p>
@@ -55,7 +55,7 @@
                             <div class="flex flex-col" :class="[currentPath === '/works' ? ['text-yellow-400'] : []]">
                                 <router-link to="/works" class="text-xl lg:text-3xl font-semibold link-hover">
                                     <div class="flex items-center gap-2">
-                                        <div class="relative text-navy-blue p-2 w-8 lg:w-12 h-8 lg:h-12 rounded-full" :class="[currentPath === '/works' ? ['bg-yellow-400'] : ['bg-gray-300']]">
+                                        <div class="relative text-navy-blue p-2 w-8 lg:w-12 h-[1.77rem] lg:h-[2.59rem] hex" :class="[currentPath === '/works' ? ['bg-yellow-400'] : ['bg-gray-300']]">
                                             <i class="fa-solid fa-code absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"></i>
                                         </div>
                                         <p>WORKS</p>
@@ -80,7 +80,7 @@
                             <div>
                                 <router-link to="/contact" class="text-xl lg:text-3xl font-semibold" :class="[currentPath === '/contact' ? ['text-yellow-400'] : ['link-hover']]">
                                     <div class="flex items-center gap-2">
-                                        <div class="relative text-navy-blue p-2 w-8 lg:w-12 h-8 lg:h-12 rounded-full" :class="[currentPath === '/contact' ? ['bg-yellow-400'] : ['bg-gray-300']]">
+                                        <div class="relative text-navy-blue p-2 w-8 lg:w-12 h-[1.77rem] lg:h-[2.59rem] hex" :class="[currentPath === '/contact' ? ['bg-yellow-400'] : ['bg-gray-300']]">
                                             <i class="fa-solid fa-envelope absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"></i>
                                         </div>
                                         <p>CONTACT</p>
