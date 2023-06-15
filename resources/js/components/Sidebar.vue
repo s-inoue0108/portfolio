@@ -14,9 +14,9 @@
                         <div class="flex flex-col">
 
                             <div class="flex flex-col">
-                                <router-link to="/" class="text-xl lg:text-3xl font-semibold link-hover" :class="[path === '/' ? ['text-yellow-400'] : []]">
+                                <router-link to="/" class="text-xl lg:text-3xl font-semibold link-hover" :class="[currentPath === '/' ? ['text-yellow-400'] : []]">
                                     <div class="flex items-center gap-2">
-                                        <div class="relative text-navy-blue p-2 w-8 lg:w-12 h-8 lg:h-12 rounded-full" :class="[path === '/' ? ['bg-yellow-400'] : ['bg-gray-300']]">
+                                        <div class="relative text-navy-blue p-2 w-8 lg:w-12 h-8 lg:h-12 rounded-full" :class="[currentPath === '/' ? ['bg-yellow-400'] : ['bg-gray-300']]">
                                             <i class="fa-solid fa-house absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"></i>
                                         </div>
                                         <p>HOME</p>
@@ -27,17 +27,17 @@
                                 </div>
                             </div>
 
-                            <div class="flex flex-col" :class="[path === '/about' ? ['text-yellow-400'] : []]">
+                            <div class="flex flex-col" :class="[currentPath === '/about' ? ['text-yellow-400'] : []]">
                                 <router-link to="/about" class="text-xl lg:text-3xl font-semibold link-hover">
                                     <div class="flex items-center gap-2">
-                                        <div class="relative text-navy-blue p-2 w-8 lg:w-12 h-8 lg:h-12 rounded-full" :class="[path === '/about' ? ['bg-yellow-400'] : ['bg-gray-300']]">
+                                        <div class="relative text-navy-blue p-2 w-8 lg:w-12 h-8 lg:h-12 rounded-full" :class="[currentPath === '/about' ? ['bg-yellow-400'] : ['bg-gray-300']]">
                                             <i class="fa-solid fa-user absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"></i>
                                         </div>
                                         <p>ABOUT</p>
                                     </div>
                                 </router-link>
                                 <div class="flex pl-[14.5px] lg:pl-[22.5px]">
-                                    <div class="border-2" :class="[path === '/about' ? ['border-yellow-400'] : []]"></div>
+                                    <div class="border-2" :class="[currentPath === '/about' ? ['border-yellow-400'] : []]"></div>
                                     <div class="flex flex-col gap-2 pl-4 py-8">
                                         <router-link to="/about#Profile" class="text-base lg:text-xl font-light link-hover">
                                             <i class="fa-solid fa-user mr-1"></i>プロフィール
@@ -52,17 +52,17 @@
                                 </div>
                             </div>
 
-                            <div class="flex flex-col" :class="[path === '/works' ? ['text-yellow-400'] : []]">
+                            <div class="flex flex-col" :class="[currentPath === '/works' ? ['text-yellow-400'] : []]">
                                 <router-link to="/works" class="text-xl lg:text-3xl font-semibold link-hover">
                                     <div class="flex items-center gap-2">
-                                        <div class="relative text-navy-blue p-2 w-8 lg:w-12 h-8 lg:h-12 rounded-full" :class="[path === '/works' ? ['bg-yellow-400'] : ['bg-gray-300']]">
+                                        <div class="relative text-navy-blue p-2 w-8 lg:w-12 h-8 lg:h-12 rounded-full" :class="[currentPath === '/works' ? ['bg-yellow-400'] : ['bg-gray-300']]">
                                             <i class="fa-solid fa-code absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"></i>
                                         </div>
                                         <p>WORKS</p>
                                     </div>
                                 </router-link>
                                 <div class="flex pl-[14.5px] lg:pl-[22.5px]">
-                                    <div class="border-2" :class="[path === '/works' ? ['border-yellow-400'] : []]"></div>
+                                    <div class="border-2" :class="[currentPath === '/works' ? ['border-yellow-400'] : []]"></div>
                                     <div class="flex flex-col gap-2 pl-4 py-8">
                                         <router-link to="/works#BlogSite" class="text-base lg:text-xl font-light link-hover">
                                             <i class="fa-solid fa-pen-nib mr-1"></i>ブログサイト
@@ -78,9 +78,9 @@
                             </div>
 
                             <div>
-                                <router-link to="/contact" class="text-xl lg:text-3xl font-semibold" :class="[path === '/contact' ? ['text-yellow-400'] : ['link-hover']]">
+                                <router-link to="/contact" class="text-xl lg:text-3xl font-semibold" :class="[currentPath === '/contact' ? ['text-yellow-400'] : ['link-hover']]">
                                     <div class="flex items-center gap-2">
-                                        <div class="relative text-navy-blue p-2 w-8 lg:w-12 h-8 lg:h-12 rounded-full" :class="[path === '/works' ? ['bg-yellow-400'] : ['bg-gray-300']]">
+                                        <div class="relative text-navy-blue p-2 w-8 lg:w-12 h-8 lg:h-12 rounded-full" :class="[currentPath === '/contact' ? ['bg-yellow-400'] : ['bg-gray-300']]">
                                             <i class="fa-solid fa-envelope absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"></i>
                                         </div>
                                         <p>CONTACT</p>
@@ -98,9 +98,9 @@
 
 
 <script setup>
-/* path, sidebarActiveをprops */
+/* currentPath, sidebarActiveをprops */
 const props = defineProps({
-    path: {
+    currentPath: {
         type: String,
         default: '/',
     },
@@ -109,10 +109,10 @@ const props = defineProps({
     },
 });
 
-/* サイドバーをemitして閉じる */
-const emit = defineEmits(['closeSidebar']);
+/* サイドバー開閉イベントをemit */
+const emit = defineEmits(['toggleSidebar']);
 const emitSidebar = () => {
-    emit('closeSidebar');
+    emit('toggleSidebar');
 }
 </script>
 

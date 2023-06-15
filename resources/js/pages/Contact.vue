@@ -16,14 +16,6 @@
         
 
         <div>
-            <!--ヘッダー-->
-            <div class="fixed top-0 left-1/2 -translate-x-1/2 w-full z-50">
-                <Header :path="path" />
-            </div>
-
-            <!--サイドバー-->
-            <Sidebar :path="path" :sidebarActive="sidebarActive" @closeSidebar="closeSidebar" />
-
             <!--ぺージタイトル-->
             <PageTitle titleLeft="C" titleRight="NTACT" />
 
@@ -77,35 +69,28 @@
             </div>
 
         </div>
-
-        <!--フッター-->
-        <Footer :path="path" @openSidebar="openSidebar" />
     </div>
 </template>
 
 <script setup>
-    import Header from '../components/Header.vue';
-    import Footer from '../components/Footer.vue';
-    import Sidebar from '../components/Sidebar.vue';
     import PageTitle from '../components/PageTitle.vue';
-    import { computed, inject, ref } from 'vue';
+    import { computed, inject, ref, onMounted } from 'vue';
     import { useRoute, useRouter } from 'vue-router';
     
     const router = useRouter();
 
-    /* 現在のパス */
-    const path = ref(useRoute().path).value;
+    /* 現在のパスをapp.vueへemit */
+    const currentPath = ref(useRoute().path).value;
 
-    /* emitされたサイドバー開閉の処理 */
-    const sidebarActive = ref(false);
-
-    const openSidebar = () => {
-        sidebarActive.value = true;
+    const emit = defineEmits(['receivePath']);
+    const emitPath = () => {
+        emit('receivePath', currentPath);
     }
 
-    const closeSidebar = () => {
-        sidebarActive.value = false;
-    }
+    /* マウント時にパスをemit */
+    onMounted(() => {
+        emitPath();
+    });
 
     /* ローディング制御 */
     const isHidden = ref(true);

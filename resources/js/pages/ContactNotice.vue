@@ -1,12 +1,5 @@
 <template>
     <div>
-        <!--ヘッダー-->
-        <div class="fixed top-0 left-1/2 -translate-x-1/2 w-full z-50">
-            <Header :path="path" />
-        </div>
-
-        <!--サイドバー-->
-        <Sidebar :path="path" :sidebarActive="sidebarActive" @closeSidebar="closeSidebar" />
 
         <!--メール送信完了通知-->
         <div class="px-4 lg:px-12 pt-24 lg:pt-36">
@@ -37,29 +30,23 @@
                 <p class="text-right text-lg lg:text-2xl fon-semibold py-4">Shota Inoue</p>
             </div>
         </div>
-        <!--フッター-->
-        <Footer :path="path" @openSidebar="openSidebar" />
     </div>
 </template>
 
 <script setup>
-    import Header from '../components/Header.vue';
-    import Footer from '../components/Footer.vue';
-    import Sidebar from '../components/Sidebar.vue';
-    import { ref } from 'vue';
+    import { ref, onMounted } from 'vue';
     import { useRoute } from 'vue-router';
 
-    /* 現在のパス */
-    const path = ref(useRoute().path).value;
+    /* 現在のパスをapp.vueへemit */
+    const currentPath = ref(useRoute().path).value;
 
-    /* emitされたサイドバー開閉の処理 */
-    const sidebarActive = ref(false);
-
-    const openSidebar = () => {
-        sidebarActive.value = true;
+    const emit = defineEmits(['receivePath']);
+    const emitPath = () => {
+        emit('receivePath', currentPath);
     }
 
-    const closeSidebar = () => {
-        sidebarActive.value = false;
-    }
+    /* マウント時にパスをemit */
+    onMounted(() => {
+        emitPath();
+    });
 </script>

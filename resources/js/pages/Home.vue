@@ -8,18 +8,9 @@
             </div>
         </div>
     </transition>
-
-    <!--サイドバー-->
-    <Sidebar :path="path" :sidebarActive="sidebarActive" @closeSidebar="closeSidebar" />
     
     <!--Home-->
-    <div class="relative h-screen" :class="{ 'opacity-70': sidebarActive, '-z-50': sidebarActive }">
-
-        <!--ヘッダー-->
-        <div class="fixed top-0 left-1/2 -translate-x-1/2 w-full z-50">
-            <Header :path="path" />
-        </div>
-
+    <div class="relative h-screen">
         <transition name="fade">
             <div v-if="homeActive">
                 <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
@@ -37,12 +28,6 @@
                 </div>
              </div>
         </transition>
-
-        <!--フッター-->
-        <div class="fixed bottom-0 left-1/2 -translate-x-1/2 w-full z-50">
-            <Footer :path="path" @openSidebar="openSidebar" />
-        </div>
-
     </div>
             
 </template>
@@ -50,17 +35,18 @@
 
 
 <script setup>
-import Header from '../components/Header.vue';
-import Footer from '../components/Footer.vue';
-import Sidebar from '../components/Sidebar.vue';
-
 import { ref, onMounted } from 'vue';
 import { useRoute } from 'vue-router';
 
-/* 現在のパス */
-const path = ref(useRoute().path).value;
+/* 現在のパスをapp.vueへemit */
+const currentPath = ref(useRoute().path).value;
 
-/* マウント時にアニメーション */
+const emit = defineEmits(['receivePath']);
+const emitPath = () => {
+    emit('receivePath', currentPath);
+}
+
+/* マウント時にアニメーションとパスをemit */
 const animateActive = ref(false);
 const homeActive = ref(false);
 
@@ -71,18 +57,9 @@ onMounted(() => {
         animateActive.value = false;
         homeActive.value = true;
     }, 1000);
+
+    emitPath();
 });
-
-/* emitされたサイドバー開閉の処理 */
-const sidebarActive = ref(false);
-
-const openSidebar = () => {
-    sidebarActive.value = true;
-}
-
-const closeSidebar = () => {
-    sidebarActive.value = false;
-}
 </script>
 
 

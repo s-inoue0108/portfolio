@@ -1,17 +1,17 @@
 <template>
-    <footer class="footer footer-center bg-navy-blue text-white py-4">
-        <div class="flex justify-around items-center w-full">
+    <footer class="footer footer-center bg-navy-blue text-white py-4 z-40">
+        <div class="flex justify-around items-center w-screen">
 
             <!--サイドバー開閉ボタン-->
             <button class="btn btn-sm lg:btn-md btn-outline btn-neutral" @click="emitSidebar">
                 <div class="flex items-center gap-2">
-                    <i class="fa-solid fa-bars"></i>
-                    <p class="hidden md:block">Menu</p>
+                    <i class="fa-solid" :class="[ sidebarActive === true ? 'fa-xmark' : 'fa-bars' ]"></i>
+                    <p class="hidden md:block">MENU</p>
                 </div>
             </button>
 
             <!--ページトップリンク-->
-            <!--<router-link :to="path">
+            <!--<router-link :to="currentPath">
                 <button class="btn btn-sm lg:btn-md btn-outline btn-neutral">
                     <div class="flex items-center gap-2">
                         <i class="fa-solid fa-chevron-up"></i>
@@ -38,18 +38,21 @@
 
 <script setup>
 
-/* pathをprop */
+/* currentPathをprop */
 const props = defineProps({
-    path: {
+    currentPath: {
         type: String,
         default: '/',
-    }
+    },
+    sidebarActive: {
+        default: false,
+    },
 });
 
-/* サイドバーをemitして開く */
-const emit = defineEmits(['openSidebar']);
+/* サイドバーをemitして開閉 */
+const emit = defineEmits(['toggleSidebar']);
 const emitSidebar = () => {
-    emit('openSidebar');
+    emit('toggleSidebar');
 }
 
 /* Year */
