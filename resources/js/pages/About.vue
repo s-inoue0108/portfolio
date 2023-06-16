@@ -1,5 +1,7 @@
 <template>
     <div>
+
+        <!--ABOUT-->
         <div>
 
             <!--ページタイトル-->
@@ -30,7 +32,7 @@
 
                 <div class="flex justify-center py-16">
                     <div class="flex items-center justify-center gap-4">
-                        <img src="/storage/icons/S.I.jpg" class="w-1/4 h-auto"/>
+                        <img src="/storage/icons/S.I.svg" class="w-1/4 h-auto"/>
                         <div class="flex flex-col gap-2">
                             <h2 class="text-center text-4xl text-navy-blue font-bold tracking-wider">井上 翔太</h2>
                             <label class="text-center text-xl tracking-wider text-light-navy-blue font-semibold">Inoue Shota</label>
@@ -59,7 +61,7 @@
 
             <!--スキル-->
             <div id="CodingSkill">
-                <SubTitle subTitle="スキル" iconTag='<i class="fa-solid fa-laptop-code"></i>'/>
+                <SubTitle subTitle="スキル" iconTag='<i class="fa-solid fa-code"></i>'/>
                 <CodingSkill />
             </div>
 
@@ -84,21 +86,17 @@ import SubTitle from '../components/SubTitle.vue';
 import AcademicBackground from '../components/about/AcademicBackground.vue';
 import CodingSkill from '../components/about/CodingSkill.vue';
 
-import { ref, onMounted } from 'vue';
 import { useRoute } from 'vue-router';
 
 /* 現在のパスをapp.vueへemit */
-const currentPath = ref(useRoute().path).value;
+const currentPath = useRoute().path;
 
 const emit = defineEmits(['receivePath']);
 const emitPath = () => {
     emit('receivePath', currentPath);
 }
 
-/* マウント時にパスをemit */
-onMounted(() => {
-    emitPath();
-});
+emitPath();
 </script>
 
 

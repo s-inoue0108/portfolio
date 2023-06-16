@@ -1,5 +1,5 @@
 <template>
-    <footer class="footer footer-center bg-navy-blue text-white py-4 z-40">
+    <footer class="footer footer-center bg-navy-blue text-white py-4 z-40" :class="[currentPath === '/' ? ['bg-opacity-90'] : []]">
         <div class="flex justify-around items-center w-screen">
 
             <!--サイドバー開閉ボタン-->

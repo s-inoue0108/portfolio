@@ -1,6 +1,8 @@
 <template>
+
+    <!--CONTACT-->
     <div>
-        <!--Submit Loading-->
+        <!--メール送信時のLOADING-->
         <transition name="loading">
             <div v-if="loadingActive" class="relative">
                 <div class="fixed w-screen h-screen bg-neutral bg-opacity-80 z-[60]">
@@ -28,11 +30,12 @@
 
             <div class="flex justify-center p-6">
 
+                <!--form (axiosを用いない場合)-->
                 <!--<form method="POST" action="/contact/send"-->
 
                     <div class="flex flex-col gap-4">
 
-                        <!--CSRF Token (except axios)-->
+                        <!--CSRF Token (axiosを用いない場合)-->
                         <!--<input type="hidden" name="_token" :value="csrf">-->
 
                         <!--NAME-->
@@ -42,6 +45,7 @@
                             </div>
                             <input type="text" v-model="name" placeholder="入力してください（必須）" class="input input-bordered bg-navy-blue w-full" />
                         </div>
+
                         <!--EMAIL-->
                         <div class="form-controll w-screen px-6 lg:px-24">
                             <div class="label label-text text-navy-blue font-semibold">
@@ -49,6 +53,7 @@
                             </div>
                             <input type="text" v-model="email" placeholder="入力してください（必須）" class="input input-bordered bg-navy-blue w-full" />
                         </div>
+
                         <!--CONTENT-->
                         <div class="form-controll w-screen px-6 lg:px-24">
                             <div class="label label-text text-navy-blue font-semibold">
@@ -64,6 +69,7 @@
 
                     </div>
 
+                <!--endform (axiosを用いない場合)-->
                 <!--</form>-->
 
             </div>
@@ -73,63 +79,62 @@
 </template>
 
 <script setup>
-    import PageTitle from '../components/PageTitle.vue';
-    import { computed, inject, ref, onMounted } from 'vue';
-    import { useRoute, useRouter } from 'vue-router';
+import PageTitle from '../components/PageTitle.vue';
+import { computed, inject, ref } from 'vue';
+import { useRoute, useRouter } from 'vue-router';
     
-    const router = useRouter();
+const router = useRouter();
 
-    /* 現在のパスをapp.vueへemit */
-    const currentPath = ref(useRoute().path).value;
+/* 現在のパスをapp.vueへemit */
+const currentPath = useRoute().path;
 
-    const emit = defineEmits(['receivePath']);
-    const emitPath = () => {
-        emit('receivePath', currentPath);
-    }
+const emit = defineEmits(['receivePath']);
+const emitPath = () => {
+    emit('receivePath', currentPath);
+}
 
-    /* マウント時にパスをemit */
-    onMounted(() => {
-        emitPath();
+emitPath();
+
+/* ローディング制御 */
+const isHidden = ref(true);
+const loadingActive = ref(false);
+
+/*
+// CSRF Token (axiosを用いない場合)
+const csrf = computed(() => {
+    return document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+});
+*/
+
+// axios POST
+const name = ref('');
+const email = ref('');
+const content = ref('');
+const valMes = ref('');
+
+const axios = inject('axios');
+
+const createNewContact = () => {
+    loadingActive.value = true;
+
+    axios.post('/contact/send', {
+        name: name.value,
+        email: email.value,
+        content: content.value,
+    })
+    .then(res => {
+        router.push({ name: 'ContactNotice' });
+    })
+    .catch(err => {
+        loadingActive.value = false;
+        isHidden.value = false;
+        valMes.value = '内容の送信に失敗しました．お手数ですが，内容をお確かめのうえ再度送信をお願いします．';
+        router.push({ path: 'contact#SubmitError' });
     });
-
-    /* ローディング制御 */
-    const isHidden = ref(true);
-    const loadingActive = ref(false);
-
-    /*
-    // CSRF Token (except axios)
-    const csrf = computed(() => {
-        return document.querySelector('meta[name="csrf-token"]').getAttribute('content');
-    });
-    */
-
-    // axios POST
-    const name = ref('');
-    const email = ref('');
-    const content = ref('');
-    const valMes = ref('');
-
-    const axios = inject('axios');
-
-    const createNewContact = () => {
-        loadingActive.value = true;
-
-        axios.post('/contact/send', {
-            name: name.value,
-            email: email.value,
-            content: content.value,
-        })
-        .then(res => {
-            router.push({ name: 'ContactNotice' });
-        })
-        .catch(err => {
-            loadingActive.value = false;
-            isHidden.value = false;
-            valMes.value = '内容の送信に失敗しました．お手数ですが，内容をお確かめのうえ再度送信をお願いします．';
-            router.push({ path: 'contact#SubmitError' });
-        });
-    }
+}
 </script>
+
+
 
 <style scoped>
 .spinner {

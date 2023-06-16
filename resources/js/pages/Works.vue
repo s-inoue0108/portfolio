@@ -1,5 +1,7 @@
 <template>
     <div>
+
+        <!--WORKS-->
         <div>
 
             <!--ページタイトル-->
@@ -47,22 +49,17 @@
 import PageTitle from '../components/PageTitle.vue';
 import SubTitle from '../components/SubTitle.vue';
 
-import { ref, onMounted } from 'vue';
 import { useRoute } from 'vue-router';
 
 /* 現在のパスをapp.vueへemit */
-const currentPath = ref(useRoute().path).value;
+const currentPath = useRoute().path;
 
 const emit = defineEmits(['receivePath']);
 const emitPath = () => {
     emit('receivePath', currentPath);
 }
 
-/* マウント時にパスをemit */
-onMounted(() => {
-    emitPath();
-});
-
+emitPath();
 </script>
 
 

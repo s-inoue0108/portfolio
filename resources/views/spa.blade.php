@@ -15,7 +15,7 @@
         <title>{{ config('app.name') }}</title>
 
         <!--Fabicon-->
-        <link rel="shortcut icon" href="{{ asset('/storage/icons/S.I.jpg') }}">
+        <link rel="shortcut icon" href="{{ asset('/storage/icons/S.I.svg') }}">
 
         <!--RESET CSS-->
         <link rel="stylesheet" href="https://unpkg.com/destyle.css@3.0.2/destyle.min.css">
@@ -41,7 +41,7 @@
 
     </head>
     <body class="antialiased">
-        <div class="bg-yellow-400">
+        <div class="bg-yellow-400 w-screen h-screen">
             <div id="app"></div>
         </div>
     </body>

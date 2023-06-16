@@ -1,31 +1,33 @@
 <template>
 
-    <!--ロゴアニメーション-->
+    <!--アニメーション-->
     <transition name="fade">
         <div v-if="animateActive" class="relative">
             <div class="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-                <img src="/storage/icons/S.I.jpg" />
+                <img src="/storage/icons/S.I.svg" />
             </div>
         </div>
     </transition>
     
-    <!--Home-->
+    <!--HOME-->
     <div class="relative h-screen">
+        
         <transition name="fade">
-            <div v-if="homeActive">
+            <div v-if="contentActive">
+
+                <div class="absolute top-0 left-0">
+                    <img :src=imgPath class="w-screen h-screen object-cover" />
+                </div>
+
                 <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-                    <div class="flex flex-col lg:flex-row justify-center items-center gap-4 lg:gap-16">
-                        <img src="/storage/icons/S.I.jpg" class="w-3/4 sm:w-1/2 h-auto" />
-                        <div class="bg-yellow-300 rounded">
-                            <div class="flex flex-col gap-4 lg:gap-8">
-                                <div class="border-2 lg:border-4 border-navy-blue rounded"></div>
-                                <h1 class="text-2xl md:text-4xl lg:text-6xl text-center text-navy-blue font-light tracking-wider px-4">Shota Inoue</h1>
-                                <h1 class="text-4xl md:text-6xl lg:text-8xl text-center text-navy-blue font-bold tracking-wider px-4">PORTFOLIO SITE</h1>
-                                <div class="border-2 lg:border-4 border-navy-blue rounded"></div>
-                            </div>
+                    <div class="bg-yellow-400 bg-opacity-90 border-navy-blue border-t-[0.5rem] border-b-[0.5rem]">
+                        <div class="flex flex-col gap-4 lg:gap-8 px-4 py-6">
+                            <h1 class="text-2xl md:text-4xl lg:text-6xl text-center text-navy-blue font-light tracking-wider">Shota Inoue</h1>
+                            <h1 class="text-4xl md:text-6xl lg:text-8xl text-center text-navy-blue font-bold tracking-wider">PORTFOLIO SITE</h1>
                         </div>
                     </div>
                 </div>
+
              </div>
         </transition>
     </div>
@@ -39,26 +41,40 @@ import { ref, onMounted } from 'vue';
 import { useRoute } from 'vue-router';
 
 /* 現在のパスをapp.vueへemit */
-const currentPath = ref(useRoute().path).value;
+const currentPath = useRoute().path;
 
 const emit = defineEmits(['receivePath']);
 const emitPath = () => {
     emit('receivePath', currentPath);
 }
 
-/* マウント時にアニメーションとパスをemit */
+emitPath();
+
+/* 背景画像 */
+const imgList = [
+    "/storage/images/TokyoNightScape.jpeg",
+    "/storage/images/RaimbowBridge.jpeg",
+    "/storage/images/KiyomizuTemple.jpeg",
+];
+
+const imgIndex = (maxIndex) => {
+    maxIndex = Math.floor(imgList.length);
+    return Math.floor(Math.random() * maxIndex);
+}
+
+const imgPath = imgList[imgIndex()];
+
+/* アニメーション，背景画像，パスのemit */
 const animateActive = ref(false);
-const homeActive = ref(false);
+const contentActive = ref(false);
 
 onMounted(() => {
     animateActive.value = true;
 
     setTimeout(() => {
         animateActive.value = false;
-        homeActive.value = true;
+        contentActive.value = true;
     }, 1000);
-
-    emitPath();
 });
 </script>
 
@@ -70,7 +86,7 @@ onMounted(() => {
 }
 
 .fade-enter-active, .fade-leave-active {
-    transition: opacity 1s ease;
+    transition: opacity 1.5s ease;
 }
 
 .fade-enter-to, .fade-leave-from {
