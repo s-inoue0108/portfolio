@@ -1,17 +1,6 @@
 <template>
-    <footer class="footer footer-center bg-navy-blue text-white py-4 z-40" :class="[currentPath === '/' ? ['bg-opacity-90'] : []]">
+    <footer class="footer footer-center bg-navy-blue text-white py-4" :class="[currentPath === '/' ? ['bg-opacity-90'] : []]">
         <div class="flex justify-around items-center w-screen">
-
-            <!--サイドバー開閉ボタン-->
-            <button class="btn btn-sm lg:btn-md btn-outline btn-neutral" @click="emitSidebar">
-                <div class="flex items-center gap-2">
-                    <i class="fa-solid" :class="[ sidebarActive === true ? 'fa-xmark' : 'fa-bars' ]"></i>
-                    <p class="hidden md:block">MENU</p>
-                </div>
-            </button>
-
-            <!--Copyright-->
-            <p class="lg:text-lg tracking-wide">&copy; <span v-text="year" class="pr-2"></span>Shota Inoue</p>
 
             <!--GitHub-->
             <a href="https://github.com/s-inoue0108" target="_blank" rel="noopener noreferrer">
@@ -22,6 +11,17 @@
                     </div>
                 </button>
             </a>
+
+            <!--Copyright-->
+            <p class="lg:text-lg tracking-wide">&copy; <span v-text="year" class="pr-2"></span>Shota Inoue</p>
+
+            <!--サイドバー開閉ボタン-->
+            <button class="btn btn-sm lg:btn-md btn-outline btn-neutral" @click="emitSidebar">
+                <div class="flex items-center gap-2">
+                    <i class="fa-solid" :class="[ sidebarActive === true ? 'fa-xmark' : 'fa-bars' ]"></i>
+                    <p class="hidden md:block">MENU</p>
+                </div>
+            </button>
         </div> 
     </footer>
 </template>

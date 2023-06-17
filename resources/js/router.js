@@ -49,6 +49,7 @@ const router = createRouter({
     history: createWebHistory(BASE_URL),  // set BASE_URL
     routes,
     scrollBehavior(to) {
+
         if (to.hash) {
           return { el: to.hash, behavior: 'smooth', };
         } else {

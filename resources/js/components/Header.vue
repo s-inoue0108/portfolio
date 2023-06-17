@@ -1,5 +1,5 @@
 <template>
-    <header class="header p-2 lg:p-4 bg-navy-blue bg-opacity-90">
+    <header class="header p-2 lg:p-4 bg-navy-blue bg-opacity-90 w-screen">
         <div class="flex justify-center gap-2 lg:gap-4 py-4 text-white lg:text-lg font-semibold">
 
             <!--HOME-->

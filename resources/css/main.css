@@ -1,5 +1,17 @@
-/* Hexagon は height = width * 0.866 */
+/* スクロールバー非表示 */
+#app {
+    overflow-x: hidden;
+    overflow-y: scroll;
+    -ms-overflow-style: none; /* IE, Edge */
+    scrollbar-width: none;    /* Firefox */
+}
 
+#app::-webkit-scrollbar {
+    display: none; /* Chrome, Safari */
+}
+
+
+/* Hexagon は height = width * 0.866 */
 .hex {
     clip-path: polygon(25% 0, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
     aspect-ratio: 200 / 173;

@@ -41,8 +41,6 @@
 
     </head>
     <body class="antialiased">
-        <div class="bg-yellow-400 w-screen h-screen">
-            <div id="app"></div>
-        </div>
+        <div id="app"></div>
     </body>
 </html>

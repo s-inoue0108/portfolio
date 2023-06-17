@@ -1,11 +1,13 @@
 <template>
-    <div class="overflow-x-hidden">
+    <div class="bg-yellow-400 w-screen">
 
         <!--サイドバー-->
-        <Sidebar :currentPath="currentPath" :sidebarActive="sidebarActive" @toggleSidebar="toggleSidebar" />
+        <div class="fixed top-0 left-0 z-50">
+            <Sidebar :currentPath="currentPath" :sidebarActive="sidebarActive" @toggleSidebar="toggleSidebar" />
+        </div>
 
         <!--ヘッダー-->
-        <div class="fixed top-0 left-1/2 -translate-x-1/2 w-screen z-40">
+        <div class="fixed top-0 left-1/2 -translate-x-1/2 w-full z-40">
             <Header :currentPath="currentPath" />
         </div>
 
@@ -13,7 +15,7 @@
         <router-view @receivePath="receivePath" />
 
         <!--フッター-->
-        <div :class="[currentPath === '/' ? ['fixed', 'bottom-0', 'left-1/2', '-translate-x-1/2', 'w-screen'] : []]">
+        <div :class="[currentPath === '/' ? ['fixed', 'bottom-0', 'left-1/2', '-translate-x-1/2', 'w-full'] : []]">
             <Footer :currentPath="currentPath" :sidebarActive="sidebarActive" @toggleSidebar="toggleSidebar" />
         </div>
 

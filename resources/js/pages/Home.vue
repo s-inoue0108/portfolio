@@ -2,7 +2,7 @@
 
     <!--アニメーション-->
     <transition name="fade">
-        <div v-if="animateActive" class="relative">
+        <div v-if="animateActive" class="relative" :style="[ animateActive ? 'will-change: opacity' : '' ]">
             <div class="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
                 <img src="/storage/icons/S.I.svg" />
             </div>
@@ -13,7 +13,7 @@
     <div class="relative h-screen">
         
         <transition name="fade">
-            <div v-if="contentActive">
+            <div v-if="contentActive" :style="[ contentActive ? 'will-change: opacity' : '' ]">
 
                 <div class="absolute top-0 left-0">
                     <img :src=imgPath class="w-screen h-screen object-cover" />
@@ -55,6 +55,7 @@ const imgList = [
     "/storage/images/TokyoNightScape.jpeg",
     "/storage/images/RaimbowBridge.jpeg",
     "/storage/images/KiyomizuTemple.jpeg",
+    "/storage/images/OsakaNightScape.jpeg",
 ];
 
 const imgIndex = (maxIndex) => {
