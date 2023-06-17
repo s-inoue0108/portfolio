@@ -1,8 +1,26 @@
 <template>
-    <div>
-
+    <div id="aboutHeight">
         <!--ABOUT-->
         <div>
+            <!--ページトップリンク-->
+            <transition name="fade">
+                <div v-if="pageTopLinkActive">
+                    <div class="hidden lg:block fixed bottom-20 right-0 bg-gray-400 bg-opacity-30 pl-4 pr-8 py-4 z-40">
+                        <router-link :to="currentPath">
+                            <button class="btn lg:btn-lg btn-circle btn-primary">
+                                <i class="fa-solid fa-chevron-up"></i>
+                            </button>
+                        </router-link>
+                    </div>
+                    <div class="lg:hidden fixed bottom-8 right-4 opacity-50">
+                        <router-link :to="currentPath">
+                            <button class="btn lg:btn-lg btn-circle btn-primary">
+                                <i class="fa-solid fa-chevron-up"></i>
+                            </button>
+                        </router-link>
+                    </div>
+                </div>
+            </transition>
 
             <!--ページタイトル-->
             <PageTitle titleLeft="AB" titleRight="UT" />
@@ -12,7 +30,7 @@
                 <router-link to="/about#Profile">
                     <button class="btn btn-primary btn-outline lg:btn-lg text-xs w-[6rem] lg:w-[12rem] p-0">
                         <i class="fa-solid fa-chevron-down mr-1"></i>プロフィール
-                     </button>
+                    </button>
                 </router-link>
                 <router-link to="/about#AcademicBackground">
                     <button class="btn btn-primary btn-outline lg:btn-lg text-xs w-[6rem] lg:w-[12rem] p-0">
@@ -32,15 +50,15 @@
 
                 <div class="flex justify-center py-16">
                     <div class="flex items-center justify-center gap-4">
-                        <img src="/storage/icons/S.I.svg" class="w-1/4 h-auto"/>
+                        <img src="/storage/icons/S.I.svg" class="w-1/4 h-auto" />
                         <div class="flex flex-col gap-2">
                             <h2 class="text-center text-4xl text-navy-blue font-bold tracking-wider">井上 翔太</h2>
-                            <label class="text-center text-xl tracking-wider text-light-navy-blue font-semibold">Inoue Shota</label>
+                            <label class="text-center text-xl tracking-wider text-light-navy-blue font-semibold">Inoue
+                                Shota</label>
                         </div>
                     </div>
                 </div>
             </div>
-
 
             <!--学歴-->
             <div id="AcademicBackground">
@@ -48,32 +66,10 @@
                 <AcademicBackground />
             </div>
 
-            <div class="flex justify-center py-6 lg:py-12">
-                <router-link :to="currentPath">
-                    <button class="btn lg:btn-lg btn-outline btn-primary">
-                        <div class="flex items-center gap-2">
-                            <i class="fa-solid fa-chevron-up"></i>
-                            <p class="hidden md:block">Page Top</p>
-                        </div>
-                    </button>
-                </router-link>
-            </div>
-
             <!--スキル-->
             <div id="CodingSkill">
-                <SubTitle subTitle="スキル" iconTag='<i class="fa-solid fa-code"></i>'/>
+                <SubTitle subTitle="スキル" iconTag='<i class="fa-solid fa-code"></i>' />
                 <CodingSkill />
-            </div>
-
-            <div class="flex justify-center py-6 lg:py-12">
-                <router-link :to="currentPath">
-                    <button class="btn lg:btn-lg btn-outline btn-primary">
-                        <div class="flex items-center gap-2">
-                            <i class="fa-solid fa-chevron-up"></i>
-                            <p class="hidden md:block">Page Top</p>
-                        </div>
-                    </button>
-                </router-link>
             </div>
 
         </div>
@@ -86,6 +82,7 @@ import SubTitle from '../components/SubTitle.vue';
 import AcademicBackground from '../components/about/AcademicBackground.vue';
 import CodingSkill from '../components/about/CodingSkill.vue';
 
+import { ref, onMounted } from 'vue';
 import { useRoute } from 'vue-router';
 
 /* 現在のパスをapp.vueへemit */
@@ -97,7 +94,45 @@ const emitPath = () => {
 }
 
 emitPath();
+
+/* ページトップリンクの表示 */
+const pageTopLinkActive = ref(false);
+
+onMounted(() => {
+    window.addEventListener('scroll', pageTopLinkFade);
+});
+
+const pageTopLinkFade = () => {
+    const scrollNow = ref(window.scrollY);
+    const scrollMax = document.documentElement.scrollHeight;
+    const clientMax = document.documentElement.clientHeight;
+    
+    if(scrollNow.value > 200 && (scrollMax-clientMax-scrollNow.value) > 200) {
+        pageTopLinkActive.value = true;
+    } else {
+        pageTopLinkActive.value = false;
+    }
+}
 </script>
+
+
+
+<style scoped>
+.fade-enter-from,
+.fade-leave-to {
+    opacity: 0;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+    transition: opacity .3s ease-in-out;
+}
+
+.fade-enter-to,
+.fade-leave-from {
+    opacity: 1;
+}
+</style>
 
 
 

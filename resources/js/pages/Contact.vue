@@ -1,5 +1,4 @@
 <template>
-
     <!--CONTACT-->
     <div>
         <!--メール送信時のLOADING-->
@@ -15,14 +14,14 @@
                 </div>
             </div>
         </transition>
-        
+
 
         <div>
             <!--ぺージタイトル-->
             <PageTitle titleLeft="C" titleRight="NTACT" />
 
             <!--Validation Error-->
-            <div class="flex justify-center px-6 pt-12" :class="{ 'hidden':isHidden }" id="SubmitError">
+            <div class="flex justify-center px-6 pt-12" :class="{ 'hidden': isHidden }" id="SubmitError">
                 <div class="bg-yellow-300 border-2 border-red-500 rounded-2xl p-4">
                     <p v-text="valMes" class="text-red-500 font-semibold"></p>
                 </div>
@@ -33,41 +32,45 @@
                 <!--form (axiosを用いない場合)-->
                 <!--<form method="POST" action="/contact/send"-->
 
-                    <div class="flex flex-col gap-4">
+                <div class="flex flex-col gap-4">
 
-                        <!--CSRF Token (axiosを用いない場合)-->
-                        <!--<input type="hidden" name="_token" :value="csrf">-->
+                    <!--CSRF Token (axiosを用いない場合)-->
+                    <!--<input type="hidden" name="_token" :value="csrf">-->
 
-                        <!--NAME-->
-                        <div class="form-controll w-screen px-6 lg:px-24">
-                            <div class="label label-text text-navy-blue font-semibold">
-                                お名前
-                            </div>
-                            <input type="text" v-model="name" placeholder="入力してください（必須）" class="input input-bordered bg-navy-blue w-full" />
+                    <!--NAME-->
+                    <div class="form-controll w-screen px-6 lg:px-24">
+                        <div class="label label-text text-navy-blue font-semibold">
+                            お名前
                         </div>
-
-                        <!--EMAIL-->
-                        <div class="form-controll w-screen px-6 lg:px-24">
-                            <div class="label label-text text-navy-blue font-semibold">
-                                メールアドレス
-                            </div>
-                            <input type="text" v-model="email" placeholder="入力してください（必須）" class="input input-bordered bg-navy-blue w-full" />
-                        </div>
-
-                        <!--CONTENT-->
-                        <div class="form-controll w-screen px-6 lg:px-24">
-                            <div class="label label-text text-navy-blue font-semibold">
-                                お問い合わせ内容
-                            </div>
-                            <textarea rows="10" v-model="content" placeholder="入力してください（必須）" class="textarea textarea-bordered bg-navy-blue w-full">
-                            </textarea>
-                        </div>
-
-                        <div class="flex justify-center px-6 lg:px-24 py-12 lg:py-24">
-                            <button class="btn btn-primary w-full max-w-xs text-white font-semibold" @click="createNewContact">送信</button>
-                        </div>
-
+                        <input type="text" v-model="name" placeholder="入力してください（必須）"
+                            class="input input-bordered bg-navy-blue w-full" />
                     </div>
+
+                    <!--EMAIL-->
+                    <div class="form-controll w-screen px-6 lg:px-24">
+                        <div class="label label-text text-navy-blue font-semibold">
+                            メールアドレス
+                        </div>
+                        <input type="text" v-model="email" placeholder="入力してください（必須）"
+                            class="input input-bordered bg-navy-blue w-full" />
+                    </div>
+
+                    <!--CONTENT-->
+                    <div class="form-controll w-screen px-6 lg:px-24">
+                        <div class="label label-text text-navy-blue font-semibold">
+                            お問い合わせ内容
+                        </div>
+                        <textarea rows="10" v-model="content" placeholder="入力してください（必須）"
+                            class="textarea textarea-bordered bg-navy-blue w-full">
+                            </textarea>
+                    </div>
+
+                    <div class="flex justify-center px-6 lg:px-24 py-12 lg:py-24">
+                        <button class="btn btn-primary w-full max-w-xs text-white font-semibold"
+                            @click="createNewContact">送信</button>
+                    </div>
+
+                </div>
 
                 <!--endform (axiosを用いない場合)-->
                 <!--</form>-->
@@ -82,7 +85,7 @@
 import PageTitle from '../components/PageTitle.vue';
 import { computed, inject, ref } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
-    
+
 const router = useRouter();
 
 /* 現在のパスをapp.vueへemit */
@@ -122,15 +125,15 @@ const createNewContact = () => {
         email: email.value,
         content: content.value,
     })
-    .then(res => {
-        router.push({ name: 'ContactNotice' });
-    })
-    .catch(err => {
-        loadingActive.value = false;
-        isHidden.value = false;
-        valMes.value = '内容の送信に失敗しました．お手数ですが，内容をお確かめのうえ再度送信をお願いします．';
-        router.push({ path: 'contact#SubmitError' });
-    });
+        .then(res => {
+            router.push({ name: 'ContactNotice' });
+        })
+        .catch(err => {
+            loadingActive.value = false;
+            isHidden.value = false;
+            valMes.value = '内容の送信に失敗しました．お手数ですが，内容をお確かめのうえ再度送信をお願いします．';
+            router.push({ path: 'contact#SubmitError' });
+        });
 }
 </script>
 
@@ -142,21 +145,31 @@ const createNewContact = () => {
 }
 
 @keyframes rotation {
-    0%{ transform: rotate(0); }
-    50%{ transform: rotate(180deg); }
-    100%{ transform: rotate(360deg); }
+    0% {
+        transform: rotate(0);
+    }
+
+    50% {
+        transform: rotate(180deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
-.loading-enter-from, .loading-leave-to {
+.loading-enter-from,
+.loading-leave-to {
     opacity: 0;
 }
 
-.loading-enter-active, .loading-leave-active {
+.loading-enter-active,
+.loading-leave-active {
     transition: opacity .5s ease;
 }
 
-.loading-enter-to, .loading-leave-from {
+.loading-enter-to,
+.loading-leave-from {
     opacity: 1;
-}
-</style>
+}</style>
 

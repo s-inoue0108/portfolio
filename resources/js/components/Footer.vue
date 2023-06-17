@@ -1,5 +1,6 @@
 <template>
-    <footer class="footer footer-center bg-navy-blue text-white py-4" :class="[currentPath === '/' ? ['bg-opacity-90'] : []]">
+    <footer class="footer footer-center bg-navy-blue text-white py-4"
+        :class="[currentPath === '/' ? ['bg-opacity-90'] : []]">
         <div class="flex justify-around items-center w-screen">
 
             <!--GitHub-->
@@ -18,11 +19,11 @@
             <!--サイドバー開閉ボタン-->
             <button class="btn btn-sm lg:btn-md btn-outline btn-neutral" @click="emitSidebar">
                 <div class="flex items-center gap-2">
-                    <i class="fa-solid" :class="[ sidebarActive === true ? 'fa-xmark' : 'fa-bars' ]"></i>
+                    <i class="fa-solid" :class="[sidebarActive === true ? 'fa-xmark' : 'fa-bars']"></i>
                     <p class="hidden md:block">MENU</p>
                 </div>
             </button>
-        </div> 
+        </div>
     </footer>
 </template>
 
@@ -46,7 +47,7 @@ const emitSidebar = () => {
 }
 
 /* Year */
-const date = new Date(); 
+const date = new Date();
 const year = date.getFullYear();
 
 </script>
