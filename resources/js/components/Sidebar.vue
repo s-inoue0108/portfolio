@@ -3,11 +3,16 @@
     <transition name="slide">
         <div v-if="sidebarActive" class="relative">
             <div class="bg-navy-blue h-screen px-4 lg:px-8 py-8">
+
+                <!--CLOSEボタン-->
                 <div class="flex flex-row-reverse justify-between">
                     <button class="btn btn-sm lg:btn-md btn-circle btn-neutral btn-outline" @click="emitSidebar">
-                        <i class="fa-solid fa-xmark fa-2x"></i>
+                        <div class="text-lg md:text-2xl">
+                            <i class="fa-solid fa-xmark"></i>
+                        </div>
                     </button>
                 </div>
+
                 <h1 class="text-3xl lg:text-5xl text-center font-bold pt-4">CONTENTS</h1>
                 <div class="flex justify-center pt-8 lg:pt-12">
                     <div class="flex flex-col">

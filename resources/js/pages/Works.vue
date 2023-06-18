@@ -6,16 +6,16 @@
             <!--ページトップリンク-->
             <transition name="fade">
                 <div v-if="pageTopLinkActive">
-                    <div class="hidden lg:block fixed bottom-20 right-0 bg-gray-400 bg-opacity-30 pl-4 pr-8 py-4 z-40">
+                    <div class="hidden md:block fixed bottom-20 right-0 bg-gray-400 bg-opacity-30 pl-4 pr-8 py-4 z-40">
                         <router-link :to="currentPath">
                             <button class="btn lg:btn-lg btn-circle btn-primary">
                                 <i class="fa-solid fa-chevron-up"></i>
                             </button>
                         </router-link>
                     </div>
-                    <div class="lg:hidden fixed bottom-8 right-4 opacity-50">
+                    <div class="md:hidden fixed bottom-8 right-4 opacity-50">
                         <router-link :to="currentPath">
-                            <button class="btn lg:btn-lg btn-circle btn-primary">
+                            <button class="btn btn-circle btn-primary">
                                 <i class="fa-solid fa-chevron-up"></i>
                             </button>
                         </router-link>
@@ -48,16 +48,19 @@
             <!--ブログサイト-->
             <div id="BlogSite">
                 <SubTitle subTitle="ブログサイト" iconTag='<i class="fa-solid fa-pen-nib"></i>' />
+                <BlogSite />
             </div>
 
             <!--クイズアプリ-->
             <div id="QuizApp">
                 <SubTitle subTitle="クイズアプリ" iconTag='<i class="fa-solid fa-q"></i>' />
+                <QuizApp />
             </div>
 
             <!--ポートフォリオ-->
             <div id="Portfolio">
                 <SubTitle subTitle="ポートフォリオ" iconTag='<i class="fa-solid fa-globe"></i>' />
+                <Portfolio />
             </div>
 
         </div>
@@ -67,6 +70,9 @@
 <script setup>
 import PageTitle from '../components/PageTitle.vue';
 import SubTitle from '../components/SubTitle.vue';
+import BlogSite from '../components/works/BlogSite.vue';
+import QuizApp from '../components/works/QuizApp.vue';
+import Portfolio from '../components/works/Portfolio.vue';
 
 import { ref, onMounted } from 'vue';
 import { useRoute } from 'vue-router';
@@ -89,11 +95,12 @@ onMounted(() => {
 });
 
 const pageTopLinkFade = () => {
-    const scrollNow = ref(window.scrollY);
+    const scrollNow = window.scrollY;
     const scrollMax = document.documentElement.scrollHeight;
     const clientMax = document.documentElement.clientHeight;
-    
-    if(scrollNow.value > 200 && (scrollMax-clientMax-scrollNow.value) > 200) {
+    const breakPoint = clientMax / 4;
+
+    if (scrollNow > breakPoint && (scrollMax - clientMax - scrollNow) > breakPoint) {
         pageTopLinkActive.value = true;
     } else {
         pageTopLinkActive.value = false;

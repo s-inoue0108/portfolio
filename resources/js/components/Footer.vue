@@ -1,7 +1,7 @@
 <template>
-    <footer class="footer footer-center bg-navy-blue text-white py-4"
+    <footer class="footer footer-center bg-navy-blue py-4"
         :class="[currentPath === '/' ? ['bg-opacity-90'] : []]">
-        <div class="flex justify-around items-center w-screen">
+        <div class="flex justify-around items-center w-full">
 
             <!--GitHub-->
             <a href="https://github.com/s-inoue0108" target="_blank" rel="noopener noreferrer">
@@ -14,10 +14,10 @@
             </a>
 
             <!--Copyright-->
-            <p class="lg:text-lg tracking-wide">&copy; <span v-text="year" class="pr-2"></span>Shota Inoue</p>
+            <p class="text-white lg:text-lg tracking-wide">&copy; <span v-text="year" class="pr-2"></span>Shota Inoue</p>
 
             <!--サイドバー開閉ボタン-->
-            <button class="btn btn-sm lg:btn-md btn-outline btn-neutral" @click="emitSidebar">
+            <button class="btn btn-sm lg:btn-md btn-outline btn-neutral w-10 md:w-24" @click="emitSidebar">
                 <div class="flex items-center gap-2">
                     <i class="fa-solid" :class="[sidebarActive === true ? 'fa-xmark' : 'fa-bars']"></i>
                     <p class="hidden md:block">MENU</p>
