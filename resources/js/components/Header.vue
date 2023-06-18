@@ -1,11 +1,15 @@
 <template>
     <header class="header bg-navy-blue bg-opacity-90 py-2 md:py-4">
         <div class="flex justify-around items-center w-full">
-            
-            <!--アイコン-->
-            <router-link to="/">
-                <img src="/storage/icons/S.I-2.png" class="w-8 lg:w-16 h-8 lg:h-16"/>
-            </router-link>
+
+            <!--背景を変更-->
+            <div class="flex flex-col gap-1 w-16 md:w-24">
+                <p class="text-xs md:text-lg text-yellow-400 text-center" v-text="img.name"></p>
+                <button class="btn btn-xs md:btn-sm btn-outline" @click="emitChangeImg">
+                    <p><i class="fa-solid fa-rotate mr-1"></i>変更</p>
+                </button>
+            </div>
+
 
             <!--ヘッダーメニュー（PC）-->
             <div class="hidden md:block">
@@ -55,8 +59,7 @@
             <div class="md:hidden">
                 <div class="flex justify-center gap-8 text-white text-lg font-semibold">
                     <!--HOME-->
-                    <router-link to="/"
-                        :class="[currentPath === '/' ? ['text-yellow-400'] : ['text-white', 'link-hover']]">
+                    <router-link to="/" :class="[currentPath === '/' ? ['text-yellow-400'] : ['text-white', 'link-hover']]">
                         <i class="fa-solid fa-home"></i>
                     </router-link>
 
@@ -92,7 +95,8 @@
 </template>
 
 <script setup>
-/* currentPathをprop */
+
+/* props */
 const props = defineProps({
     currentPath: {
         type: String,
@@ -101,11 +105,20 @@ const props = defineProps({
     sidebarActive: {
         default: false,
     },
+    img: {
+        required: false,
+    },
 });
 
+const emit = defineEmits(['toggleSidebar', 'changeImg']);
+
 /* サイドバーをemitして開閉 */
-const emit = defineEmits(['toggleSidebar']);
 const emitSidebar = () => {
     emit('toggleSidebar');
+}
+
+/* 背景画像の変更 */
+const emitChangeImg = () => {
+    emit('changeImg');
 }
 </script>

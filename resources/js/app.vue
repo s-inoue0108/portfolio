@@ -1,5 +1,5 @@
 <template>
-    <div class="bg-yellow-400 w-screen">
+    <div class="w-screen">
 
         <!--サイドバー-->
         <div class="fixed top-0 left-0 z-50">
@@ -8,7 +8,12 @@
 
         <!--ヘッダー-->
         <div class="fixed top-0 left-1/2 -translate-x-1/2 w-full z-40">
-            <Header :currentPath="currentPath" :sidebarActive="sidebarActive" @toggleSidebar="toggleSidebar" />
+            <Header :currentPath="currentPath" :sidebarActive="sidebarActive" @toggleSidebar="toggleSidebar" :img="img" @changeImg="changeImg" />
+        </div>
+
+        <!--背景-->
+        <div class="fixed top-0 left-0">
+            <img :src=img.path class="w-screen h-screen object-cover" />
         </div>
 
         <!--ぺージコンポーネントを差し込み-->
@@ -42,5 +47,21 @@ const currentPath = ref('');
 
 const receivePath = (receivedPath) => {
     currentPath.value = receivedPath;
+}
+
+/* 背景画像 */
+const imgList = [
+    { name: "東京都心" , path: "/storage/images/TokyoNightScape.jpeg" },
+    { name: "お台場" , path: "/storage/images/RaimbowBridge.jpeg" },
+    { name: "清水寺" , path: "/storage/images/KiyomizuTemple.jpeg" },
+    { name: "大阪市街" , path: "/storage/images/OsakaNightScape.jpeg" },
+];
+
+const maxIndex = imgList.length;
+const img = ref(imgList[Math.floor(Math.random() * maxIndex)]);
+
+/* 背景画像の変更 */
+const changeImg = () => {
+    img.value = imgList[Math.floor(Math.random() * maxIndex)];
 }
 </script>

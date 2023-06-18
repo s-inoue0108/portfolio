@@ -1,25 +1,26 @@
 <template>
-    <!--アニメーション-->
+    <!--ロゴアニメーション-->
+    <transition name="fade-out">
+        <div v-if="animateActive">
+            <div class="fixed top-0 left-0 bg-yellow-400 w-screen h-screen z-0"></div>
+        </div>
+    </transition>
+
     <transition name="fade">
         <div v-if="animateActive" class="relative" :style="[animateActive ? 'will-change: opacity' : '']">
             <div class="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-                <img src="/storage/icons/S.I.svg" />
+                <img src="/storage/icons/S.I.png" />
             </div>
         </div>
     </transition>
 
     <!--HOME-->
     <div class="relative h-screen">
-
         <transition name="fade">
             <div v-if="contentActive" :style="[contentActive ? 'will-change: opacity' : '']">
 
-                <div class="fixed top-0 left-0">
-                    <img :src=imgPath class="w-screen h-screen object-cover" />
-                </div>
-
                 <div class="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-                    <div class="bg-yellow-400 bg-opacity-90 border-navy-blue border-t-[0.5rem] border-b-[0.5rem]">
+                    <div class="bg-yellow-400 bg-opacity-80 border-navy-blue border-t-[0.5rem] border-b-[0.5rem]">
                         <div class="flex flex-col gap-4 lg:gap-8 px-4 py-6">
                             <h1
                                 class="text-2xl md:text-4xl lg:text-6xl text-center text-navy-blue font-light tracking-wider">
@@ -32,6 +33,7 @@
                         </div>
                     </div>
                 </div>
+
             </div>
         </transition>
     </div>
@@ -52,21 +54,6 @@ const emitPath = () => {
 }
 
 emitPath();
-
-/* 背景画像 */
-const imgList = [
-    "/storage/images/TokyoNightScape.jpeg",
-    "/storage/images/RaimbowBridge.jpeg",
-    "/storage/images/KiyomizuTemple.jpeg",
-    "/storage/images/OsakaNightScape.jpeg",
-];
-
-const imgIndex = (maxIndex) => {
-    maxIndex = Math.floor(imgList.length);
-    return Math.floor(Math.random() * maxIndex);
-}
-
-const imgPath = imgList[imgIndex()];
 
 /* アニメーション，背景画像，パスのemit */
 const animateActive = ref(false);
@@ -92,11 +79,23 @@ onMounted(() => {
 
 .fade-enter-active,
 .fade-leave-active {
-    transition: opacity 1.5s ease;
+    transition: opacity 1.0s ease;
 }
 
 .fade-enter-to,
 .fade-leave-from {
+    opacity: 1;
+}
+
+.fade-out-leave-to {
+    opacity: 0;
+}
+
+.fade-out-leave-active {
+    transition: opacity 1.0s ease;
+}
+
+.fade-out-leave-from {
     opacity: 1;
 }
 </style>

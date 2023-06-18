@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="bg-navy-blue bg-opacity-50">
         <!--スキル（PC表示）-->
         <div class="hidden lg:block">
             <div class="grid grid-rows-3 grid-cols-2 gap-16 px-16 py-12">

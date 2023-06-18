@@ -18,7 +18,7 @@
 
         <div>
             <!--ぺージタイトル-->
-            <PageTitle titleLeft="C" titleRight="NTACT" />
+            <PageTitle titleLeft="C" titleRight="NTACT" :currentPath="currentPath" />
 
             <!--Validation Error-->
             <div class="flex justify-center px-6 pt-12" :class="{ 'hidden': isHidden }" id="SubmitError">

@@ -5,16 +5,9 @@
             <!--ページトップリンク-->
             <transition name="fade">
                 <div v-if="pageTopLinkActive">
-                    <div class="hidden md:block fixed bottom-20 right-0 bg-gray-400 bg-opacity-30 pl-4 pr-8 py-4 z-40">
+                    <div class="fixed bottom-10 md:bottom-20 right-0 bg-gray-400 bg-opacity-30 p-2 md:pl-4 md:pr-8 md:py-4 z-40">
                         <router-link :to="currentPath">
-                            <button class="btn lg:btn-lg btn-circle btn-primary">
-                                <i class="fa-solid fa-chevron-up"></i>
-                            </button>
-                        </router-link>
-                    </div>
-                    <div class="md:hidden fixed bottom-8 right-4 opacity-50">
-                        <router-link :to="currentPath">
-                            <button class="btn btn-circle btn-primary">
+                            <button class="btn btn-sm md:btn-md lg:btn-lg btn-circle btn-primary">
                                 <i class="fa-solid fa-chevron-up"></i>
                             </button>
                         </router-link>
@@ -23,29 +16,10 @@
             </transition>
 
             <!--ページタイトル-->
-            <PageTitle titleLeft="AB" titleRight="UT" />
-
-            <!--インナーリンク-->
-            <div class="flex justify-center gap-4 lg:gap-8 px-6 py-12">
-                <router-link to="/about#Profile">
-                    <button class="btn btn-primary btn-outline lg:btn-lg text-xs w-[6rem] lg:w-[12rem] p-0">
-                        <i class="fa-solid fa-chevron-down mr-1"></i>プロフィール
-                    </button>
-                </router-link>
-                <router-link to="/about#AcademicBackground">
-                    <button class="btn btn-primary btn-outline lg:btn-lg text-xs w-[6rem] lg:w-[12rem] p-0">
-                        <i class="fa-solid fa-chevron-down mr-1"></i>学歴
-                    </button>
-                </router-link>
-                <router-link to="/about#CodingSkill">
-                    <button class="btn btn-primary btn-outline lg:btn-lg text-xs w-[6rem] lg:w-[12rem] p-0">
-                        <i class="fa-solid fa-chevron-down mr-1"></i>スキル
-                    </button>
-                </router-link>
-            </div>
+            <PageTitle titleLeft="AB" titleRight="UT" :currentPath="currentPath" :links="links" />
 
             <!--プロフィール-->
-            <div id="Profile">
+            <div id="Profile" class="relative z-30">
                 <SubTitle subTitle="プロフィール" iconTag='<i class="fa-solid fa-user"></i>' />
 
                 <div class="flex justify-center py-16">
@@ -61,13 +35,13 @@
             </div>
 
             <!--学歴-->
-            <div id="AcademicBackground">
+            <div id="AcademicBackground" class="relative z-30">
                 <SubTitle subTitle="学歴" iconTag='<i class="fa-solid fa-school"></i>' />
                 <AcademicBackground />
             </div>
 
             <!--スキル-->
-            <div id="CodingSkill">
+            <div id="CodingSkill" class="relative z-30">
                 <SubTitle subTitle="スキル" iconTag='<i class="fa-solid fa-code"></i>' />
                 <CodingSkill />
             </div>
@@ -114,6 +88,13 @@ const pageTopLinkFade = () => {
         pageTopLinkActive.value = false;
     }
 }
+
+/* ページ内リンク用の配列をprop */
+const links = [
+    { id: 1, hash: '#Profile', hashTitle: 'プロフィール' },
+    { id: 2, hash: '#AcademicBackground', hashTitle: '学歴' },
+    { id: 3, hash: '#CodingSkill', hashTitle: 'スキル' },
+];
 </script>
 
 

@@ -6,16 +6,9 @@
             <!--ページトップリンク-->
             <transition name="fade">
                 <div v-if="pageTopLinkActive">
-                    <div class="hidden md:block fixed bottom-20 right-0 bg-gray-400 bg-opacity-30 pl-4 pr-8 py-4 z-40">
+                    <div class="fixed bottom-10 md:bottom-20 right-0 bg-gray-400 bg-opacity-30 p-2 md:pl-4 md:pr-8 md:py-4 z-40">
                         <router-link :to="currentPath">
-                            <button class="btn lg:btn-lg btn-circle btn-primary">
-                                <i class="fa-solid fa-chevron-up"></i>
-                            </button>
-                        </router-link>
-                    </div>
-                    <div class="md:hidden fixed bottom-8 right-4 opacity-50">
-                        <router-link :to="currentPath">
-                            <button class="btn btn-circle btn-primary">
+                            <button class="btn btn-sm md:btn-md lg:btn-lg btn-circle btn-primary">
                                 <i class="fa-solid fa-chevron-up"></i>
                             </button>
                         </router-link>
@@ -24,26 +17,7 @@
             </transition>
 
             <!--ページタイトル-->
-            <PageTitle titleLeft="W" titleRight="RKS" />
-
-            <!--インナーリンク-->
-            <div class="flex justify-center gap-4 lg:gap-8 px-6 py-12">
-                <router-link to="/works#BlogSite">
-                    <button class="btn btn-primary btn-outline lg:btn-lg text-xs w-[7rem] lg:w-[14rem] p-0">
-                        <i class="fa-solid fa-chevron-down mr-1"></i>ブログサイト
-                    </button>
-                </router-link>
-                <router-link to="/works#QuizApp">
-                    <button class="btn btn-primary btn-outline lg:btn-lg text-xs w-[7rem] lg:w-[14rem] p-0">
-                        <i class="fa-solid fa-chevron-down mr-1"></i>クイズアプリ
-                    </button>
-                </router-link>
-                <router-link to="/works#Portfolio">
-                    <button class="btn btn-primary btn-outline lg:btn-lg text-xs w-[7rem] lg:w-[14rem] p-0">
-                        <i class="fa-solid fa-chevron-down mr-1"></i>ポートフォリオ
-                    </button>
-                </router-link>
-            </div>
+            <PageTitle titleLeft="W" titleRight="RKS" :currentPath="currentPath" :links="links" />
 
             <!--ブログサイト-->
             <div id="BlogSite">
@@ -106,6 +80,13 @@ const pageTopLinkFade = () => {
         pageTopLinkActive.value = false;
     }
 }
+
+/* ページ内リンク用の配列をprop */
+const links = [
+    { id: 1, hash: '#BlogSite', hashTitle: 'ブログサイト' },
+    { id: 2, hash: '#QuizApp', hashTitle: 'クイズアプリ' },
+    { id: 3, hash: '#Portfolio', hashTitle: 'ポートフォリオ' },
+];
 </script>
 
 
