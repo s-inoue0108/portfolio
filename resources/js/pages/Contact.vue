@@ -4,7 +4,7 @@
         <!--メール送信時のLOADING-->
         <transition name="loading">
             <div v-if="loadingActive" class="relative">
-                <div class="fixed w-screen h-screen bg-neutral bg-opacity-80 z-[60]">
+                <div class="fixed w-screen h-screen bg-neutral bg-opacity-80 z-[100]">
                     <div class="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
                         <div class="flex flex-col gap-8 text-4xl lg:text-6xl text-center text-navy-blue font-bold">
                             <div class="spinner"><i class="fa-solid fa-3x fa-spinner"></i></div>

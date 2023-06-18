@@ -3,7 +3,9 @@
         <div class="flex justify-around items-center w-full">
             
             <!--アイコン-->
-            <img src="/storage/icons/S.I-2.png" class="w-8 lg:w-16 h-8 lg:h-16"/>
+            <router-link to="/">
+                <img src="/storage/icons/S.I-2.png" class="w-8 lg:w-16 h-8 lg:h-16"/>
+            </router-link>
 
             <!--ヘッダーメニュー（PC）-->
             <div class="hidden md:block">
