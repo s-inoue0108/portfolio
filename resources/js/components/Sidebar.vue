@@ -113,19 +113,20 @@
 
 
 <script setup>
-/* currentPath, sidebarActiveをprops */
+/* props */
 const props = defineProps({
     currentPath: {
         type: String,
-        default: '/',
     },
     sidebarActive: {
-        default: false,
+        type: Boolean,
     },
 });
 
-/* サイドバー開閉イベントをemit */
+/* emit */
 const emit = defineEmits(['toggleSidebar']);
+
+/* サイドバーをemitして開閉 */
 const emitSidebar = () => {
     emit('toggleSidebar');
 }

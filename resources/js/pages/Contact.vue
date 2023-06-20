@@ -2,36 +2,26 @@
     <!--CONTACT-->
     <div>
         <!--メール送信時のLOADING-->
-        <transition name="loading">
-            <div v-if="loadingActive" class="relative">
-                <div class="fixed w-screen h-screen bg-neutral bg-opacity-80 z-[100]">
-                    <div class="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-                        <div class="flex flex-col gap-8 text-4xl lg:text-6xl text-center text-navy-blue font-bold">
-                            <div class="spinner"><i class="fa-solid fa-3x fa-spinner"></i></div>
-                            <p class="whitespace-nowrap">Please Wait...</p>
-                        </div>
+        <div v-if="loadingActive" class="relative">
+            <div class="fixed w-screen h-screen bg-neutral bg-opacity-80 z-[100]">
+                <div class="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+                    <div class="flex flex-col gap-8 text-4xl lg:text-6xl text-center text-navy-blue font-bold">
+                        <div class="spinner"><i class="fa-solid fa-3x fa-spinner"></i></div>
+                        <p class="whitespace-nowrap">Please Wait...</p>
                     </div>
                 </div>
             </div>
-        </transition>
+        </div>
 
 
-        <div>
+        <div class="relative z-30">
             <!--ぺージタイトル-->
             <PageTitle titleLeft="C" titleRight="NTACT" :currentPath="currentPath" />
 
-            <!--Validation Error-->
-            <div class="flex justify-center px-6 pt-12" :class="{ 'hidden': isHidden }" id="SubmitError">
-                <div class="bg-yellow-300 border-2 border-red-500 rounded-2xl p-4">
-                    <p v-text="valMes" class="text-red-500 font-semibold"></p>
-                </div>
-            </div>
-
-            <div class="flex justify-center p-6">
+            <div class="flex justify-center px-6 py-24 bg-navy-blue bg-opacity-30">
 
                 <!--form (axiosを用いない場合)-->
                 <!--<form method="POST" action="/contact/send"-->
-
                 <div class="flex flex-col gap-4">
 
                     <!--CSRF Token (axiosを用いない場合)-->
@@ -39,7 +29,7 @@
 
                     <!--NAME-->
                     <div class="form-controll w-screen px-6 lg:px-24">
-                        <div class="label label-text text-navy-blue font-semibold">
+                        <div class="label label-text text-white font-semibold">
                             お名前
                         </div>
                         <input type="text" v-model="name" placeholder="入力してください（必須）"
@@ -48,7 +38,7 @@
 
                     <!--EMAIL-->
                     <div class="form-controll w-screen px-6 lg:px-24">
-                        <div class="label label-text text-navy-blue font-semibold">
+                        <div class="label label-text text-white font-semibold">
                             メールアドレス
                         </div>
                         <input type="text" v-model="email" placeholder="入力してください（必須）"
@@ -57,7 +47,7 @@
 
                     <!--CONTENT-->
                     <div class="form-controll w-screen px-6 lg:px-24">
-                        <div class="label label-text text-navy-blue font-semibold">
+                        <div class="label label-text text-white font-semibold">
                             お問い合わせ内容
                         </div>
                         <textarea rows="10" v-model="content" placeholder="入力してください（必須）"
@@ -65,19 +55,36 @@
                             </textarea>
                     </div>
 
-                    <div class="flex justify-center px-6 lg:px-24 py-12 lg:py-24">
-                        <button class="btn btn-primary w-full max-w-xs text-white font-semibold"
-                            @click="createNewContact">送信</button>
+                    <div class="flex justify-center lg:px-24 pt-12 lg:pt-24">
+                        <label class="btn btn-primary w-full max-w-xs text-white font-semibold" for="confirm">送信</label>
                     </div>
-
+                    
                 </div>
-
                 <!--endform (axiosを用いない場合)-->
                 <!--</form>-->
-
             </div>
-
         </div>
+
+        <!--Confirm Modal (+ Validation Error Message)-->
+        <input type="checkbox" id="confirm" class="modal-toggle" />
+        <div class="modal z-50">
+            <div class="modal-box bg-yellow-400">
+                <div class="flex justify-center">
+                    <div class="flex flex-col">
+                        <div class="flex justify-center items-center gap-2 text-navy-blue text-center text-2xl font-semibold">
+                            <i class="fa-solid fa-circle-check" :class="[ submitBtnActive === true ? 'fa-circle-check' : 'fa-triangle-exclamation' ]"></i>
+                            <p v-text="modalTitle"></p>
+                        </div>
+                        <p class="py-4 text-lg text-navy-blue" v-text="modalContent"></p>
+                    </div>
+                </div>
+                <div class="modal-action">
+                    <label for="confirm" class="btn btn-primary text-white" v-text="submitBtnContent" @click="modalInitialize"></label>
+                    <button class="btn btn-primary text-white" v-if="submitBtnActive" @click="createNewContact">送信</button>
+                </div>
+            </div>
+        </div>
+
     </div>
 </template>
 
@@ -86,12 +93,15 @@ import PageTitle from '../components/PageTitle.vue';
 import { computed, inject, ref } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 
+/* router */
 const router = useRouter();
+
+/* emit */
+const emit = defineEmits(['receivePath']);
 
 /* 現在のパスをapp.vueへemit */
 const currentPath = useRoute().path;
 
-const emit = defineEmits(['receivePath']);
 const emitPath = () => {
     emit('receivePath', currentPath);
 }
@@ -113,7 +123,6 @@ const csrf = computed(() => {
 const name = ref('');
 const email = ref('');
 const content = ref('');
-const valMes = ref('');
 
 const axios = inject('axios');
 
@@ -131,9 +140,30 @@ const createNewContact = () => {
         .catch(err => {
             loadingActive.value = false;
             isHidden.value = false;
-            valMes.value = '内容の送信に失敗しました．お手数ですが，内容をお確かめのうえ再度送信をお願いします．';
-            router.push({ path: 'contact#SubmitError' });
+            submitBtnActive.value = false;
+
+            modalTitle.value = err.response.status + ' ERROR';
+            modalContent.value = '送信に失敗しました．お手数ですが，内容をお確かめのうえ再度送信をお願いします．';
+            submitBtnContent.value = '閉じる';
         });
+}
+
+/* モーダルにバリデーションエラーを表示 */
+const initialTitle = 'CONFIRM';
+const initialContent = 'フォームを送信しますか？';
+const submitBtnInitialMes = 'キャンセル';
+const modalTitle = ref(initialTitle);
+const modalContent = ref(initialContent);
+const submitBtnContent = ref(submitBtnInitialMes);
+const submitBtnActive = ref(true);
+
+const modalInitialize = () => {
+    setTimeout(() => {
+        modalTitle.value = initialTitle;
+        modalContent.value = initialContent;
+        submitBtnContent.value = submitBtnInitialMes;
+        submitBtnActive.value = true;
+    }, 300)
 }
 </script>
 
@@ -157,19 +187,5 @@ const createNewContact = () => {
         transform: rotate(360deg);
     }
 }
-
-.loading-enter-from,
-.loading-leave-to {
-    opacity: 0;
-}
-
-.loading-enter-active,
-.loading-leave-active {
-    transition: opacity .5s ease;
-}
-
-.loading-enter-to,
-.loading-leave-from {
-    opacity: 1;
-}</style>
+</style>
 

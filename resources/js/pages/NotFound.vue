@@ -1,5 +1,5 @@
 <template>
-    <div class="relative w-screen h-screen">
+    <div class="relative w-screen h-screen bg-yellow-400">
         <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
             <div class="flex flex-col items-center gap-12">
 
@@ -18,7 +18,7 @@
                 </div>
                 <div class="flex flex-col lg:flex-row">
                     <p class="text-center text-navy-blue text-lg lg:text-2xl whitespace-nowrap">
-                        <span>{{ count }}</span>
+                        <span v-text="count"></span>
                         秒後にHOMEへリダイレクトします．
                     </p>
                 </div>
@@ -28,18 +28,20 @@
 </template>
 
 <script setup>
-    import { ref } from 'vue';
-    import { useRouter } from 'vue-router';
+import { ref } from 'vue';
+import { useRouter } from 'vue-router';
 
-    const router = useRouter();
+/* router */
+const router = useRouter();
 
-    let count = ref(3);
-    setInterval(() => {
-        count.value--
-    }, 1000);
+/* 3秒後にHomeへリダイレクト*/
+const count = ref(3);
+setInterval(() => {
+    count.value--
+}, 1000);
 
-    setTimeout(() => {
-        router.push({ name: 'Home' });
-    }, 3000);
+setTimeout(() => {
+    router.push({ name: 'Home' });
+}, 3000);
 </script>
 

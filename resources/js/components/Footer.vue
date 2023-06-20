@@ -1,6 +1,6 @@
 <template>
     <footer class="footer footer-center bg-navy-blue py-4"
-        :class="[currentPath === '/' ? ['bg-opacity-90'] : []]">
+        :class="[currentPath === '/' ? ['bg-opacity-80'] : []]">
         <div class="flex justify-around items-center w-full">
 
             <!--GitHub-->
@@ -29,19 +29,20 @@
 
 <script setup>
 
-/* currentPathをprop */
+/* props */
 const props = defineProps({
     currentPath: {
         type: String,
-        default: '/',
     },
     sidebarActive: {
-        default: false,
+        type: Boolean,
     },
 });
 
-/* サイドバーをemitして開閉 */
+/* emit */
 const emit = defineEmits(['toggleSidebar']);
+
+/* サイドバーをemitして開閉 */
 const emitSidebar = () => {
     emit('toggleSidebar');
 }

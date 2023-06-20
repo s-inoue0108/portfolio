@@ -29,8 +29,8 @@
                 <div class="flex justify-center gap-4 lg:gap-8">
                     <div v-for="link in links" :key="link.id">
                         <router-link :to="currentPath + link.hash">
-                            <button class="btn btn-primary btn-outline lg:btn-lg text-xs w-[7rem] lg:w-[14rem] p-0">
-                                <div class="flex items-center gap-1">
+                            <button class="btn btn-primary lg:btn-lg text-xs w-[7rem] lg:w-[14rem] p-0">
+                                <div class="flex items-center text-white gap-1">
                                     <i class="fa-solid fa-chevron-down"></i>
                                     <p v-text="link.hashTitle"></p>
                                 </div>
@@ -47,6 +47,7 @@
 import HoneyComb from '../components/HoneyComb.vue';
 import { ref } from 'vue';
 
+/* props */
 const props = defineProps({
     titleLeft: {
         type: String,
@@ -56,10 +57,10 @@ const props = defineProps({
         type: String,
     },
     currentPath: {
-        type: String
+        type: String,
     },
     links: {
-        type: Array
+        type: Array,
     },
 });
 

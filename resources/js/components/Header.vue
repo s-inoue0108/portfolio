@@ -1,12 +1,13 @@
 <template>
-    <header class="header bg-navy-blue bg-opacity-90 py-2 md:py-4">
+    <header class="header bg-navy-blue py-2 md:py-4" :class="[currentPath === '/' ? ['bg-opacity-80'] : []]">
         <div class="flex justify-around items-center w-full">
 
             <!--背景を変更-->
             <div class="flex flex-col gap-1 w-16 md:w-24">
-                <p class="text-xs md:text-lg text-yellow-400 text-center" v-text="img.name"></p>
+                <p class="text-xs md:text-lg text-yellow-400 text-center" v-text="img.name"
+                    :class="{ 'fade-out-in': imgChanging }"></p>
                 <button class="btn btn-xs md:btn-sm btn-outline" @click="emitChangeImg">
-                    <p><i class="fa-solid fa-rotate mr-1"></i>変更</p>
+                    <p><i class="fa-solid fa-rotate mr-1" :class="{ 'rotate': imgChanging }"></i>変更</p>
                 </button>
             </div>
 
@@ -95,21 +96,23 @@
 </template>
 
 <script setup>
-
 /* props */
 const props = defineProps({
     currentPath: {
         type: String,
-        default: '/',
     },
     sidebarActive: {
-        default: false,
+        type: Boolean,
     },
     img: {
-        required: false,
+        type: Object,
     },
+    imgChanging: {
+        type: Boolean,
+    }
 });
 
+/* emit */
 const emit = defineEmits(['toggleSidebar', 'changeImg']);
 
 /* サイドバーをemitして開閉 */
@@ -117,8 +120,48 @@ const emitSidebar = () => {
     emit('toggleSidebar');
 }
 
-/* 背景画像の変更 */
+/* 背景画像をemitして変更 */
 const emitChangeImg = () => {
     emit('changeImg');
 }
 </script>
+
+
+
+<style scoped>
+.rotate {
+    animation: 1s linear rotation;
+}
+
+@keyframes rotation {
+    0% {
+        transform: rotate(0);
+    }
+
+    50% {
+        transform: rotate(180deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.fade-out-in {
+    animation: 1.0s ease-in-out fade-out-in;
+}
+
+@keyframes fade-out-in {
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+</style>

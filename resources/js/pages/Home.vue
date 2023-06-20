@@ -45,17 +45,18 @@
 import { ref, onMounted } from 'vue';
 import { useRoute } from 'vue-router';
 
+/* emit */
+const emit = defineEmits(['receivePath']);
+
 /* 現在のパスをapp.vueへemit */
 const currentPath = useRoute().path;
-
-const emit = defineEmits(['receivePath']);
 const emitPath = () => {
     emit('receivePath', currentPath);
 }
 
 emitPath();
 
-/* アニメーション，背景画像，パスのemit */
+/* アニメーション，背景画像をマウント */
 const animateActive = ref(false);
 const contentActive = ref(false);
 

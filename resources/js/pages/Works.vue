@@ -8,7 +8,7 @@
                 <div v-if="pageTopLinkActive">
                     <div class="fixed bottom-10 md:bottom-20 right-0 bg-gray-400 bg-opacity-30 p-2 md:pl-4 md:pr-8 md:py-4 z-40">
                         <router-link :to="currentPath">
-                            <button class="btn btn-sm md:btn-md lg:btn-lg btn-circle btn-primary">
+                            <button class="btn btn-sm md:btn-md lg:btn-lg btn-circle btn-primary text-white">
                                 <i class="fa-solid fa-chevron-up"></i>
                             </button>
                         </router-link>
@@ -51,10 +51,12 @@ import Portfolio from '../components/works/Portfolio.vue';
 import { ref, onMounted } from 'vue';
 import { useRoute } from 'vue-router';
 
+/* emit */
+const emit = defineEmits(['receivePath']);
+
 /* 現在のパスをapp.vueへemit */
 const currentPath = useRoute().path;
 
-const emit = defineEmits(['receivePath']);
 const emitPath = () => {
     emit('receivePath', currentPath);
 }
