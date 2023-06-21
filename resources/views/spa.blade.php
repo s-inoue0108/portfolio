@@ -20,12 +20,6 @@
         <!--RESET CSS-->
         <link rel="stylesheet" href="https://unpkg.com/destyle.css@3.0.2/destyle.min.css">
 
-        <!--Font Awesome-->
-        <link rek="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
-
-        <!--Font Awesome Kit #bc17b35159-->
-        <script src="https://kit.fontawesome.com/bc17b35159.js" crossorigin="anonymous"></script>
-
         <!--Noto Sans JP-->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

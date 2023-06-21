@@ -7,7 +7,7 @@
                 <p class="text-xs md:text-lg text-yellow-400 text-center" v-text="img.name"
                     :class="{ 'fade-out-in': imgChanging }"></p>
                 <button class="btn btn-xs md:btn-sm btn-outline" @click="emitChangeImg">
-                    <p><i class="fa-solid fa-rotate mr-1" :class="{ 'rotate': imgChanging }"></i>変更</p>
+                    <p><font-awesome-icon :icon="['fas', 'rotate']" class="mr-1" :class="{ 'rotate': imgChanging }" />変更</p>
                 </button>
             </div>
 
@@ -19,7 +19,7 @@
                     <router-link to="/"
                         :class="[currentPath === '/' ? ['text-yellow-400', 'border-b-2', 'border-yellow-400'] : ['text-white', 'link-hover']]">
                         <div class="flex items-center gap-2">
-                            <i class="fa-solid fa-home"></i>
+                            <font-awesome-icon :icon="['fas', 'house']" />
                             <p>HOME</p>
                         </div>
                     </router-link>
@@ -29,7 +29,7 @@
                     <router-link to="/about"
                         :class="[currentPath === '/about' ? ['text-yellow-400', 'border-b-2', 'border-yellow-400'] : ['text-white', 'link-hover']]">
                         <div class="flex items-center gap-2">
-                            <i class="fa-solid fa-user"></i>
+                            <font-awesome-icon :icon="['fas', 'user']" />
                             <p>ABOUT</p>
                         </div>
                     </router-link>
@@ -39,7 +39,7 @@
                     <router-link to="/works"
                         :class="[currentPath === '/works' ? ['text-yellow-400', 'border-b-2', 'border-yellow-400'] : ['text-white', 'link-hover']]">
                         <div class="flex items-center gap-2">
-                            <i class="fa-solid fa-laptop-code"></i>
+                            <font-awesome-icon :icon="['fas', 'laptop-code']" />
                             <p>WORKS</p>
                         </div>
                     </router-link>
@@ -49,7 +49,7 @@
                     <router-link to="/contact"
                         :class="[currentPath === '/contact' ? ['text-yellow-400', 'border-b-2', 'border-yellow-400'] : ['text-white', 'link-hover']]">
                         <div class="flex items-center gap-2">
-                            <i class="fa-solid fa-envelope"></i>
+                            <font-awesome-icon :icon="['fas', 'envelope']" />
                             <p>CONTACT</p>
                         </div>
                     </router-link>
@@ -61,25 +61,25 @@
                 <div class="flex justify-center gap-8 text-white text-lg font-semibold">
                     <!--HOME-->
                     <router-link to="/" :class="[currentPath === '/' ? ['text-yellow-400'] : ['text-white', 'link-hover']]">
-                        <i class="fa-solid fa-home"></i>
+                        <font-awesome-icon :icon="['fas', 'house']" />
                     </router-link>
 
                     <!--ABOUT-->
                     <router-link to="/about"
                         :class="[currentPath === '/about' ? ['text-yellow-400'] : ['text-white', 'link-hover']]">
-                        <i class="fa-solid fa-user"></i>
+                        <font-awesome-icon :icon="['fas', 'user']" />
                     </router-link>
 
                     <!--WORKS-->
                     <router-link to="/works"
                         :class="[currentPath === '/works' ? ['text-yellow-400'] : ['text-white', 'link-hover']]">
-                        <i class="fa-solid fa-laptop-code"></i>
+                        <font-awesome-icon :icon="['fas', 'laptop-code']" />
                     </router-link>
 
                     <!--CONTACT-->
                     <router-link to="/contact"
                         :class="[currentPath === '/contact' ? ['text-yellow-400'] : ['text-white', 'link-hover']]">
-                        <i class="fa-solid fa-envelope"></i>
+                        <font-awesome-icon :icon="['fas', 'envelope']" />
                     </router-link>
                 </div>
             </div>
@@ -87,7 +87,7 @@
             <!--サイドバー開閉ボタン-->
             <button class="btn btn-sm lg:btn-md btn-outline btn-neutral w-10 md:w-24" @click="emitSidebar">
                 <div class="flex items-center gap-2">
-                    <i class="fa-solid" :class="[sidebarActive === true ? 'fa-xmark' : 'fa-bars']"></i>
+                    <font-awesome-icon :icon="['fas', iconTag]" />
                     <p class="hidden md:block">MENU</p>
                 </div>
             </button>
@@ -96,6 +96,8 @@
 </template>
 
 <script setup>
+import { ref, watch } from 'vue';
+
 /* props */
 const props = defineProps({
     currentPath: {
@@ -124,6 +126,17 @@ const emitSidebar = () => {
 const emitChangeImg = () => {
     emit('changeImg');
 }
+
+/* ボタンアイコンの変更 */
+const iconTag = ref('bars');
+
+watch(() => props.sidebarActive, (newVal) => {
+    if(newVal === true) {
+        iconTag.value = 'xmark';
+    } else {
+        iconTag.value = 'bars';
+    }
+});
 </script>
 
 

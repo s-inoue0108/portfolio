@@ -5,7 +5,7 @@
         <div class="px-4 lg:px-12 pt-24 lg:pt-36">
             <div class="bg-yellow-400 rounded-2xl">
                 <h1 class="text-center text-navy-blue text-xl lg:text-5xl font-bold p-4">
-                    <i class="fa-solid fa-envelope mr-1"></i>
+                    <font-awesome-icon :icon="['fas', 'envelope']" class="mr-1" />
                     お問い合わせを受け付けました
                 </h1>
             </div>
@@ -20,7 +20,7 @@
                         <div class="flex flex-col gap-2 text-center text-navy-blue p-4">
                             <p class="text-xl lg:text-3xl font-bold">imaze.adm0108(at)gmail.com</p>
                             <div class="text-xs lg:text-base">
-                                <i class="fa-solid fa-circle-exclamation mr-1"></i>
+                                <font-awesome-icon :icon="['fas', 'circle-exclamation']" class="mr-1" />
                                 <label>迷惑メール防止のため，@を(at)と表示しています</label>
                             </div>
                         </div>

@@ -7,9 +7,7 @@
                 <!--CLOSEボタン-->
                 <div class="flex flex-row-reverse justify-between">
                     <button class="btn btn-sm lg:btn-md btn-circle btn-neutral btn-outline" @click="emitSidebar">
-                        <div class="text-lg lg:text-2xl">
-                            <i class="fa-solid fa-xmark"></i>
-                        </div>
+                        <font-awesome-icon :icon="['fas', 'xmark']" class="text-lg lg:text-2xl" />
                     </button>
                 </div>
                 <h1 class="text-3xl lg:text-4xl text-center font-bold pt-4">CONTENTS</h1>
@@ -22,8 +20,7 @@
                                 <div class="flex items-center gap-2">
                                     <div class="relative text-navy-blue w-10 lg:w-12 h-[2.21rem] lg:h-[2.60rem] hex"
                                         :class="[currentPath === '/' ? ['bg-yellow-400'] : ['bg-gray-300']]">
-                                        <i
-                                            class="fa-solid fa-house absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"></i>
+                                        <font-awesome-icon :icon="['fas', 'house']" class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
                                     </div>
                                     <p>HOME</p>
                                 </div>
@@ -38,8 +35,7 @@
                                 <div class="flex items-center gap-2">
                                     <div class="relative text-navy-blue w-10 lg:w-12 h-[2.21rem] lg:h-[2.60rem] hex"
                                         :class="[currentPath === '/about' ? ['bg-yellow-400'] : ['bg-gray-300']]">
-                                        <i
-                                            class="fa-solid fa-user absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"></i>
+                                        <font-awesome-icon :icon="['fas', 'user']" class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
                                     </div>
                                     <p>ABOUT</p>
                                 </div>
@@ -49,14 +45,14 @@
                                 </div>
                                 <div class="flex flex-col gap-2 pl-4 py-8">
                                     <router-link to="/about#Profile" class="text-base lg:text-lg font-light link-hover">
-                                        <i class="fa-solid fa-user mr-1"></i>プロフィール
+                                        <font-awesome-icon :icon="['fas', 'user']" class="mr-1" />プロフィール
                                     </router-link>
                                     <router-link to="/about#AcademicBackground"
                                         class="text-base lg:text-lg font-light link-hover">
-                                        <i class="fa-solid fa-school mr-1"></i>学歴
+                                        <font-awesome-icon :icon="['fas', 'school']" class="mr-1" />学歴
                                     </router-link>
                                     <router-link to="/about#CodingSkill" class="text-base lg:text-lg font-light link-hover">
-                                        <i class="fa-solid fa-code mr-1"></i>スキル
+                                        <font-awesome-icon :icon="['fas', 'code']" class="mr-1" />スキル
                                     </router-link>
                                 </div>
                             </div>
@@ -67,8 +63,7 @@
                                 <div class="flex items-center gap-2">
                                     <div class="relative text-navy-blue w-10 lg:w-12 h-[2.21rem] lg:h-[2.60rem] hex"
                                         :class="[currentPath === '/works' ? ['bg-yellow-400'] : ['bg-gray-300']]">
-                                        <i
-                                            class="fa-solid fa-laptop-code absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"></i>
+                                        <font-awesome-icon :icon="['fas', 'laptop-code']" class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
                                     </div>
                                     <p>WORKS</p>
                                 </div>
@@ -78,13 +73,13 @@
                                 </div>
                                 <div class="flex flex-col gap-2 pl-4 py-8">
                                     <router-link to="/works#BlogSite" class="text-base lg:text-lg font-light link-hover">
-                                        <i class="fa-solid fa-pen-nib mr-1"></i>ブログサイト
+                                        <font-awesome-icon :icon="['fas', 'pen-nib']" class="mr-1" />ブログサイト
                                     </router-link>
                                     <router-link to="/works#QuizApp" class="text-base lg:text-lg font-light link-hover">
-                                        <i class="fa-solid fa-q mr-1"></i>クイズアプリ
+                                        <font-awesome-icon :icon="['fas', 'q']" class="mr-1" />クイズアプリ
                                     </router-link>
                                     <router-link to="/works#Portfolio" class="text-base lg:text-lg font-light link-hover">
-                                        <i class="fa-solid fa-globe mr-1"></i>ポートフォリオ
+                                        <font-awesome-icon :icon="['fas', 'globe']" class="mr-1" />ポートフォリオ
                                     </router-link>
                                 </div>
                             </div>
@@ -96,8 +91,7 @@
                                 <div class="flex items-center gap-2">
                                     <div class="relative text-navy-blue w-10 lg:w-12 h-[2.21rem] lg:h-[2.60rem] hex"
                                         :class="[currentPath === '/contact' ? ['bg-yellow-400'] : ['bg-gray-300']]">
-                                        <i
-                                            class="fa-solid fa-envelope absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"></i>
+                                        <font-awesome-icon :icon="['fas', 'envelope']" class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
                                     </div>
                                     <p>CONTACT</p>
                                 </div>

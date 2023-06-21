@@ -9,7 +9,7 @@
                     <div class="fixed bottom-10 md:bottom-20 right-0 bg-gray-400 bg-opacity-30 p-2 md:pl-4 md:pr-8 md:py-4 z-40">
                         <router-link :to="currentPath">
                             <button class="btn btn-sm md:btn-md lg:btn-lg btn-circle btn-primary text-white">
-                                <i class="fa-solid fa-chevron-up"></i>
+                                <font-awesome-icon :icon="['fas', 'chevron-up']" />
                             </button>
                         </router-link>
                     </div>
@@ -21,19 +21,19 @@
 
             <!--ブログサイト-->
             <div id="BlogSite">
-                <SubTitle subTitle="ブログサイト" iconTag='<i class="fa-solid fa-pen-nib"></i>' />
+                <SubTitle subTitle="ブログサイト" iconTag='pen-nib' />
                 <BlogSite />
             </div>
 
             <!--クイズアプリ-->
             <div id="QuizApp">
-                <SubTitle subTitle="クイズアプリ" iconTag='<i class="fa-solid fa-q"></i>' />
+                <SubTitle subTitle="クイズアプリ" iconTag='q' />
                 <QuizApp />
             </div>
 
             <!--ポートフォリオ-->
             <div id="Portfolio">
-                <SubTitle subTitle="ポートフォリオ" iconTag='<i class="fa-solid fa-globe"></i>' />
+                <SubTitle subTitle="ポートフォリオ" iconTag='globe' />
                 <Portfolio />
             </div>
 

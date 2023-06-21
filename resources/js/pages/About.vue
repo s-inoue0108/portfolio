@@ -8,7 +8,7 @@
                     <div class="fixed bottom-10 md:bottom-20 right-0 bg-gray-400 bg-opacity-30 p-2 md:pl-4 md:pr-8 md:py-4 z-40">
                         <router-link :to="currentPath">
                             <button class="btn btn-sm md:btn-md lg:btn-lg btn-circle btn-primary text-white">
-                                <i class="fa-solid fa-chevron-up"></i>
+                                <font-awesome-icon :icon="['fas', 'chevron-up']" />
                             </button>
                         </router-link>
                     </div>
@@ -20,7 +20,7 @@
 
             <!--プロフィール-->
             <div id="Profile" class="relative z-30">
-                <SubTitle subTitle="プロフィール" iconTag='<i class="fa-solid fa-user"></i>' />
+                <SubTitle subTitle="プロフィール" iconTag='user' />
 
                 <div class="flex justify-center py-16">
                     <div class="flex items-center justify-center gap-4">
@@ -36,13 +36,13 @@
 
             <!--学歴-->
             <div id="AcademicBackground" class="relative z-30">
-                <SubTitle subTitle="学歴" iconTag='<i class="fa-solid fa-school"></i>' />
+                <SubTitle subTitle="学歴" iconTag='school' />
                 <AcademicBackground />
             </div>
 
             <!--スキル-->
             <div id="CodingSkill" class="relative z-30">
-                <SubTitle subTitle="スキル" iconTag='<i class="fa-solid fa-code"></i>' />
+                <SubTitle subTitle="スキル" iconTag='code' />
                 <CodingSkill />
             </div>
 

@@ -31,7 +31,7 @@
                         <router-link :to="currentPath + link.hash">
                             <button class="btn btn-primary lg:btn-lg text-xs w-[7rem] lg:w-[14rem] p-0">
                                 <div class="flex items-center text-white gap-1">
-                                    <i class="fa-solid fa-chevron-down"></i>
+                                    <font-awesome-icon :icon="['fas', 'chevron-down']" />
                                     <p v-text="link.hashTitle"></p>
                                 </div>
                             </button>

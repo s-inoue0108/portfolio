@@ -6,7 +6,7 @@
             <div class="fixed w-screen h-screen bg-neutral bg-opacity-80 z-[100]">
                 <div class="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
                     <div class="flex flex-col gap-8 text-4xl lg:text-6xl text-center text-navy-blue font-bold">
-                        <div class="spinner"><i class="fa-solid fa-3x fa-spinner"></i></div>
+                        <font-awesome-icon :icon="['fas', 'spinner']" class="text-9xl spinner" />
                         <p class="whitespace-nowrap">Please Wait...</p>
                     </div>
                 </div>
@@ -72,7 +72,7 @@
                 <div class="flex justify-center">
                     <div class="flex flex-col">
                         <div class="flex justify-center items-center gap-2 text-navy-blue text-center text-2xl font-semibold">
-                            <i class="fa-solid fa-circle-check" :class="[ submitBtnActive === true ? 'fa-circle-check' : 'fa-triangle-exclamation' ]"></i>
+                            <font-awesome-icon :icon="['fas', iconTag]" />
                             <p v-text="modalTitle"></p>
                         </div>
                         <p class="py-4 text-lg text-navy-blue" v-text="modalContent"></p>
@@ -142,6 +142,7 @@ const createNewContact = () => {
             isHidden.value = false;
             submitBtnActive.value = false;
 
+            iconTag.value = 'triangle-exclamation';
             modalTitle.value = err.response.status + ' ERROR';
             modalContent.value = '送信に失敗しました．お手数ですが，内容をお確かめのうえ再度送信をお願いします．';
             submitBtnContent.value = '閉じる';
@@ -149,9 +150,11 @@ const createNewContact = () => {
 }
 
 /* モーダルにバリデーションエラーを表示 */
+const initialIconTag = 'circle-check';
 const initialTitle = 'CONFIRM';
 const initialContent = 'フォームを送信しますか？';
 const submitBtnInitialMes = 'キャンセル';
+const iconTag = ref(initialIconTag)
 const modalTitle = ref(initialTitle);
 const modalContent = ref(initialContent);
 const submitBtnContent = ref(submitBtnInitialMes);
@@ -159,6 +162,7 @@ const submitBtnActive = ref(true);
 
 const modalInitialize = () => {
     setTimeout(() => {
+        iconTag.value = initialIconTag;
         modalTitle.value = initialTitle;
         modalContent.value = initialContent;
         submitBtnContent.value = submitBtnInitialMes;
@@ -177,10 +181,6 @@ const modalInitialize = () => {
 @keyframes rotation {
     0% {
         transform: rotate(0);
-    }
-
-    50% {
-        transform: rotate(180deg);
     }
 
     100% {

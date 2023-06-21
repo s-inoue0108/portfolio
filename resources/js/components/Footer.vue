@@ -8,7 +8,7 @@
                 <button class="btn btn-sm lg:btn-md btn-neutral btn-outline normal-case">
                     <div class="flex items-center gap-2">
                         <p class="hidden md:block">GitHub</p>
-                        <i class="fa-brands fa-github"></i>
+                        <font-awesome-icon :icon="['fab', 'github']" />
                     </div>
                 </button>
             </a>
@@ -19,7 +19,7 @@
             <!--サイドバー開閉ボタン-->
             <button class="btn btn-sm lg:btn-md btn-outline btn-neutral w-10 md:w-24" @click="emitSidebar">
                 <div class="flex items-center gap-2">
-                    <i class="fa-solid" :class="[sidebarActive === true ? 'fa-xmark' : 'fa-bars']"></i>
+                    <font-awesome-icon :icon="['fas', iconTag]" />
                     <p class="hidden md:block">MENU</p>
                 </div>
             </button>
@@ -28,6 +28,7 @@
 </template>
 
 <script setup>
+import { ref, watch } from 'vue';
 
 /* props */
 const props = defineProps({
@@ -46,6 +47,17 @@ const emit = defineEmits(['toggleSidebar']);
 const emitSidebar = () => {
     emit('toggleSidebar');
 }
+
+/* ボタンアイコンの変更 */
+const iconTag = ref('bars');
+
+watch(() => props.sidebarActive, (newVal) => {
+    if(newVal === true) {
+        iconTag.value = 'xmark';
+    } else {
+        iconTag.value = 'bars';
+    }
+});
 
 /* Year */
 const date = new Date();

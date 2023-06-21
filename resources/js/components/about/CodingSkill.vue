@@ -6,7 +6,7 @@
 
                 <div class="bg-yellow-400 border-[8px] border-navy-blue rounded-2xl p-4">
                     <div class="flex justify-center items-center gap-12">
-                        <i class="fa-brands fa-html5 fa-10x text-navy-blue"></i>
+                        <font-awesome-icon :icon="['fab', 'html5']" class="text-navy-blue text-9xl" />
                         <div class="flex flex-col gap-4 text-navy-blue">
                             <p class="text-center text-3xl font-semibold">HTML & CSS</p>
                             <div class="border border-navy-blue rounded"></div>
@@ -32,7 +32,7 @@
 
                 <div class="bg-yellow-400 border-[8px] border-navy-blue rounded-2xl p-4">
                     <div class="flex justify-center items-center gap-12">
-                        <i class="fa-brands fa-js fa-9x text-navy-blue"></i>
+                        <font-awesome-icon :icon="['fab', 'js']" class="text-navy-blue text-9xl" />
                         <div class="flex flex-col gap-4 text-navy-blue">
                             <p class="text-center text-3xl font-semibold">フロントエンド</p>
                             <div class="border border-navy-blue rounded"></div>
@@ -58,7 +58,7 @@
 
                 <div class="bg-yellow-400 border-[8px] border-navy-blue rounded-2xl p-4">
                     <div class="flex justify-center items-center gap-12">
-                        <i class="fa-brands fa-laravel fa-8x text-navy-blue"></i>
+                        <font-awesome-icon :icon="['fab', 'laravel']" class="text-navy-blue text-9xl" />
                         <div class="flex flex-col gap-4 text-navy-blue">
                             <p class="text-center text-3xl font-semibold">バックエンド</p>
                             <div class="border border-navy-blue rounded"></div>
@@ -76,7 +76,7 @@
 
                 <div class="bg-yellow-400 border-[8px] border-navy-blue rounded-2xl p-4">
                     <div class="flex justify-center items-center gap-12">
-                        <i class="fa-solid fa-database fa-8x text-navy-blue"></i>
+                        <font-awesome-icon :icon="['fas', 'database']" class="text-navy-blue text-9xl" />
                         <div class="flex flex-col gap-4 text-navy-blue">
                             <p class="text-center text-3xl font-semibold">DB & サーバー</p>
                             <div class="border border-navy-blue rounded"></div>
@@ -98,7 +98,7 @@
 
                 <div class="bg-yellow-400 border-[8px] border-navy-blue rounded-2xl p-4">
                     <div class="flex justify-center items-center gap-12">
-                        <i class="fa-solid fa-toolbox fa-8x text-navy-blue"></i>
+                        <font-awesome-icon :icon="['fas', 'toolbox']" class="text-navy-blue text-9xl" />
                         <div class="flex flex-col gap-4 text-navy-blue">
                             <p class="text-center text-3xl font-semibold">ツール</p>
                             <div class="border border-navy-blue rounded"></div>
@@ -120,7 +120,7 @@
 
                 <div class="bg-yellow-400 border-[8px] border-navy-blue rounded-2xl p-4">
                     <div class="flex justify-center items-center gap-12">
-                        <i class="fa-solid fa-list fa-8x text-navy-blue"></i>
+                        <font-awesome-icon :icon="['fas', 'list']" class="text-navy-blue text-9xl" />
                         <div class="flex flex-col gap-4 text-navy-blue">
                             <p class="text-center text-3xl font-semibold">その他</p>
                             <div class="border border-navy-blue rounded"></div>
@@ -145,7 +145,7 @@
                 <div class="bg-yellow-400 border-4 border-navy-blue rounded-2xl p-4">
                     <div class="flex flex-col gap-4 text-navy-blue">
                         <div class="flex justify-center items-center gap-4">
-                            <i class="fa-brands fa-html5 fa-3x text-navy-blue"></i>
+                            <font-awesome-icon :icon="['fab', 'html5']" class="text-navy-blue text-5xl" />
                             <p class="text-center text-3xl font-semibold">HTML & CSS</p>
                         </div>
                         <div class="border border-navy-blue rounded"></div>
@@ -171,7 +171,7 @@
                 <div class="bg-yellow-400 border-4 border-navy-blue rounded-2xl p-4">
                     <div class="flex flex-col gap-4 text-navy-blue">
                         <div class="flex justify-center items-center gap-4">
-                            <i class="fa-brands fa-js fa-3x text-navy-blue"></i>
+                            <font-awesome-icon :icon="['fab', 'js']" class="text-navy-blue text-5xl" />
                             <p class="text-center text-3xl font-semibold">フロントエンド</p>
                         </div>
                         <div class="border border-navy-blue rounded"></div>
@@ -197,7 +197,7 @@
                 <div class="bg-yellow-400 border-4 border-navy-blue rounded-2xl p-4">
                     <div class="flex flex-col gap-4 text-navy-blue">
                         <div class="flex justify-center items-center gap-4">
-                            <i class="fa-brands fa-laravel fa-3x text-navy-blue"></i>
+                            <font-awesome-icon :icon="['fab', 'laravel']" class="text-navy-blue text-5xl" />
                             <p class="text-center text-3xl font-semibold">バックエンド</p>
                         </div>
                         <div class="border border-navy-blue rounded"></div>
@@ -215,7 +215,7 @@
                 <div class="bg-yellow-400 border-4 border-navy-blue rounded-2xl p-4">
                     <div class="flex flex-col gap-4 text-navy-blue">
                         <div class="flex justify-center items-center gap-4">
-                            <i class="fa-solid fa-database fa-3x text-navy-blue"></i>
+                            <font-awesome-icon :icon="['fas', 'database']" class="text-navy-blue text-5xl" />
                             <p class="text-center text-3xl font-semibold">DB & サーバー</p>
                         </div>
                         <div class="border border-navy-blue rounded"></div>
@@ -237,7 +237,7 @@
                 <div class="bg-yellow-400 border-4 border-navy-blue rounded-2xl p-4">
                     <div class="flex flex-col gap-4 text-navy-blue">
                         <div class="flex justify-center items-center gap-4">
-                            <i class="fa-solid fa-toolbox fa-3x text-navy-blue"></i>
+                            <font-awesome-icon :icon="['fas', 'toolbox']" class="text-navy-blue text-5xl" />
                             <p class="text-center text-3xl font-semibold">ツール</p>
                         </div>
                         <div class="border border-navy-blue rounded"></div>
@@ -259,7 +259,7 @@
                 <div class="bg-yellow-400 border-4 border-navy-blue rounded-2xl p-4">
                     <div class="flex flex-col gap-4 text-navy-blue">
                         <div class="flex justify-center items-center gap-4">
-                            <i class="fa-solid fa-list fa-3x text-navy-blue"></i>
+                            <font-awesome-icon :icon="['fas', 'list']" class="text-navy-blue text-5xl" />
                             <p class="text-center text-3xl font-semibold">その他</p>
                         </div>
                         <div class="border border-navy-blue rounded"></div>
