@@ -6,7 +6,7 @@
             <!--ページトップリンク-->
             <transition name="fade">
                 <div v-if="pageTopLinkActive">
-                    <div class="fixed bottom-10 md:bottom-20 right-0 bg-gray-400 bg-opacity-30 p-2 md:pl-4 md:pr-8 md:py-4 z-40">
+                    <div class="fixed bottom-10 md:bottom-20 right-0 bg-gray-400 bg-opacity-50 rounded-l-lg md:rounded-l-xl p-2 md:pl-4 md:pr-8 md:py-4 z-40">
                         <router-link :to="currentPath">
                             <button class="btn btn-sm md:btn-md lg:btn-lg btn-circle btn-primary text-white">
                                 <font-awesome-icon :icon="['fas', 'chevron-up']" />
@@ -20,19 +20,19 @@
             <PageTitle titleLeft="W" titleRight="RKS" :currentPath="currentPath" :links="links" />
 
             <!--ブログサイト-->
-            <div id="BlogSite">
+            <div id="BlogSite" class="relative z-30">
                 <SubTitle subTitle="ブログサイト" iconTag='pen-nib' />
                 <BlogSite />
             </div>
 
             <!--クイズアプリ-->
-            <div id="QuizApp">
+            <div id="QuizApp" class="relative z-30">
                 <SubTitle subTitle="クイズアプリ" iconTag='q' />
                 <QuizApp />
             </div>
 
             <!--ポートフォリオ-->
-            <div id="Portfolio">
+            <div id="Portfolio" class="relative z-30">
                 <SubTitle subTitle="ポートフォリオ" iconTag='globe' />
                 <Portfolio />
             </div>

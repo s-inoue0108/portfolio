@@ -68,19 +68,19 @@
         <!--Confirm Modal (+ Validation Error Message)-->
         <input type="checkbox" id="confirm" class="modal-toggle" />
         <div class="modal z-50">
-            <div class="modal-box bg-yellow-400">
+            <div class="modal-box bg-navy-blue border-2 border-white">
                 <div class="flex justify-center">
                     <div class="flex flex-col">
-                        <div class="flex justify-center items-center gap-2 text-navy-blue text-center text-2xl font-semibold">
+                        <div class="flex justify-center items-center gap-2 text-white text-center text-2xl font-semibold">
                             <font-awesome-icon :icon="['fas', iconTag]" />
                             <p v-text="modalTitle"></p>
                         </div>
-                        <p class="py-4 text-lg text-navy-blue" v-text="modalContent"></p>
+                        <p class="py-4 text-lg text-white" v-text="modalContent"></p>
                     </div>
                 </div>
                 <div class="modal-action">
-                    <label for="confirm" class="btn btn-primary text-white" v-text="submitBtnContent" @click="modalInitialize"></label>
-                    <button class="btn btn-primary text-white" v-if="submitBtnActive" @click="createNewContact">送信</button>
+                    <label for="confirm" class="btn btn-neutral text-navy-blue" v-text="submitBtnContent" @click="modalInitialize"></label>
+                    <button class="btn btn-neutral text-navy-blue" v-if="submitBtnActive" @click="createNewContact">送信</button>
                 </div>
             </div>
         </div>

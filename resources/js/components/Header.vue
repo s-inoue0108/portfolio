@@ -3,12 +3,23 @@
         <div class="flex justify-around items-center w-full">
 
             <!--背景を変更-->
-            <div class="flex flex-col gap-1 w-16 md:w-24">
-                <p class="text-xs md:text-lg text-yellow-400 text-center" v-text="img.name"
-                    :class="{ 'fade-out-in': imgChanging }"></p>
-                <button class="btn btn-xs md:btn-sm btn-outline" @click="emitChangeImg">
-                    <p><font-awesome-icon :icon="['fas', 'rotate']" class="mr-1" :class="{ 'rotate': imgChanging }" />変更</p>
-                </button>
+            <div class="relative">
+                <div class="flex flex-col gap-1 w-16 md:w-24">
+                    <p class="text-xs md:text-lg text-yellow-400 text-center" v-text="img.name"
+                        :class="{ 'fade-out-in': imgChanging }"></p>
+                    <button class="btn btn-xs md:btn-sm btn-outline" @click="emitChangeImg" @mouseenter="openImgWindow"
+                        @mouseleave="closeImgWindow">
+                        <p><font-awesome-icon :icon="['fas', 'rotate']" class="mr-1" :class="{ 'rotate': imgChanging }" />変更
+                        </p>
+                    </button>
+                </div>
+                <transition name="sliding-fade">
+                    <div v-show="changeImgWindowActive" class="hidden lg:block">
+                        <div class="balloon absolute top-[170%] left-1/2 -translate-x-1/2 w-52">
+                            <p>サイトの背景画像をランダムに変更します</p>
+                        </div>
+                    </div>
+                </transition>
             </div>
 
 
@@ -131,12 +142,24 @@ const emitChangeImg = () => {
 const iconTag = ref('bars');
 
 watch(() => props.sidebarActive, (newVal) => {
-    if(newVal === true) {
+    if (newVal === true) {
         iconTag.value = 'xmark';
     } else {
         iconTag.value = 'bars';
     }
 });
+
+/* マウスオーバーでボタンの説明を出す */
+const changeImgWindowActive = ref(false);
+
+const openImgWindow = () => {
+    changeImgWindowActive.value = true;
+}
+
+const closeImgWindow = () => {
+    changeImgWindowActive.value = false;
+}
+
 </script>
 
 
@@ -176,5 +199,20 @@ watch(() => props.sidebarActive, (newVal) => {
     100% {
         opacity: 1;
     }
+}
+
+.sliding-fade-enter-from,
+.sliding-fade-leave-to {
+    opacity: 0;
+}
+
+.sliding-fade-enter-active,
+.sliding-fade-leave-active {
+    transition: opacity .3s ease-in-out;
+}
+
+.sliding-fade-enter-to,
+.sliding-fade-leave-from {
+    opacity: 1;
 }
 </style>
