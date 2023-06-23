@@ -17,15 +17,17 @@ class ContactController extends Controller
     {
         // 送信データ
         $post = $request->validate([
-            'name' => 'required|max:20',
+            'name' => 'required|max:40',
             'email' => 'required|email:filter,dns',
-            'content' => 'required|max:400',
+            'title' => 'required|max:40',
+            'content' => 'required|max:1000',
         ]);
 
         // データをDBに保存
         $contact = new Contact();
         $contact->name = $post['name'];
         $contact->email = $post['email'];
+        $contact->title = $post['title'];
         $contact->content = $post['content'];
         $contact->save();
 
@@ -36,14 +38,10 @@ class ContactController extends Controller
         $json = [
             'name' => $post['name'],
             'email' => $post['email'],
+            'title' => $post['title'],
             'content' => $post['content'],
         ];
 
         return response()->json($json);
-    }
-
-    public function notice(Request $request, $noticeId)
-    {
-
     }
 }

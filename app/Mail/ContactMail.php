@@ -44,6 +44,7 @@ class ContactMail extends Mailable
             markdown: 'emails.contact',
             with: [
                 'name' => Contact::latest()->first()->name,
+                'title' => Contact::latest()->first()->title,
                 'content' => Contact::latest()->first()->content,
             ],
         );

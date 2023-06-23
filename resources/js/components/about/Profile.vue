@@ -1,0 +1,47 @@
+<template>
+    <div class="flex justify-center py-24 bg-navy-blue bg-opacity-30">
+        <div class="bg-yellow-400 border-[8px] border-navy-blue rounded-2xl p-4 md:p-6">
+            <div class="flex flex-col md:flex-row justify-center items-center gap-16">
+
+                <!--名前など-->
+                <div class="flex flex-col gap-8">
+                    <div class="flex flex-col gap-4">
+                        <p class="text-white text-center text-6xl font-bold">井上 翔太</p>
+                        <p class="text-navy-blue text-center text-3xl font-semibold">Inoue Shota</p>
+                    </div>
+                    <table class="text-navy-blue text-sm md:text-base">
+                        <tr>
+                            <th>生年月日</th>
+                            <td>2003/01/08</td>
+                        </tr>
+                        <tr>
+                            <th>特技</th>
+                            <td>暗算（段位保持）</td>
+                        </tr>
+                        <tr>
+                            <th>趣味</th>
+                            <td>都会の夜景を見に行くこと</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <!--自己紹介文-->
+                <div class="flex justify-center">
+                    <p class="text-white w-[16rem] md:w-[32rem]">北里大学 理学部 化学科3年の井上 翔太と申します．</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
+
+<style scoped>
+tr {
+    padding: 0.7rem 0;
+    text-align: left;
+}
+
+td {
+    padding: 0 1.2rem;
+    text-align: left;
+}
+</style>

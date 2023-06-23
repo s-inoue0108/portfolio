@@ -6,10 +6,11 @@
 
 # お問い合わせを受け付けました
 
-{{ $name }}様：
+{{ $name }}様：<br>
 以下の内容でお問い合わせを受け付けました．
 
 <x-mail::panel>
+件名：{{ $title }}<br><br>
 {{ $content }}
 </x-mail::panel>
 

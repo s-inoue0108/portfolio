@@ -21,17 +21,7 @@
             <!--プロフィール-->
             <div id="Profile" class="relative z-30">
                 <SubTitle subTitle="プロフィール" iconTag='user' />
-
-                <div class="flex justify-center py-16">
-                    <div class="flex items-center justify-center gap-4">
-                        <img src="/storage/icons/S.I.svg" class="w-1/4 h-auto" />
-                        <div class="flex flex-col gap-2">
-                            <h2 class="text-center text-4xl text-navy-blue font-bold tracking-wider">井上 翔太</h2>
-                            <label class="text-center text-xl tracking-wider text-light-navy-blue font-semibold">Inoue
-                                Shota</label>
-                        </div>
-                    </div>
-                </div>
+                <Profile />
             </div>
 
             <!--学歴-->
@@ -53,6 +43,7 @@
 <script setup>
 import PageTitle from '../components/PageTitle.vue';
 import SubTitle from '../components/SubTitle.vue';
+import Profile from '../components/about/Profile.vue';
 import AcademicBackground from '../components/about/AcademicBackground.vue';
 import CodingSkill from '../components/about/CodingSkill.vue';
 

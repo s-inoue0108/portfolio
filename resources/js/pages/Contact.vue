@@ -22,41 +22,50 @@
 
                 <!--form (axiosを用いない場合)-->
                 <!--<form method="POST" action="/contact/send"-->
-                <div class="flex flex-col gap-4">
+                <div class="flex flex-col gap-8 md:gap-12">
 
                     <!--CSRF Token (axiosを用いない場合)-->
                     <!--<input type="hidden" name="_token" :value="csrf">-->
 
                     <!--NAME-->
                     <div class="form-controll w-screen px-6 lg:px-24">
-                        <div class="label label-text text-white font-semibold">
-                            お名前
+                        <div class="text-white text-lg md:text-xl pb-2 font-semibold">
+                            <font-awesome-icon :icon="['fas', 'circle-check']" class="mr-1" />お名前
                         </div>
                         <input type="text" v-model="name" placeholder="入力してください（必須）"
-                            class="input input-bordered bg-navy-blue w-full" />
+                            class="input input-bordered bg-navy-blue text-lg lg:text-xl w-full h-16" />
                     </div>
 
                     <!--EMAIL-->
                     <div class="form-controll w-screen px-6 lg:px-24">
-                        <div class="label label-text text-white font-semibold">
-                            メールアドレス
+                        <div class="text-white text-lg md:text-xl pb-2 font-semibold">
+                            <font-awesome-icon :icon="['fas', 'circle-check']" class="mr-1" />メールアドレス
                         </div>
                         <input type="text" v-model="email" placeholder="入力してください（必須）"
-                            class="input input-bordered bg-navy-blue w-full" />
+                            class="input input-bordered bg-navy-blue text-lg lg:text-xl w-full h-16" />
+                    </div>
+
+                    <!--TITLE-->
+                    <div class="form-controll w-screen px-6 lg:px-24">
+                        <div class="text-white text-lg md:text-xl pb-2 font-semibold">
+                            <font-awesome-icon :icon="['fas', 'circle-check']" class="mr-1" />件名
+                        </div>
+                        <input type="text" v-model="title" placeholder="入力してください（必須）"
+                            class="input input-bordered bg-navy-blue text-lg lg:text-xl w-full h-16" />
                     </div>
 
                     <!--CONTENT-->
                     <div class="form-controll w-screen px-6 lg:px-24">
-                        <div class="label label-text text-white font-semibold">
-                            お問い合わせ内容
+                        <div class="text-white text-lg md:text-xl pb-2 font-semibold">
+                            <font-awesome-icon :icon="['fas', 'circle-check']" class="mr-1" />お問い合わせ内容
                         </div>
                         <textarea rows="10" v-model="content" placeholder="入力してください（必須）"
                             class="textarea textarea-bordered bg-navy-blue w-full">
                             </textarea>
                     </div>
 
-                    <div class="flex justify-center lg:px-24 pt-12 lg:pt-24">
-                        <label class="btn btn-primary w-full max-w-xs text-white font-semibold" for="confirm">送信</label>
+                    <div class="flex justify-center px-6 lg:px-24 pt-12 lg:pt-24">
+                        <label class="btn btn-primary w-full max-w-sm lg:max-w-md lg:h-16 text-white lg:text-xl font-semibold" for="confirm">送信</label>
                     </div>
                     
                 </div>
@@ -122,6 +131,7 @@ const csrf = computed(() => {
 // axios POST
 const name = ref('');
 const email = ref('');
+const title = ref('');
 const content = ref('');
 
 const axios = inject('axios');
@@ -132,6 +142,7 @@ const createNewContact = () => {
     axios.post('/contact/send', {
         name: name.value,
         email: email.value,
+        title: title.value,
         content: content.value,
     })
         .then(res => {
