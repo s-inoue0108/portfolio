@@ -33,7 +33,7 @@
                                 <font-awesome-icon :icon="['fas', 'circle-check']" class="mr-1" />お名前
                             </div>
                             <input type="text" v-model="name" placeholder="入力してください（必須）"
-                                class="input input-bordered bg-navy-blue text-lg lg:text-xl w-full h-16" />
+                                class="input input-bordered bg-navy-blue text-white text-lg lg:text-xl w-full h-16" />
                         </div>
 
                         <!--EMAIL-->
@@ -42,7 +42,7 @@
                                 <font-awesome-icon :icon="['fas', 'circle-check']" class="mr-1" />メールアドレス
                             </div>
                             <input type="text" v-model="email" placeholder="入力してください（必須）"
-                                class="input input-bordered bg-navy-blue text-lg lg:text-xl w-full h-16" />
+                                class="input input-bordered bg-navy-blue text-white text-lg lg:text-xl w-full h-16" />
                         </div>
 
                         <!--TITLE-->
@@ -51,7 +51,7 @@
                                 <font-awesome-icon :icon="['fas', 'circle-check']" class="mr-1" />件名
                             </div>
                             <input type="text" v-model="title" placeholder="入力してください（必須）"
-                                class="input input-bordered bg-navy-blue text-lg lg:text-xl w-full h-16" />
+                                class="input input-bordered bg-navy-blue text-white text-lg lg:text-xl w-full h-16" />
                         </div>
 
                         <!--CONTENT-->
@@ -60,7 +60,7 @@
                                 <font-awesome-icon :icon="['fas', 'circle-check']" class="mr-1" />お問い合わせ内容
                             </div>
                             <textarea rows="10" v-model="content" placeholder="入力してください（必須）"
-                                class="textarea textarea-bordered bg-navy-blue w-full">
+                                class="textarea textarea-bordered bg-navy-blue text-white lg:text-lg w-full">
                             </textarea>
                         </div>
 

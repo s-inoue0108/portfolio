@@ -92,6 +92,7 @@ const links = [
 /* ブログサイト */
 
 const brogSiteUrl = 'https://si-library.net';
+const brogSiteGitUrl = 'https://github.com/s-inoue0108/library';
 
 const brogSiteLangs = [
     { id: 1, path: '/storage/images/HTML5.svg.png', modify: 'h-20 md:h-32 lg:h-44' },
@@ -112,11 +113,13 @@ const brogSiteData = {
     langs: brogSiteLangs,
     images: brogSiteImages,
     appealPoint: brogSiteAppealPoint,
+    gitUrl: brogSiteGitUrl,
 };
 
 /* クイズアプリ */
 
 const quizAppUrl = 'https://imaze-app.com';
+const quizAppGitUrl = 'https://github.com/s-inoue0108/imaze';
 
 const quizAppLangs = [
     { id: 1, path: '/storage/images/HTML5.svg.png' },
@@ -139,11 +142,13 @@ const quizAppData = {
     langs: quizAppLangs,
     images: quizAppImages,
     appealPoint: quizAppAppealPoint,
+    gitUrl: quizAppGitUrl,
 };
 
 /* ポートフォリオ */
 
 const portfolioUrl = 'https://si-portfolio.site';
+const portfolioGitUrl = 'https://github.com/s-inoue0108/portfolio';
 
 const portfolioLangs = [
     { id: 1, path: '/storage/images/HTML5.svg.png' },
@@ -166,6 +171,7 @@ const portfolioData = {
     langs: portfolioLangs,
     images: portfolioImages,
     appealPoint: portfolioAppealPoint,
+    gitUrl: portfolioGitUrl,
 };
 
 </script>
