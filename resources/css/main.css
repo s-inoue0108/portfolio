@@ -1,3 +1,8 @@
+/* Noto Sans JP */
+body {
+	font-family: "Noto sans JP";
+}
+
 /* スクロールバー非表示 */
 #app {
     overflow-x: hidden;

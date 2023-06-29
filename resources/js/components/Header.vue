@@ -9,7 +9,7 @@
                         :class="{ 'fade-out-in': imgChanging }"></p>
                     <button class="btn btn-xs md:btn-sm btn-outline" @click="emitChangeImg" @mouseenter="openImgWindow"
                         @mouseleave="closeImgWindow">
-                        <p><font-awesome-icon :icon="['fas', 'rotate']" class="mr-1" :class="{ 'rotate': imgChanging }" />変更
+                        <p><font-awesome-icon :icon="['fas', 'image']" class="mr-1" :class="{ 'rotate': imgChanging }" />変更
                         </p>
                     </button>
                 </div>
@@ -171,15 +171,11 @@ const closeImgWindow = () => {
 
 @keyframes rotation {
     0% {
-        transform: rotate(0);
-    }
-
-    50% {
-        transform: rotate(180deg);
+        transform: rotateY(0);
     }
 
     100% {
-        transform: rotate(360deg);
+        transform: rotateY(360deg);
     }
 }
 

@@ -26,8 +26,8 @@
                         <label class="text-navy-blue text-xl">国立</label>
                         <p class="text-navy-blue text-3xl text-center">東京大学教育学部附属中等教育学校 前期課程</p>
 
-                        <label class="text-navy-blue flex flex-row-reverse">
-                            <div class="flex items-center gap-1 p-1 font-semibold border border-navy-blue rounded">
+                        <label class="text-white flex flex-row-reverse">
+                            <div class="flex items-center gap-1 p-2 font-semibold bg-navy-blue rounded">
                                 <button @click="toggleCollapse1" v-text="collapseBtnMes1"></button>
                                 <font-awesome-icon :icon="['fes', chevron1]" />
                             </div>
@@ -62,8 +62,8 @@
                         <label class="text-navy-blue text-xl">国立</label>
                         <p class="text-navy-blue text-3xl text-center">東京大学教育学部附属中等教育学校 後期課程</p>
 
-                        <label class="text-navy-blue flex flex-row-reverse">
-                            <div class="flex items-center gap-1 p-1 font-semibold border border-navy-blue rounded">
+                        <label class="text-white flex flex-row-reverse">
+                            <div class="flex items-center gap-1 p-2 font-semibold bg-navy-blue rounded">
                                 <button @click="toggleCollapse2" v-text="collapseBtnMes2"></button>
                                 <font-awesome-icon :icon="['fes', chevron2]" />
                             </div>
@@ -98,8 +98,8 @@
                         <label class="text-navy-blue text-xl">私立</label>
                         <p class="text-navy-blue text-3xl text-center">北里大学 理学部 化学科</p>
 
-                        <label class="text-navy-blue flex flex-row-reverse">
-                            <div class="flex items-center gap-1 p-1 font-semibold border border-navy-blue rounded">
+                        <label class="text-white flex flex-row-reverse">
+                            <div class="flex items-center gap-1 p-2 font-semibold bg-navy-blue rounded">
                                 <button @click="toggleCollapse3" v-text="collapseBtnMes3"></button>
                                 <font-awesome-icon :icon="['fes', chevron3]" />
                             </div>
@@ -127,8 +127,8 @@
                     <label class="text-navy-blue text-right">2015-2018</label>
                 </div>
                 <p class="text-navy-blue text-xl">東京大学教育学部附属中等教育学校 前期課程</p>
-                <label class="text-navy-blue text-sm flex flex-row-reverse">
-                    <div class="flex items-center gap-1 p-1 font-semibold border border-navy-blue rounded">
+                <label class="text-white text-sm flex flex-row-reverse">
+                    <div class="flex items-center gap-1 p-2 font-semibold bg-navy-blue rounded">
                         <button @click="toggleCollapse1" v-text="collapseBtnMes1"></button>
                         <font-awesome-icon :icon="['fes', chevron1]" />
                     </div>
@@ -148,8 +148,8 @@
                     <label class="text-navy-blue text-right">2018-2021</label>
                 </div>
                 <p class="text-navy-blue text-xl">東京大学教育学部附属中等教育学校 後期課程</p>
-                <label class="text-navy-blue text-sm flex flex-row-reverse">
-                    <div class="flex items-center gap-1 p-1 font-semibold border border-navy-blue rounded">
+                <label class="text-white text-sm flex flex-row-reverse">
+                    <div class="flex items-center gap-1 p-2 font-semibold bg-navy-blue rounded">
                         <button @click="toggleCollapse2" v-text="collapseBtnMes2"></button>
                         <font-awesome-icon :icon="['fes', chevron2]" />
                     </div>
@@ -169,8 +169,8 @@
                     <label class="text-navy-blue text-right">2021-現在</label>
                 </div>
                 <p class="text-navy-blue text-xl">北里大学 理学部 化学科</p>
-                <label class="text-navy-blue text-sm flex flex-row-reverse">
-                    <div class="flex items-center gap-1 p-1 font-semibold border border-navy-blue rounded">
+                <label class="text-white text-sm flex flex-row-reverse">
+                    <div class="flex items-center gap-1 p-2 font-semibold bg-navy-blue rounded">
                         <button @click="toggleCollapse3" v-text="collapseBtnMes3"></button>
                         <font-awesome-icon :icon="['fes', chevron3]" />
                     </div>

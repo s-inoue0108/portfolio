@@ -1,13 +1,13 @@
 <template>
     <div class="flex justify-center py-24 bg-navy-blue bg-opacity-30">
         <div class="bg-yellow-400 border-[8px] border-navy-blue rounded-2xl p-4 md:p-6">
-            <div class="flex flex-col md:flex-row justify-center items-center gap-16">
+            <div class="flex flex-col lg:flex-row justify-center items-center gap-16">
 
                 <!--名前など-->
                 <div class="flex flex-col gap-8">
                     <div class="flex flex-col gap-4">
-                        <p class="text-white text-center text-6xl font-bold">井上 翔太</p>
-                        <p class="text-navy-blue text-center text-3xl font-semibold">Inoue Shota</p>
+                        <p class="text-white text-center text-4xl lg:text-6xl font-bold">井上 翔太</p>
+                        <p class="text-navy-blue text-center text-xl lg:text-3xl font-semibold">Inoue Shota</p>
                     </div>
                     <table class="text-navy-blue text-sm md:text-base">
                         <tr>
@@ -27,7 +27,9 @@
 
                 <!--自己紹介文-->
                 <div class="flex justify-center">
-                    <p class="text-white w-[16rem] md:w-[32rem]">北里大学 理学部 化学科3年の井上 翔太と申します．</p>
+                    <p class="text-navy-blue w-[16rem] md:w-[32rem]">
+                        北里大学 理学部 化学科3年の井上 翔太と申します．大学で化学を学ぶ傍ら，Webプログラミングに興味をもち独学で勉強を進めてきました．
+                    </p>
                 </div>
             </div>
         </div>

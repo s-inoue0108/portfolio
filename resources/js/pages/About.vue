@@ -5,9 +5,9 @@
             <!--ページトップリンク-->
             <transition name="fade">
                 <div v-if="pageTopLinkActive">
-                    <div class="fixed bottom-10 md:bottom-20 right-0 bg-gray-400 bg-opacity-50 rounded-l-lg md:rounded-l-xl p-2 md:pl-4 md:pr-8 md:py-4 z-40">
+                    <div class="fixed bottom-10 md:bottom-20 right-0 bg-gray-400 bg-opacity-50 rounded-l-lg md:rounded-l-xl p-2 z-40">
                         <router-link :to="currentPath">
-                            <button class="btn btn-sm md:btn-md lg:btn-lg btn-circle btn-primary text-white">
+                            <button class="btn lg:btn-lg btn-circle btn-primary text-white">
                                 <font-awesome-icon :icon="['fas', 'chevron-up']" />
                             </button>
                         </router-link>

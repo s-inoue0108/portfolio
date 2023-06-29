@@ -68,9 +68,7 @@ const props = defineProps({
 const innerPageLinkActive = ref(false);
 
 const innerPageLinkFade = () => {
-    if (props.currentPath !== '/contact') {
-        innerPageLinkActive.value = true;
-    }
+    innerPageLinkActive.value = true;
 }
 
 innerPageLinkFade();

@@ -6,9 +6,10 @@
             <!--ページトップリンク-->
             <transition name="fade">
                 <div v-if="pageTopLinkActive">
-                    <div class="fixed bottom-10 md:bottom-20 right-0 bg-gray-400 bg-opacity-50 rounded-l-lg md:rounded-l-xl p-2 md:pl-4 md:pr-8 md:py-4 z-40">
+                    <div
+                        class="fixed bottom-10 md:bottom-20 right-0 bg-gray-400 bg-opacity-50 rounded-l-lg md:rounded-l-xl p-2 z-40">
                         <router-link :to="currentPath">
-                            <button class="btn btn-sm md:btn-md lg:btn-lg btn-circle btn-primary text-white">
+                            <button class="btn lg:btn-lg btn-circle btn-primary text-white">
                                 <font-awesome-icon :icon="['fas', 'chevron-up']" />
                             </button>
                         </router-link>
@@ -22,19 +23,19 @@
             <!--ブログサイト-->
             <div id="BlogSite" class="relative z-30">
                 <SubTitle subTitle="ブログサイト" iconTag='pen-nib' />
-                <BlogSite />
+                <SiteContents :data="brogSiteData" />
             </div>
 
             <!--クイズアプリ-->
             <div id="QuizApp" class="relative z-30">
                 <SubTitle subTitle="クイズアプリ" iconTag='q' />
-                <QuizApp />
+                <SiteContents :data="quizAppData" />
             </div>
 
             <!--ポートフォリオ-->
             <div id="Portfolio" class="relative z-30">
                 <SubTitle subTitle="ポートフォリオ" iconTag='globe' />
-                <Portfolio />
+                <SiteContents :data="portfolioData" />
             </div>
 
         </div>
@@ -44,9 +45,7 @@
 <script setup>
 import PageTitle from '../components/PageTitle.vue';
 import SubTitle from '../components/SubTitle.vue';
-import BlogSite from '../components/works/BlogSite.vue';
-import QuizApp from '../components/works/QuizApp.vue';
-import Portfolio from '../components/works/Portfolio.vue';
+import SiteContents from '../components/works/SiteContents.vue';
 
 import { ref, onMounted } from 'vue';
 import { useRoute } from 'vue-router';
@@ -89,6 +88,86 @@ const links = [
     { id: 2, hash: '#QuizApp', hashTitle: 'クイズアプリ' },
     { id: 3, hash: '#Portfolio', hashTitle: 'ポートフォリオ' },
 ];
+
+/* ブログサイト */
+
+const brogSiteUrl = 'https://si-library.net';
+
+const brogSiteLangs = [
+    { id: 1, path: '/storage/images/HTML5.svg.png', modify: 'h-20 md:h-32 lg:h-44' },
+    { id: 2, path: '/storage/images/CSS3.svg.png', modify: 'h-20 md:h-32 lg:h-44' },
+    { id: 3, path: '/storage/images/JQuery-Logo.svg.png' },
+];
+
+const brogSiteImages = [
+    { id: 1, pcImage: '/storage/images/library-1.png', mobileImage: '/storage/images/library-mb1.png' },
+    { id: 2, pcImage: '/storage/images/library-2.png', mobileImage: '/storage/images/library-mb2.png' },
+    { id: 3, pcImage: '/storage/images/library-3.png', mobileImage: '/storage/images/library-mb3.png' },
+];
+
+const brogSiteAppealPoint = '';
+
+const brogSiteData = {
+    url: brogSiteUrl,
+    langs: brogSiteLangs,
+    images: brogSiteImages,
+    appealPoint: brogSiteAppealPoint,
+};
+
+/* クイズアプリ */
+
+const quizAppUrl = 'https://imaze-app.com';
+
+const quizAppLangs = [
+    { id: 1, path: '/storage/images/HTML5.svg.png' },
+    { id: 2, path: '/storage/images/tailwind-css-1.svg' },
+    { id: 3, path: '/storage/images/JQuery-Logo.svg.png' },
+    { id: 4, path: '/storage/images/Laravel2.svg.png' },
+    { id: 5, path: '/storage/images/PhpMyAdmin_logo.png' },
+];
+
+const quizAppImages = [
+    { id: 1, pcImage: '/storage/images/imaze-1.png', mobileImage: '/storage/images/KiyomizuTemple.jpeg' },
+    { id: 2, pcImage: '/storage/images/imaze-2.png', mobileImage: '/storage/images/KiyomizuTemple.jpeg' },
+    { id: 3, pcImage: '/storage/images/imaze-3.png', mobileImage: '/storage/images/KiyomizuTemple.jpeg' },
+];
+
+const quizAppAppealPoint = '';
+
+const quizAppData = {
+    url: quizAppUrl,
+    langs: quizAppLangs,
+    images: quizAppImages,
+    appealPoint: quizAppAppealPoint,
+};
+
+/* ポートフォリオ */
+
+const portfolioUrl = 'https://si-portfolio.site';
+
+const portfolioLangs = [
+    { id: 1, path: '/storage/images/HTML5.svg.png' },
+    { id: 2, path: '/storage/images/tailwind-css-1.svg' },
+    { id: 3, path: '/storage/images/Vue.svg.png' },
+    { id: 4, path: '/storage/images/Laravel2.svg.png' },
+    { id: 5, path: '/storage/images/PhpMyAdmin_logo.png' },
+];
+
+const portfolioImages = [
+    { id: 1, pcImage: '/storage/images/TokyoNightScape.jpeg', mobileImage: '/storage/images/KiyomizuTemple.jpeg' },
+    { id: 2, pcImage: '/storage/images/OsakaNightScape.jpeg', mobileImage: '/storage/images/KiyomizuTemple.jpeg' },
+    { id: 3, pcImage: '/storage/images/KiyomizuTemple.jpeg', mobileImage: '/storage/images/KiyomizuTemple.jpeg' },
+];
+
+const portfolioAppealPoint = '';
+
+const portfolioData = {
+    url: portfolioUrl,
+    langs: portfolioLangs,
+    images: portfolioImages,
+    appealPoint: portfolioAppealPoint,
+};
+
 </script>
 
 

@@ -16,61 +16,65 @@
 
         <div class="relative z-30">
             <!--ぺージタイトル-->
-            <PageTitle titleLeft="C" titleRight="NTACT" :currentPath="currentPath" />
+            <PageTitle titleLeft="C" titleRight="NTACT" :currentPath="currentPath" :links="links" />
 
-            <div class="flex justify-center px-6 py-24 bg-navy-blue bg-opacity-30">
+            <div id="form">
+                <div class="flex justify-center px-6 py-24 bg-navy-blue bg-opacity-30">
+                    <!--form (axiosを用いない場合)-->
+                    <!--<form method="POST" action="/contact/send"-->
+                    <div class="flex flex-col gap-8 md:gap-12">
 
-                <!--form (axiosを用いない場合)-->
-                <!--<form method="POST" action="/contact/send"-->
-                <div class="flex flex-col gap-8 md:gap-12">
+                        <!--CSRF Token (axiosを用いない場合)-->
+                        <!--<input type="hidden" name="_token" :value="csrf">-->
 
-                    <!--CSRF Token (axiosを用いない場合)-->
-                    <!--<input type="hidden" name="_token" :value="csrf">-->
-
-                    <!--NAME-->
-                    <div class="form-controll w-screen px-6 lg:px-24">
-                        <div class="text-white text-lg md:text-xl pb-2 font-semibold">
-                            <font-awesome-icon :icon="['fas', 'circle-check']" class="mr-1" />お名前
+                        <!--NAME-->
+                        <div class="form-controll w-screen px-6 lg:px-24">
+                            <div class="text-white text-lg md:text-xl pb-2 font-semibold">
+                                <font-awesome-icon :icon="['fas', 'circle-check']" class="mr-1" />お名前
+                            </div>
+                            <input type="text" v-model="name" placeholder="入力してください（必須）"
+                                class="input input-bordered bg-navy-blue text-lg lg:text-xl w-full h-16" />
                         </div>
-                        <input type="text" v-model="name" placeholder="入力してください（必須）"
-                            class="input input-bordered bg-navy-blue text-lg lg:text-xl w-full h-16" />
-                    </div>
 
-                    <!--EMAIL-->
-                    <div class="form-controll w-screen px-6 lg:px-24">
-                        <div class="text-white text-lg md:text-xl pb-2 font-semibold">
-                            <font-awesome-icon :icon="['fas', 'circle-check']" class="mr-1" />メールアドレス
+                        <!--EMAIL-->
+                        <div class="form-controll w-screen px-6 lg:px-24">
+                            <div class="text-white text-lg md:text-xl pb-2 font-semibold">
+                                <font-awesome-icon :icon="['fas', 'circle-check']" class="mr-1" />メールアドレス
+                            </div>
+                            <input type="text" v-model="email" placeholder="入力してください（必須）"
+                                class="input input-bordered bg-navy-blue text-lg lg:text-xl w-full h-16" />
                         </div>
-                        <input type="text" v-model="email" placeholder="入力してください（必須）"
-                            class="input input-bordered bg-navy-blue text-lg lg:text-xl w-full h-16" />
-                    </div>
 
-                    <!--TITLE-->
-                    <div class="form-controll w-screen px-6 lg:px-24">
-                        <div class="text-white text-lg md:text-xl pb-2 font-semibold">
-                            <font-awesome-icon :icon="['fas', 'circle-check']" class="mr-1" />件名
+                        <!--TITLE-->
+                        <div class="form-controll w-screen px-6 lg:px-24">
+                            <div class="text-white text-lg md:text-xl pb-2 font-semibold">
+                                <font-awesome-icon :icon="['fas', 'circle-check']" class="mr-1" />件名
+                            </div>
+                            <input type="text" v-model="title" placeholder="入力してください（必須）"
+                                class="input input-bordered bg-navy-blue text-lg lg:text-xl w-full h-16" />
                         </div>
-                        <input type="text" v-model="title" placeholder="入力してください（必須）"
-                            class="input input-bordered bg-navy-blue text-lg lg:text-xl w-full h-16" />
-                    </div>
 
-                    <!--CONTENT-->
-                    <div class="form-controll w-screen px-6 lg:px-24">
-                        <div class="text-white text-lg md:text-xl pb-2 font-semibold">
-                            <font-awesome-icon :icon="['fas', 'circle-check']" class="mr-1" />お問い合わせ内容
-                        </div>
-                        <textarea rows="10" v-model="content" placeholder="入力してください（必須）"
-                            class="textarea textarea-bordered bg-navy-blue w-full">
+                        <!--CONTENT-->
+                        <div class="form-controll w-screen px-6 lg:px-24">
+                            <div class="text-white text-lg md:text-xl pb-2 font-semibold">
+                                <font-awesome-icon :icon="['fas', 'circle-check']" class="mr-1" />お問い合わせ内容
+                            </div>
+                            <textarea rows="10" v-model="content" placeholder="入力してください（必須）"
+                                class="textarea textarea-bordered bg-navy-blue w-full">
                             </textarea>
-                    </div>
+                        </div>
 
-                    <div class="flex justify-center px-6 lg:px-24 pt-12 lg:pt-24">
-                        <label class="btn btn-primary w-full max-w-sm lg:max-w-md lg:h-16 text-white lg:text-xl font-semibold" for="confirm">送信</label>
+                        <!--SUBMIT BTN-->
+                        <div class="flex justify-center px-6 lg:px-24 pt-12 lg:pt-24">
+                            <label
+                                class="btn btn-primary w-full max-w-sm lg:max-w-md lg:h-16 text-white lg:text-xl font-semibold"
+                                for="confirm">送信</label>
+                        </div>
+
                     </div>
-                    
+                    <!--endform (axiosを用いない場合)-->
+                    <!--</form>-->
                 </div>
-                <!--endform (axiosを用いない場合)-->
-                <!--</form>-->
             </div>
         </div>
 
@@ -88,8 +92,10 @@
                     </div>
                 </div>
                 <div class="modal-action">
-                    <label for="confirm" class="btn btn-neutral text-navy-blue" v-text="submitBtnContent" @click="modalInitialize"></label>
-                    <button class="btn btn-neutral text-navy-blue" v-if="submitBtnActive" @click="createNewContact">送信</button>
+                    <label for="confirm" class="btn btn-neutral text-navy-blue" v-text="submitBtnContent"
+                        @click="modalInitialize"></label>
+                    <button class="btn btn-neutral text-navy-blue" v-if="submitBtnActive"
+                        @click="createNewContact">送信</button>
                 </div>
             </div>
         </div>
@@ -117,7 +123,12 @@ const emitPath = () => {
 
 emitPath();
 
-/* ローディング制御 */
+/* ページ内リンク用の配列をprop */
+const links = [
+    { id: 1, hash: '#form', hashTitle: 'フォーム' },
+];
+
+/* ローディング制御用リアクティブデータ */
 const isHidden = ref(true);
 const loadingActive = ref(false);
 

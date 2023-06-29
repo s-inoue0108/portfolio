@@ -82,11 +82,11 @@
                             <div class="border border-navy-blue rounded"></div>
                             <table class="mx-auto">
                                 <tr>
-                                    <th>MySQL (XAMPP)</th>
+                                    <th>MySQL (phpMyAdmin)</th>
                                     <td>6ヶ月</td>
                                 </tr>
                                 <tr>
-                                    <th>Apache (XAMPP)</th>
+                                    <th>Apache HTTP Server</th>
                                     <td>6ヶ月</td>
                                 </tr>
                             </table>
@@ -221,11 +221,11 @@
                         <div class="border border-navy-blue rounded"></div>
                         <table class="mx-auto">
                             <tr>
-                                <th>MySQL (XAMPP)</th>
+                                <th>MySQL (phpMyAdmin)</th>
                                 <td>6ヶ月</td>
                             </tr>
                             <tr>
-                                <th>Apache (XAMPP)</th>
+                                <th>Apache HTTP Server</th>
                                 <td>6ヶ月</td>
                             </tr>
                         </table>
