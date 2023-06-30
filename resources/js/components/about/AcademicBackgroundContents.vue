@@ -15,23 +15,21 @@
                 </div>
             </div>
 
-            <div class="flex flex-col gap-3 w-3/4 bg-yellow-400 border-[8px] border-navy-blue rounded-2xl px-8 py-6">
+            <div class="flex flex-col gap-3 w-3/4 bg-yellow-400 border-[8px] border-navy-blue rounded-2xl p-8">
                 <label class="text-navy-blue text-xl" v-text="data.schoolOrg"></label>
-                <p class="text-navy-blue text-3xl text-center" v-text="data.schoolName"></p>
-                <Collapse :detailText="data.detailText" />
+                <p class="text-navy-blue text-3xl text-center" v-html="data.schoolName"></p>
             </div>
         </div>
     </div>
 
     <!--モバイル-->
     <div class="lg:hidden">
-        <div class="flex flex-col gap-3 bg-yellow-400 border-4 border-navy-blue rounded-2xl px-2 pt-4">
+        <div class="flex flex-col gap-6 bg-yellow-400 border-4 border-navy-blue rounded-2xl px-2 py-6">
             <div class="flex justify-between items-center">
                 <label class="text-navy-blue">{{ data.schoolClass }}（{{ data.schoolOrg }}）</label>
                 <label class="text-navy-blue text-right">{{ data.enterYear }}-{{ data.graduateYear }}</label>
             </div>
-            <p class="text-navy-blue text-xl" v-text="data.schoolName"></p>
-            <Collapse :detailText="data.detailText" />
+            <p class="text-navy-blue text-xl" v-html="data.schoolName"></p>
         </div>
     </div>
 </template>
@@ -39,8 +37,6 @@
 
 
 <script setup>
-import Collapse from '../Collapse.vue';
-
 /* props */
 const props = defineProps({
     data: {

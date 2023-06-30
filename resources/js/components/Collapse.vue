@@ -1,13 +1,13 @@
 <template>
     <label class="text-navy-blue text-sm flex flex-row-reverse">
         <div class="flex items-center gap-1 py-2 font-semibold">
-            <button @click="toggleCollapse" v-text="collapseBtnMes"></button>
+            <button @click="toggleCollapse" v-html="collapseBtnMes"></button>
             <font-awesome-icon :icon="['fes', chevron]" />
         </div>
     </label>
     <div class="flex justify-center"
         :class="[collapseActive === true ? ['collapse-open'] : ['collapse-close', 'overflow-y-hidden', 'max-h-0']]">
-        <p class="text-navy-blue p-2" v-text="detailText"></p>
+        <p class="text-navy-blue p-2" v-html="detailText"></p>
     </div>
 </template>
 
@@ -25,12 +25,12 @@ const props = defineProps({
 
 /* collapse */
 const collapseActive = ref(false);
-const collapseBtnMes = ref('詳細を見る');
-const chevron = ref('chevron-down');
+const collapseBtnMes = ref('閉じる');
+const chevron = ref('chevron-up');
 
 /* collapseをopen/close */
 const toggleCollapse = () => {
-    if (collapseBtnMes.value === '詳細を見る') {
+    if (collapseActive.value === true) {
         collapseBtnMes.value = '閉じる';
         chevron.value = 'chevron-up';
     } else {

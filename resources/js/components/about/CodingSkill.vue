@@ -12,14 +12,20 @@
                             <div class="flex flex-col gap-4 text-navy-blue">
                                 <p class="text-center text-3xl font-semibold" v-text="skill.title"></p>
                                 <div class="border border-navy-blue rounded"></div>
-                                <table class="mx-auto">
-                                    <tr v-for="row in skill.table" :key="row.id">
-                                        <th v-text="row.head" class="py-1"></th>
-                                        <td class="px-8 py-1">
-                                            <LevelBar :stars="row.level" />
-                                        </td>
-                                    </tr>
-                                </table>
+                                <div class="flex justify-center">
+                                    <table>
+                                        <tr>
+                                            <td class="py-1">名称</td>
+                                            <td class="pl-8 py-1">スキルレベル</td>
+                                        </tr>
+                                        <tr v-for="row in skill.table" :key="row.id">
+                                            <th v-text="row.head" class="py-1"></th>
+                                            <td class="pl-8 py-1">
+                                                <LevelBar :stars="row.level" />
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
                                 <div class="border border-navy-blue rounded"></div>
                                 <p v-text="skill.text"></p>
                             </div>
@@ -42,14 +48,20 @@
                                 <p class="text-center text-3xl font-semibold" v-text="skill.title"></p>
                             </div>
                             <div class="border border-navy-blue rounded"></div>
-                            <table class="mx-auto">
+                            <div class="flex justify-center">
+                                <table>
+                                    <tr>
+                                        <td class="py-1">名称</td>
+                                        <td class="pl-6 py-1">スキルレベル</td>
+                                    </tr>
                                     <tr v-for="row in skill.table" :key="row.id">
                                         <th v-text="row.head" class="py-1"></th>
-                                        <td class="px-6 py-1">
+                                        <td class="pl-6 py-1">
                                             <LevelBar :stars="row.level" />
                                         </td>
                                     </tr>
                                 </table>
+                            </div>
                             <div class="border border-navy-blue rounded"></div>
                             <Collapse :detailText="skill.text" />
                         </div>

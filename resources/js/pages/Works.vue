@@ -131,7 +131,7 @@ const quizAppImages = [
     { id: 3, pcImage: '/storage/images/imaze-3.png', mobileImage: '/storage/images/imaze-mb3.png' },
 ];
 
-const quizAppAppealPoint = 'Laravelを用いて作成しました．基本的なCRUD処理をはじめ，Breezeパッケージによるユーザー認証や，Eメールで投稿を通知する機能を搭載しました．また，ChatGPT APIによる投稿の自動生成機能も組み込んでいます．';
+const quizAppAppealPoint = 'Laravelを用いて制作しました．基本的なCRUD処理をはじめ，Breezeパッケージによるユーザー認証や，Eメールで投稿を通知する機能を搭載しました．また，ChatGPT APIによる投稿の自動生成機能も組み込んでいます．';
 
 const quizAppData = {
     url: quizAppUrl,
@@ -155,12 +155,12 @@ const portfolioLangs = [
 ];
 
 const portfolioImages = [
-    { id: 1, pcImage: '/storage/images/TokyoNightScape.jpeg', mobileImage: '/storage/images/KiyomizuTemple.jpeg' },
-    { id: 2, pcImage: '/storage/images/OsakaNightScape.jpeg', mobileImage: '/storage/images/KiyomizuTemple.jpeg' },
-    { id: 3, pcImage: '/storage/images/KiyomizuTemple.jpeg', mobileImage: '/storage/images/KiyomizuTemple.jpeg' },
+    { id: 1, pcImage: '/storage/images/portfolio-1.png', mobileImage: '/storage/images/portfolio-mb1.png' },
+    { id: 2, pcImage: '/storage/images/portfolio-2.png', mobileImage: '/storage/images/portfolio-mb2.png' },
+    { id: 3, pcImage: '/storage/images/portfolio-3.png', mobileImage: '/storage/images/portfolio-mb3.png' },
 ];
 
-const portfolioAppealPoint = '';
+const portfolioAppealPoint = '当サイトは，Vue.jsを用いたシングルぺージアプリケーションとして制作しました．メニューバーなど多くのUIをVueによってコーディングし，コンポーネント化することでコードが雑然としないように意識しました．';
 
 const portfolioData = {
     url: portfolioUrl,

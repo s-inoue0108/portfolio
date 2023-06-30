@@ -26,72 +26,23 @@
             <!--ヘッダーメニュー（PC）-->
             <div class="hidden md:block">
                 <div class="flex justify-center gap-4 text-white text-lg font-semibold">
-                    <!--HOME-->
-                    <router-link to="/"
-                        :class="[currentPath === '/' ? ['text-yellow-400', 'border-b-2', 'border-yellow-400'] : ['text-white', 'link-hover']]">
-                        <div class="flex items-center gap-2">
-                            <font-awesome-icon :icon="['fas', 'house']" />
-                            <p>HOME</p>
-                        </div>
-                    </router-link>
+                    <HeaderLink :link="home" :currentPath="currentPath" />
                     <p>|</p>
-
-                    <!--ABOUT-->
-                    <router-link to="/about"
-                        :class="[currentPath === '/about' ? ['text-yellow-400', 'border-b-2', 'border-yellow-400'] : ['text-white', 'link-hover']]">
-                        <div class="flex items-center gap-2">
-                            <font-awesome-icon :icon="['fas', 'user']" />
-                            <p>ABOUT</p>
-                        </div>
-                    </router-link>
+                    <HeaderLink :link="about" :currentPath="currentPath" />
                     <p>|</p>
-
-                    <!--WORKS-->
-                    <router-link to="/works"
-                        :class="[currentPath === '/works' ? ['text-yellow-400', 'border-b-2', 'border-yellow-400'] : ['text-white', 'link-hover']]">
-                        <div class="flex items-center gap-2">
-                            <font-awesome-icon :icon="['fas', 'laptop-code']" />
-                            <p>WORKS</p>
-                        </div>
-                    </router-link>
+                    <HeaderLink :link="works" :currentPath="currentPath" />
                     <p>|</p>
-
-                    <!--CONTACT-->
-                    <router-link to="/contact"
-                        :class="[currentPath === '/contact' ? ['text-yellow-400', 'border-b-2', 'border-yellow-400'] : ['text-white', 'link-hover']]">
-                        <div class="flex items-center gap-2">
-                            <font-awesome-icon :icon="['fas', 'envelope']" />
-                            <p>CONTACT</p>
-                        </div>
-                    </router-link>
+                    <HeaderLink :link="contact" :currentPath="currentPath" />
                 </div>
             </div>
 
             <!--ヘッダーメニュー（モバイル）-->
             <div class="md:hidden">
                 <div class="flex justify-center gap-8 text-white text-lg font-semibold">
-                    <!--HOME-->
-                    <router-link to="/" :class="[currentPath === '/' ? ['text-yellow-400'] : ['text-white', 'link-hover']]">
-                        <font-awesome-icon :icon="['fas', 'house']" />
-                    </router-link>
-
-                    <!--ABOUT-->
-                    <router-link to="/about"
-                        :class="[currentPath === '/about' ? ['text-yellow-400'] : ['text-white', 'link-hover']]">
-                        <font-awesome-icon :icon="['fas', 'user']" />
-                    </router-link>
-
-                    <!--WORKS-->
-                    <router-link to="/works"
-                        :class="[currentPath === '/works' ? ['text-yellow-400'] : ['text-white', 'link-hover']]">
-                        <font-awesome-icon :icon="['fas', 'laptop-code']" />
-                    </router-link>
-
-                    <!--CONTACT-->
-                    <router-link to="/contact"
-                        :class="[currentPath === '/contact' ? ['text-yellow-400'] : ['text-white', 'link-hover']]">
-                        <font-awesome-icon :icon="['fas', 'envelope']" />
-                    </router-link>
+                    <HeaderLink :link="home" :currentPath="currentPath" />
+                    <HeaderLink :link="about" :currentPath="currentPath" />
+                    <HeaderLink :link="works" :currentPath="currentPath" />
+                    <HeaderLink :link="contact" :currentPath="currentPath" />
                 </div>
             </div>
 
@@ -107,6 +58,7 @@
 </template>
 
 <script setup>
+import HeaderLink from './HeaderLink.vue';
 import { ref, watch } from 'vue';
 
 /* props */
@@ -138,7 +90,32 @@ const emitChangeImg = () => {
     emit('changeImg');
 }
 
-/* ボタンアイコンの変更 */
+/* ヘッダーリンク */
+const home = {
+    path: '/',
+    name: 'HOME',
+    icon: 'house',
+};
+
+const about = {
+    path: '/about',
+    name: 'ABOUT',
+    icon: 'user',
+};
+
+const works = {
+    path: '/works',
+    name: 'WORKS',
+    icon: 'laptop-code',
+};
+
+const contact = {
+    path: '/contact',
+    name: 'CONTACT',
+    icon: 'envelope',
+};
+
+/* メニューボタンアイコンの変更 */
 const iconTag = ref('bars');
 
 watch(() => props.sidebarActive, (newVal) => {
@@ -159,7 +136,6 @@ const openImgWindow = () => {
 const closeImgWindow = () => {
     changeImgWindowActive.value = false;
 }
-
 </script>
 
 
