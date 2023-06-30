@@ -1,5 +1,5 @@
 <template>
-    <div class="px-6 lg:px-16 py-24 bg-navy-blue bg-opacity-30">
+    <div class="px-6 lg:px-16 py-12 lg:py-24 bg-navy-blue bg-opacity-30">
         <div class="flex justify-center">
             <div class="flex flex-col gap-6">
                 <AcademicBackgroundContents :data="secondarySchoolData" />

@@ -1,5 +1,5 @@
 <template>
-    <div class="bg-navy-blue bg-opacity-30 px-6 lg:px-12 py-24">
+    <div class="bg-navy-blue bg-opacity-30 px-6 lg:px-12 py-12 lg:py-24">
 
         <!--PC表示-->
         <div class="hidden lg:block">
@@ -32,16 +32,22 @@
                 </div>
 
                 <div class="flex flex-col items-center gap-16 w-1/2 text-navy-blue">
-                    <div class="flex flex-col gap-8">
-                        <div class="text-3xl lg:text-5xl text-center font-semibold">使用技術</div>
+                    <div class="flex flex-col gap-12">
+                        <div class="text-3xl lg:text-5xl text-center font-semibold">
+                            <font-awesome-icon :icon="['fas', 'circle-check']" />
+                            使用技術
+                        </div>
                         <div class="flex flex-wrap justify-around items-center gap-8">
                             <div v-for="lang in data.langs" :key="lang.id" class="w-[30%] flex justify-center">
                                 <img :src="lang.path" :class="lang.modify" />
                             </div>
                         </div>
                     </div>
-                    <div class="flex flex-col gap-8">
-                        <div class="text-3xl lg:text-5xl text-center font-semibold">アピールポイント</div>
+                    <div class="flex flex-col gap-12">
+                        <div class="text-3xl lg:text-5xl text-center font-semibold">
+                            <font-awesome-icon :icon="['fas', 'circle-check']" />
+                            アピールポイント
+                        </div>
                         <p class="text-lg lg:text-xl" v-text="data.appealPoint"></p>
                     </div>
                 </div>
@@ -83,7 +89,10 @@
                 <div class="border border-navy-blue rounded w-full"></div>
 
                 <div class="flex flex-col gap-4 text-navy-blue">
-                    <div class="text-2xl text-center font-semibold">使用技術</div>
+                    <div class="text-2xl text-center font-semibold">
+                        <font-awesome-icon :icon="['fas', 'circle-check']" />
+                        使用技術
+                    </div>
                     <div class="flex flex-wrap justify-around items-center gap-8">
                         <div v-for="lang in data.langs" :key="lang.id" class="w-[35%] flex justify-center">
                             <img :src="lang.path" :class="lang.modify" />
@@ -94,8 +103,11 @@
                 <div class="border border-navy-blue rounded w-full"></div>
 
                 <div class="flex flex-col gap-4 text-navy-blue">
-                    <div class="text-2xl text-center font-semibold">アピールポイント</div>
-                    <p class="text-base" v-text="data.appealPoint"></p>
+                    <div class="text-2xl text-center font-semibold">
+                        <font-awesome-icon :icon="['fas', 'circle-check']" />
+                        アピールポイント
+                    </div>
+                    <Collapse :detailText="data.appealPoint" />
                 </div>
 
             </div>
@@ -107,9 +119,11 @@
 
 
 <script setup>
-import 'vue3-carousel/dist/carousel.css'
-import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
+import Collapse from '../Collapse.vue';
+import 'vue3-carousel/dist/carousel.css';
+import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel';
 
+/* props */
 const props = defineProps({
     data: {
         type: Object,

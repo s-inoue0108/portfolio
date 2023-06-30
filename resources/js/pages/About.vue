@@ -1,42 +1,40 @@
 <template>
-    <div id="aboutHeight">
-        <!--ABOUT-->
-        <div>
-            <!--ページトップリンク-->
-            <transition name="fade">
-                <div v-if="pageTopLinkActive">
-                    <div class="fixed bottom-10 md:bottom-20 right-0 bg-gray-400 bg-opacity-50 rounded-l-lg md:rounded-l-xl p-2 z-40">
-                        <router-link :to="currentPath">
-                            <button class="btn lg:btn-lg btn-circle btn-primary text-white">
-                                <font-awesome-icon :icon="['fas', 'chevron-up']" />
-                            </button>
-                        </router-link>
-                    </div>
+    <div>
+        <!--ページトップリンク-->
+        <transition name="fade">
+            <div v-if="pageTopLinkActive">
+                <div
+                    class="fixed bottom-10 md:bottom-20 right-0 bg-gray-400 bg-opacity-50 rounded-l-lg md:rounded-l-xl p-2 z-40">
+                    <router-link :to="currentPath">
+                        <button class="btn lg:btn-lg btn-circle btn-primary text-white">
+                            <font-awesome-icon :icon="['fas', 'chevron-up']" />
+                        </button>
+                    </router-link>
                 </div>
-            </transition>
-
-            <!--ページタイトル-->
-            <PageTitle titleLeft="AB" titleRight="UT" :currentPath="currentPath" :links="links" />
-
-            <!--プロフィール-->
-            <div id="Profile" class="relative z-30">
-                <SubTitle subTitle="プロフィール" iconTag='user' />
-                <Profile />
             </div>
+        </transition>
 
-            <!--学歴-->
-            <div id="AcademicBackground" class="relative z-30">
-                <SubTitle subTitle="学歴" iconTag='school' />
-                <AcademicBackground />
-            </div>
+        <!--ページタイトル-->
+        <PageTitle titleLeft="AB" titleRight="UT" :currentPath="currentPath" :links="links" />
 
-            <!--スキル-->
-            <div id="CodingSkill" class="relative z-30">
-                <SubTitle subTitle="スキル" iconTag='code' />
-                <CodingSkill />
-            </div>
-
+        <!--プロフィール-->
+        <div id="Profile" class="relative z-30">
+            <SubTitle subTitle="プロフィール" iconTag='user' />
+            <Profile />
         </div>
+
+        <!--学歴-->
+        <div id="AcademicBackground" class="relative z-30">
+            <SubTitle subTitle="学歴" iconTag='school' />
+            <AcademicBackground />
+        </div>
+
+        <!--スキル-->
+        <div id="CodingSkill" class="relative z-30">
+            <SubTitle subTitle="スキル" iconTag='code' />
+            <CodingSkill />
+        </div>
+
     </div>
 </template>
 

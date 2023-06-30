@@ -1,5 +1,5 @@
 <template>
-    <div class="flex justify-center py-24 bg-navy-blue bg-opacity-30">
+    <div class="flex justify-center py-12 lg:py-24 bg-navy-blue bg-opacity-30">
         <div class="bg-yellow-400 border-[8px] border-navy-blue rounded-2xl p-4 md:p-6">
             <div class="flex flex-col lg:flex-row justify-center items-center gap-16">
 

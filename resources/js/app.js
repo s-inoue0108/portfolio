@@ -5,9 +5,6 @@ import App from './App.vue';
 /* Bootstrap */
 import './bootstrap';
 
-/* CSS */
-import '../css/app.css';
-
 /* Vue Router */
 import router from './router';
 
@@ -21,16 +18,13 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 
 /* import solid icons */
-import { faArrowUpRightFromSquare, faBars, faCalendarDay, faChevronDown, faChevronLeft, faChevronRight, faChevronUp, faCircleCheck, faCircleExclamation, faCode, faDatabase, faEnvelope, faGlobe, faHeadphones, faHouse, faImage, faLaptopCode, faList, faPenNib, faQ, faRotate, faSchool, faSpinner, faStar, faToolbox, faTriangleExclamation, faUser, faXmark } from '@fortawesome/free-solid-svg-icons';
-
-/* import regular icons */
-import {  } from '@fortawesome/free-regular-svg-icons';
+import { faArrowUpRightFromSquare, faBars, faChevronDown, faChevronLeft, faChevronRight, faChevronUp, faCircleCheck, faCircleExclamation, faCode, faDatabase, faEnvelope, faGlobe, faHouse, faImage, faLaptopCode, faList, faPenNib, faQ, faRotate, faSchool, faSpinner, faStar, faToolbox, faTriangleExclamation, faUser, faXmark } from '@fortawesome/free-solid-svg-icons';
 
 /* import brands icons */
 import { faGithub, faHtml5, faJs, faLaravel } from '@fortawesome/free-brands-svg-icons';
 
 /* add icons to the library */
-library.add(faChevronUp, faChevronDown, faUser, faSchool, faCode, faHtml5, faJs, faLaravel, faDatabase, faToolbox, faList, faPenNib, faQ, faGlobe, faSpinner, faCircleCheck, faTriangleExclamation, faEnvelope, faCircleExclamation, faXmark, faHouse, faLaptopCode, faRotate, faBars, faGithub, faStar, faHeadphones, faCalendarDay, faArrowUpRightFromSquare, faChevronLeft, faChevronRight, faImage)
+library.add(faChevronUp, faChevronDown, faUser, faSchool, faCode, faHtml5, faJs, faLaravel, faDatabase, faToolbox, faList, faPenNib, faQ, faGlobe, faSpinner, faCircleCheck, faTriangleExclamation, faEnvelope, faCircleExclamation, faXmark, faHouse, faLaptopCode, faRotate, faBars, faGithub, faStar, faArrowUpRightFromSquare, faChevronLeft, faChevronRight, faImage)
 
 
 /* mount */

@@ -1,44 +1,40 @@
 <template>
     <div>
-
-        <!--WORKS-->
-        <div>
-            <!--ページトップリンク-->
-            <transition name="fade">
-                <div v-if="pageTopLinkActive">
-                    <div
-                        class="fixed bottom-10 md:bottom-20 right-0 bg-gray-400 bg-opacity-50 rounded-l-lg md:rounded-l-xl p-2 z-40">
-                        <router-link :to="currentPath">
-                            <button class="btn lg:btn-lg btn-circle btn-primary text-white">
-                                <font-awesome-icon :icon="['fas', 'chevron-up']" />
-                            </button>
-                        </router-link>
-                    </div>
+        <!--ページトップリンク-->
+        <transition name="fade">
+            <div v-if="pageTopLinkActive">
+                <div
+                    class="fixed bottom-10 md:bottom-20 right-0 bg-gray-400 bg-opacity-50 rounded-l-lg md:rounded-l-xl p-2 z-40">
+                    <router-link :to="currentPath">
+                        <button class="btn lg:btn-lg btn-circle btn-primary text-white">
+                            <font-awesome-icon :icon="['fas', 'chevron-up']" />
+                        </button>
+                    </router-link>
                 </div>
-            </transition>
-
-            <!--ページタイトル-->
-            <PageTitle titleLeft="W" titleRight="RKS" :currentPath="currentPath" :links="links" />
-
-            <!--ブログサイト-->
-            <div id="BlogSite" class="relative z-30">
-                <SubTitle subTitle="ブログサイト" iconTag='pen-nib' />
-                <SiteContents :data="brogSiteData" />
             </div>
+        </transition>
 
-            <!--クイズアプリ-->
-            <div id="QuizApp" class="relative z-30">
-                <SubTitle subTitle="クイズアプリ" iconTag='q' />
-                <SiteContents :data="quizAppData" />
-            </div>
+        <!--ページタイトル-->
+        <PageTitle titleLeft="W" titleRight="RKS" :currentPath="currentPath" :links="links" />
 
-            <!--ポートフォリオ-->
-            <div id="Portfolio" class="relative z-30">
-                <SubTitle subTitle="ポートフォリオ" iconTag='globe' />
-                <SiteContents :data="portfolioData" />
-            </div>
-
+        <!--ブログサイト-->
+        <div id="BlogSite" class="relative z-30">
+            <SubTitle subTitle="ブログサイト" iconTag='pen-nib' />
+            <SiteContents :data="brogSiteData" />
         </div>
+
+        <!--クイズアプリ-->
+        <div id="QuizApp" class="relative z-30">
+            <SubTitle subTitle="クイズアプリ" iconTag='q' />
+            <SiteContents :data="quizAppData" />
+        </div>
+
+        <!--ポートフォリオ-->
+        <div id="Portfolio" class="relative z-30">
+            <SubTitle subTitle="ポートフォリオ" iconTag='globe' />
+            <SiteContents :data="portfolioData" />
+        </div>
+
     </div>
 </template>
 
@@ -106,7 +102,7 @@ const brogSiteImages = [
     { id: 3, pcImage: '/storage/images/library-3.png', mobileImage: '/storage/images/library-mb3.png' },
 ];
 
-const brogSiteAppealPoint = '';
+const brogSiteAppealPoint = 'HTML, CSS, javaScript (jQuery) のみを用いて制作しました．レスポンシブデザインに加え，JSによる動きを盛り込んだサイトになっています．また，JSを使った統計分析のプログラムを搭載しており，大学の講義等で活用しました．';
 
 const brogSiteData = {
     url: brogSiteUrl,
@@ -130,12 +126,12 @@ const quizAppLangs = [
 ];
 
 const quizAppImages = [
-    { id: 1, pcImage: '/storage/images/imaze-1.png', mobileImage: '/storage/images/KiyomizuTemple.jpeg' },
-    { id: 2, pcImage: '/storage/images/imaze-2.png', mobileImage: '/storage/images/KiyomizuTemple.jpeg' },
-    { id: 3, pcImage: '/storage/images/imaze-3.png', mobileImage: '/storage/images/KiyomizuTemple.jpeg' },
+    { id: 1, pcImage: '/storage/images/imaze-1.png', mobileImage: '/storage/images/imaze-mb1.png' },
+    { id: 2, pcImage: '/storage/images/imaze-2.png', mobileImage: '/storage/images/imaze-mb2.png' },
+    { id: 3, pcImage: '/storage/images/imaze-3.png', mobileImage: '/storage/images/imaze-mb3.png' },
 ];
 
-const quizAppAppealPoint = '';
+const quizAppAppealPoint = 'Laravelを用いて作成しました．基本的なCRUD処理をはじめ，Breezeパッケージによるユーザー認証や，Eメールで投稿を通知する機能を搭載しました．また，ChatGPT APIによる投稿の自動生成機能も組み込んでいます．';
 
 const quizAppData = {
     url: quizAppUrl,
