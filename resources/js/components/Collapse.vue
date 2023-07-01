@@ -25,8 +25,8 @@ const props = defineProps({
 
 /* collapse */
 const collapseActive = ref(false);
-const collapseBtnMes = ref('閉じる');
-const chevron = ref('chevron-up');
+const collapseBtnMes = ref('詳細を見る');
+const chevron = ref('chevron-down');
 
 /* collapseをopen/close */
 const toggleCollapse = () => {
