@@ -59,8 +59,8 @@
                             <div class="text-white text-lg md:text-xl pb-2 font-semibold">
                                 <font-awesome-icon :icon="['fas', 'circle-check']" class="mr-1" />お問い合わせ内容
                             </div>
-                            <textarea rows="10" v-model="content" placeholder="入力してください（必須）"
-                                class="textarea textarea-bordered bg-navy-blue text-white lg:text-lg w-full">
+                            <textarea rows="15" v-model="content" placeholder="入力してください（必須）"
+                                class="textarea textarea-bordered bg-navy-blue text-white text-lg lg:text-xl w-full">
                             </textarea>
                         </div>
 
