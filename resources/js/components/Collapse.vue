@@ -1,7 +1,7 @@
 <template>
     <label class="text-navy-blue text-sm flex flex-row-reverse">
         <div class="flex items-center gap-1 py-2 font-semibold">
-            <button @click="toggleCollapse" v-html="collapseBtnMes"></button>
+            <button @click="toggleCollapse" v-text="collapseBtnMes"></button>
             <font-awesome-icon :icon="['fes', chevron]" />
         </div>
     </label>
@@ -30,6 +30,7 @@ const chevron = ref('chevron-down');
 
 /* collapseをopen/close */
 const toggleCollapse = () => {
+    collapseActive.value = !collapseActive.value;
     if (collapseActive.value === true) {
         collapseBtnMes.value = '閉じる';
         chevron.value = 'chevron-up';
@@ -37,7 +38,6 @@ const toggleCollapse = () => {
         collapseBtnMes.value = '詳細を見る';
         chevron.value = 'chevron-down';
     }
-    collapseActive.value = !collapseActive.value
 }
 </script>
 
