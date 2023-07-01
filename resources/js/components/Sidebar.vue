@@ -6,14 +6,14 @@
 
                 <!--CLOSEボタン-->
                 <div class="flex lg:flex-col-reverse items-center justify-between">
-                    <h1 class="text-2xl lg:text-4xl lg:pt-12 font-semibold">CONTENTS</h1>
+                    <h1 class="text-2xl lg:text-4xl text-white lg:pt-12 font-semibold">CONTENTS</h1>
                     <div class="lg:absolute lg:top-4 lg:right-4">
                         <button class="btn btn-sm lg:btn-md btn-circle btn-neutral btn-outline" @click="emitSidebar">
                             <font-awesome-icon :icon="['fas', 'xmark']" class="text-lg lg:text-2xl" />
                         </button>
                     </div>
                 </div>
-                <div class="flex justify-center pt-8 lg:pt-10">
+                <div class="flex justify-center pt-4 lg:pt-8">
                     <div class="flex flex-col">
 
                         <div class="flex flex-col">
@@ -47,7 +47,7 @@
                             <div class="flex pl-[19px] lg:pl-[23px]">
                                 <div class="border-2" :class="[currentPath === '/about' ? ['border-yellow-400'] : []]">
                                 </div>
-                                <div class="flex flex-col gap-2 pl-4 py-8">
+                                <div class="flex flex-col gap-2 pl-4 py-6 lg:py-8">
                                     <router-link to="/about#Profile" class="text-base lg:text-lg font-light link-hover">
                                         <font-awesome-icon :icon="['fas', 'user']" class="mr-1" />プロフィール
                                     </router-link>
@@ -76,7 +76,7 @@
                             <div class="flex pl-[19px] lg:pl-[23px]">
                                 <div class="border-2" :class="[currentPath === '/works' ? ['border-yellow-400'] : []]">
                                 </div>
-                                <div class="flex flex-col gap-2 pl-4 py-8">
+                                <div class="flex flex-col gap-2 pl-4 py-6 lg:py-8">
                                     <router-link to="/works#BlogSite" class="text-base lg:text-lg font-light link-hover">
                                         <font-awesome-icon :icon="['fas', 'pen-nib']" class="mr-1" />ブログサイト
                                     </router-link>
