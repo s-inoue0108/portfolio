@@ -2,15 +2,17 @@
     <!--サイドバー-->
     <transition name="slide">
         <div v-if="sidebarActive" class="relative">
-            <div class="bg-navy-blue h-screen px-4 lg:px-8 py-8">
+            <div class="bg-navy-blue h-screen px-4 py-8">
 
                 <!--CLOSEボタン-->
-                <div class="flex flex-row-reverse justify-between">
-                    <button class="btn btn-sm lg:btn-md btn-circle btn-neutral btn-outline" @click="emitSidebar">
-                        <font-awesome-icon :icon="['fas', 'xmark']" class="text-lg lg:text-2xl" />
-                    </button>
+                <div class="flex lg:flex-col-reverse items-center justify-between">
+                    <h1 class="text-2xl lg:text-4xl lg:pt-12 font-semibold">CONTENTS</h1>
+                    <div class="lg:absolute lg:top-4 lg:right-4">
+                        <button class="btn btn-sm lg:btn-md btn-circle btn-neutral btn-outline" @click="emitSidebar">
+                            <font-awesome-icon :icon="['fas', 'xmark']" class="text-lg lg:text-2xl" />
+                        </button>
+                    </div>
                 </div>
-                <h1 class="text-3xl lg:text-4xl text-center font-bold pt-4">CONTENTS</h1>
                 <div class="flex justify-center pt-8 lg:pt-10">
                     <div class="flex flex-col">
 
@@ -20,7 +22,8 @@
                                 <div class="flex items-center gap-2">
                                     <div class="relative text-navy-blue w-10 lg:w-12 h-[2.21rem] lg:h-[2.60rem] hex"
                                         :class="[currentPath === '/' ? ['bg-yellow-400'] : ['bg-gray-300']]">
-                                        <font-awesome-icon :icon="['fas', 'house']" class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
+                                        <font-awesome-icon :icon="['fas', 'house']"
+                                            class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
                                     </div>
                                     <p>HOME</p>
                                 </div>
@@ -35,7 +38,8 @@
                                 <div class="flex items-center gap-2">
                                     <div class="relative text-navy-blue w-10 lg:w-12 h-[2.21rem] lg:h-[2.60rem] hex"
                                         :class="[currentPath === '/about' ? ['bg-yellow-400'] : ['bg-gray-300']]">
-                                        <font-awesome-icon :icon="['fas', 'user']" class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
+                                        <font-awesome-icon :icon="['fas', 'user']"
+                                            class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
                                     </div>
                                     <p>ABOUT</p>
                                 </div>
@@ -63,7 +67,8 @@
                                 <div class="flex items-center gap-2">
                                     <div class="relative text-navy-blue w-10 lg:w-12 h-[2.21rem] lg:h-[2.60rem] hex"
                                         :class="[currentPath === '/works' ? ['bg-yellow-400'] : ['bg-gray-300']]">
-                                        <font-awesome-icon :icon="['fas', 'laptop-code']" class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
+                                        <font-awesome-icon :icon="['fas', 'laptop-code']"
+                                            class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
                                     </div>
                                     <p>WORKS</p>
                                 </div>
@@ -91,7 +96,8 @@
                                 <div class="flex items-center gap-2">
                                     <div class="relative text-navy-blue w-10 lg:w-12 h-[2.21rem] lg:h-[2.60rem] hex"
                                         :class="[currentPath === '/contact' ? ['bg-yellow-400'] : ['bg-gray-300']]">
-                                        <font-awesome-icon :icon="['fas', 'envelope']" class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
+                                        <font-awesome-icon :icon="['fas', 'envelope']"
+                                            class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
                                     </div>
                                     <p>CONTACT</p>
                                 </div>
